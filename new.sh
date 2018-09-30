@@ -19,7 +19,7 @@ echo "./runL1THcalConditionValidation.sh $sqliteRef $sqliteNew $label $week $yea
 mv ToRun/$file RunFiles/Validation_${year}_${week}.txt
 git add RunFiles/Validation_${year}_${week}.txt
 git commit -a -m "clean ToRun files"
-git push -u origin master
+git push -u origin HEAD:master
 
 
 else
