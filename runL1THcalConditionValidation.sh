@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash 
 
 sleep 5
  
