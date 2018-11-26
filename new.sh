@@ -1,27 +1,29 @@
 #!/bin/bash
 
-file=`ls ToRun`
-echo $file
-if [ -f ToRun/$file ]; 
+file="NewValidation.txt"
+validate=`grep "validate" $file | awk '{print $2}'`
+if [ $validate = "yes" ]; 
 then
 
-echo ToRun/$file
-year=`grep "year" ToRun/$file | awk '{print $2}'`
-week=`grep "week" ToRun/$file | awk '{print $2}'`
-sqliteRef=`grep "run1" ToRun/$file | awk '{print $2}'`
-sqliteNew=`grep "run2" ToRun/$file | awk '{print $2}'`
-label=`grep "type" ToRun/$file | awk '{print $2}'`
+echo $file
+year=`grep "year" $file | awk '{print $2}'`
+week=`grep "week" $file | awk '{print $2}'`
+sqliteRef=`grep "run1" $file | awk '{print $2}'`
+sqliteNew=`grep "run2" $file | awk '{print $2}'`
+label=`grep "type" $file | awk '{print $2}'`
+
 
 ###L1T###
-echo "./runL1THcalConditionValidation.sh $sqliteRef $sqliteNew $label $week $year"
-./runL1THcalConditionValidation.sh $sqliteRef $sqliteNew $label $week $year
+#echo "./runL1THcalConditionValidation.sh $sqliteRef $sqliteNew $label $week $year"
+#./runL1THcalConditionValidation.sh $sqliteRef $sqliteNew $label $week $year
 
-mv ToRun/$file RunFiles/Validation_${year}_${week}.txt
+mv $file RunFiles/Validation_${year}_${week}.txt
+cp RunFiles/DefaultValidation.txt NewValidation.txt
 git add RunFiles/Validation_${year}_${week}.txt
 git commit -a -m "clean ToRun files"
 git push -u origin HEAD:master
 
 
 else
-echo "No new files"
+echo "Not validate"
 fi
