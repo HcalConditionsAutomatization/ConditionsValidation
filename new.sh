@@ -14,8 +14,9 @@ label=`grep "type" $file | awk '{print $2}'`
 
 
 ###L1T###
-#echo "./runL1THcalConditionValidation.sh $sqliteRef $sqliteNew $label $week $year"
-#./runL1THcalConditionValidation.sh $sqliteRef $sqliteNew $label $week $year
+echo "./runL1THcalConditionValidation.sh $sqliteRef $sqliteNew $label $week $year"
+./runL1THcalConditionValidation.sh $sqliteRef $sqliteNew $label $week $year
+pwd
 
 mv $file RunFiles/Validation_${year}_${week}.txt
 cp RunFiles/DefaultValidation.txt NewValidation.txt
