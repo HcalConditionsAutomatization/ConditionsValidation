@@ -1,7 +1,9 @@
 #!/bin/bash 
 
 cd ..
-cmsrel CMSSW_10_4_0_pre1
+export CMSREL=CMSSW_10_4_0_pre1
+export SCRAM_ARCH=slc6_amd64_gcc630
+scram -a $SCRAM_ARCH project $CMSREL
 cd CMSSW_10_4_0_pre1/src
 cmsenv
 git cms-addpkg CaloOnlineTools/HcalOnlineDb
