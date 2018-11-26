@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash -ex 
 
 cd ..
 export CMSREL=CMSSW_10_4_0_pre1
@@ -10,6 +10,8 @@ git cms-init
 #cmsenv
 git cms-addpkg CaloOnlineTools/HcalOnlineDb
 scram b -j 16
+scram b -j 16
+srcam b -j 16
 cd CaloOnlineTools/HcalOnlineDb/test
 cp /afs/cern.ch/user/c/cawest/public/forGilson/test.py .
 python test.py
