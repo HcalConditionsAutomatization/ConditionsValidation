@@ -20,6 +20,7 @@ echo "Create the tag"
 cd ../../../../..
 export CMSREL=CMSSW_10_2_1
 export SCRAM_ARCH=slc6_amd64_gcc700
+scram -a $SCRAM_ARCH project $CMSREL
 cd CMSSW_10_2_1/src
 eval `scram runtime -sh`
 git cms-init
