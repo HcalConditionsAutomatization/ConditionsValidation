@@ -1,10 +1,10 @@
 #------------------------------------------------
-#Change to "yes" in order to 
+#CHANGE TO "yes" IN ORDER TO START THE VALIDATION
 #------------------------------------------------
 validate yes
 
 #------------------------------------------------
-#Validation
+#VALIDATION INPUTS
 #------------------------------------------------
 weew 39
 year 2017
@@ -12,13 +12,13 @@ run1 303835
 run2 304093
 
 #------------------------------------------------
-#LUT generation
+#LUT GENERATION
 #------------------------------------------------
 release_LUT  CMSSW_10_1_4
 arch_LUT     slc6_amd64_gcc630
 
 #------------------------------------------------
-#L1 rate validation
+#L1 RATE VALIDATION
 #------------------------------------------------
 release_L1
 arch_L1

@@ -5,7 +5,9 @@ export CMSREL=CMSSW_10_4_0_pre1
 export SCRAM_ARCH=slc6_amd64_gcc700
 scram -a $SCRAM_ARCH project $CMSREL
 cd CMSSW_10_4_0_pre1/src
-cmsenv
+eval `scram runtime -sh`
+git cms-init
+#cmsenv
 git cms-addpkg CaloOnlineTools/HcalOnlineDb
 scram b -j 16
 cd CaloOnlineTools/HcalOnlineDb/test
