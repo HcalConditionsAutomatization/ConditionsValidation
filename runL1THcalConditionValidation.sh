@@ -7,7 +7,6 @@ scram -a $SCRAM_ARCH project $CMSREL
 cd CMSSW_10_4_0_pre1/src
 eval `scram runtime -sh`
 git cms-init
-#cmsenv
 git cms-addpkg CaloOnlineTools/HcalOnlineDb
 scram b -j 16
 scram b -j 16
@@ -36,5 +35,5 @@ git clone git@github.com:cms-hcal-trigger/Validation.git HcalTrigger/Validation
 scram b -j 16
 scram b -j 16
 cd HcalTrigger/Validation/scripts
-./submit_jobs.py -l ../../../../../lumimask.json -d /ZeroBias/Run2018D-v1/RAW -t HcalL1TriggerObjects_2018_v15.0_data -o T2_BR_SPRACE
+./submit_jobs.py -l ../../../../../HcalConditionsValidation/lumimask.json -d /ZeroBias/Run2018D-v1/RAW -t HcalL1TriggerObjects_2018_v15.0_data -o T2_BR_SPRACE
 
