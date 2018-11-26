@@ -11,7 +11,6 @@ git cms-init
 git cms-addpkg CaloOnlineTools/HcalOnlineDb
 scram b -j 16
 scram b -j 16
-srcam b -j 16
 cd CaloOnlineTools/HcalOnlineDb/test
 cp /afs/cern.ch/user/c/cawest/public/forGilson/test.py .
 python test.py
