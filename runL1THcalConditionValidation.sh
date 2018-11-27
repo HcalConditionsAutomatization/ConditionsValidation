@@ -20,7 +20,7 @@ cd ..
 #scram b -j 16
 #cd CaloOnlineTools/HcalOnlineDb/test
 #cp ../../../../../HcalConditionsValidation/test.py .
-#python test.py $run $LUTname $GT
+python test.py $run $LUTname $GT
 
 echo "Create the tag"
 

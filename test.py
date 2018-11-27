@@ -4,6 +4,10 @@ for validation.'''
 import os
 import sys
 
+print(sys.argv[1])
+print(type(sys.argv[1]))
+
+"""
 GT = sys.argv[3]
 RUNS = [sys.argv[1]]
 CONDITIONS = ["ChannelQuality", "Pedestals", "Gains", "RespCorrs", 
@@ -43,3 +47,4 @@ validate_cmd += " pedestals=" + RUNS[0]
 validate_cmd += " respcorrs=" + RUNS[0] 
 validate_cmd += " gains=" + RUNS[0] 
 os.system(validate_cmd)
+"""
