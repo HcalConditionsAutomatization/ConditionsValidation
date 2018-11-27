@@ -2,15 +2,14 @@
 '''Example of generating two sets of LUTs and comparisons
 for validation.'''
 import os
-import sys
 
-GT = sys.argv[3]
-RUNS = [sys.argv[1]]
+GT = sys.argv[5]
+RUNS = [sys.argv[3], sys.argv[1]]
 CONDITIONS = ["ChannelQuality", "Pedestals", "Gains", "RespCorrs", 
               "ElectronicsMap", "TPParameters", "TPChannelParameters", 
               "LUTCorrs", "QIEData", "QIETypes", "LutMetadata"]
-TAGS = {sys.argv[1] : sys.argv[2]}
-COMMENT = "test"
+TAGS = {sys.argv[3] : sys.argv[4], sys.argv[1] : sys.argv[2]}
+COMMENT = "validation"
 
 # dump conditions; used for inputs to LUT generation
 # and for comparisons of gain*resp_corr versus LUT slope
@@ -37,9 +36,9 @@ for run in RUNS:
 # run validation
 validate_cmd = "./genLUT.sh validate GT="
 validate_cmd += GT + " run=" + str(RUNS[0]) 
-validate_cmd += " tags=" + TAGS[RUNS[0]] 
-validate_cmd += " quality=" + RUNS[0] 
-validate_cmd += " pedestals=" + RUNS[0]
-validate_cmd += " respcorrs=" + RUNS[0] 
-validate_cmd += " gains=" + RUNS[0] 
+validate_cmd += " tags=" + TAGS[RUNS[0]] + "," + TAGS[RUNS[1]]
+validate_cmd += " quality=" + RUNS[0] + "," + RUNS[1]
+validate_cmd += " pedestals=" + RUNS[0] + "," + RUNS[1]
+validate_cmd += " respcorrs=" + RUNS[0] + "," + RUNS[1]
+validate_cmd += " gains=" + RUNS[0] + "," + RUNS[1]
 os.system(validate_cmd)
