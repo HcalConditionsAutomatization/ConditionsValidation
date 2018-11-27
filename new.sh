@@ -27,7 +27,7 @@ export tier2=`grep "tier2" $file | awk '{print $2}'`
 echo {'"'${NewRun}'"': [[$lumi_start, $lumi_end]]} > lumimask.json
 
 ###L1T###
-./runL1THcalConditionValidation.sh 
+#./runL1THcalConditionValidation.sh 
 
 mv $file RunFiles/Validation_${year}_${week}.txt
 cp RunFiles/DefaultValidation.txt NewValidation.txt
