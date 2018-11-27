@@ -4,11 +4,11 @@ for validation.'''
 import os
 
 GT = "101X_dataRun2_HLT_v7"
-RUNS = ["321800", "322800"]
+RUNS = ["321800"]
 CONDITIONS = ["ChannelQuality", "Pedestals", "Gains", "RespCorrs", 
               "ElectronicsMap", "TPParameters", "TPChannelParameters", 
               "LUTCorrs", "QIEData", "QIETypes", "LutMetadata"]
-TAGS = {"321800" : "Physics2018v9", "322800" : "Physics2018v10"}
+TAGS = {"321800" : "Physics2018v9"}
 COMMENT = "test"
 
 # dump conditions; used for inputs to LUT generation
@@ -36,9 +36,9 @@ for run in RUNS:
 # run validation
 validate_cmd = "./genLUT.sh validate GT="
 validate_cmd += GT + " run=" + str(RUNS[0]) 
-validate_cmd += " tags=" + TAGS[RUNS[0]] + "," + TAGS[RUNS[1]]
-validate_cmd += " quality=" + RUNS[0] + "," + RUNS[1]
-validate_cmd += " pedestals=" + RUNS[0] + "," + RUNS[1]
-validate_cmd += " respcorrs=" + RUNS[0] + "," + RUNS[1]
-validate_cmd += " gains=" + RUNS[0] + "," + RUNS[1]
+validate_cmd += " tags=" + TAGS[RUNS[0]] 
+validate_cmd += " quality=" + RUNS[0] 
+validate_cmd += " pedestals=" + RUNS[0]
+validate_cmd += " respcorrs=" + RUNS[0] 
+validate_cmd += " gains=" + RUNS[0] 
 os.system(validate_cmd)
