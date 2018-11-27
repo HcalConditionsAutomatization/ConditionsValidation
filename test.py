@@ -2,13 +2,14 @@
 '''Example of generating two sets of LUTs and comparisons
 for validation.'''
 import os
+import sys
 
-GT = "101X_dataRun2_HLT_v7"
-RUNS = ["321800"]
+GT = sys.argv[3]
+RUNS = [sys.argv[1]]
 CONDITIONS = ["ChannelQuality", "Pedestals", "Gains", "RespCorrs", 
               "ElectronicsMap", "TPParameters", "TPChannelParameters", 
               "LUTCorrs", "QIEData", "QIETypes", "LutMetadata"]
-TAGS = {"321800" : "Physics2018v9"}
+TAGS = {sys.argv[1] : sys.argv[2]}
 COMMENT = "test"
 
 # dump conditions; used for inputs to LUT generation

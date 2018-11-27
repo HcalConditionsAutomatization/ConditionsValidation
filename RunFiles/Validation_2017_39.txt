@@ -9,15 +9,19 @@ validate yes
 week 39
 year 2017
 run  303835
+LUTname Physics2018v10
+TAGname HcalL1TriggerObjects_2018_v15.0_data
 
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
-release_LUT  CMSSW_10_1_4
-arch_LUT     slc6_amd64_gcc630
+release_LUT  CMSSW_10_4_0_pre1
+arch_LUT     slc6_amd64_gcc700
 
 #------------------------------------------------
 # L1 RATE VALIDATION
 #------------------------------------------------
-release_L1
-arch_L1
+release_L1  CMSSW_10_2_1
+arch_L1     slc6_amd64_gcc700
+dataset     /ZeroBias/Run2018D-v1/RAW
+tier2       T2_BR_SPRACE

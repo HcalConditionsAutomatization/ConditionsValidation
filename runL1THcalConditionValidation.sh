@@ -1,11 +1,17 @@
 #!/bin/bash -ex 
 
 cd ..
-export CMSREL=CMSSW_10_4_0_pre1
-export SCRAM_ARCH=slc6_amd64_gcc700
-#scram -a $SCRAM_ARCH project $CMSREL
+#scram -a $arch_LUT project $release_LUT
 
 echo "run " + $run
+echo "LUTname " + $LUTname
+echo "TAGname " + $TAGname
+echo "release_LUT " + $release_LUT
+echo "arch_LUT " + $arch_LUT
+echo "release_L1 " + $arch_L1
+echo "dataset " + $dataset
+echo "tier2 " + $tier2
+
 #cd CMSSW_10_4_0_pre1/src
 #eval `scram runtime -sh`
 #git cms-init
@@ -14,14 +20,12 @@ echo "run " + $run
 #scram b -j 16
 #cd CaloOnlineTools/HcalOnlineDb/test
 #cp ../../../../../HcalConditionsValidation/test.py .
-python test.py
+#python test.py $run $LUTname $GT
 
 echo "Create the tag"
 
 #cd ../../../../..
-export CMSREL=CMSSW_10_2_1
-export SCRAM_ARCH=slc6_amd64_gcc700
-#scram -a $SCRAM_ARCH project $CMSREL
+#scram -a $arch_L1 project $release_L1
 #cd CMSSW_10_2_1/src
 #eval `scram runtime -sh`
 #git cms-init
@@ -37,5 +41,5 @@ export SCRAM_ARCH=slc6_amd64_gcc700
 #scram b -j 16
 #scram b -j 16
 #cd HcalTrigger/Validation/scripts
-./submit_jobs.py -l ../../../../../HcalConditionsValidation/lumimask.json -d /ZeroBias/Run2018D-v1/RAW -t HcalL1TriggerObjects_2018_v15.0_data -o T2_BR_SPRACE
+#./submit_jobs.py -l ../../../../../HcalConditionsValidation/lumimask.json -d $dataset -t $TAGname -o $tier2
 
