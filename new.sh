@@ -24,21 +24,8 @@ export tier2=`grep "tier2" $file | awk '{print $2}'`
 > lumimask.json
 echo {'"322113"': [[$lumi_start, $lumi_end]]} > lumimask.json
 
-echo "==============================================="
-echo "run          " $run
-echo "lumi_section " [$lumi_start,$lumi_end]
-echo "LUTname      " $LUTname
-echo "TAGname      " $TAGname
-echo "release_LUT  " $release_LUT
-echo "arch_LUT     " $arch_LUT
-echo "release_L1   " $release_L1
-echo "arch_L1      " $arch_L1
-echo "dataset      " $dataset
-echo "tier2        " $tier2
-echo "==============================================="
-
 ###L1T###
-#./runL1THcalConditionValidation.sh 
+./runL1THcalConditionValidation.sh 
 
 mv $file RunFiles/Validation_${year}_${week}.txt
 cp RunFiles/DefaultValidation.txt NewValidation.txt

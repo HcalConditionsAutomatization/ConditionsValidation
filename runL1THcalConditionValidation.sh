@@ -1,5 +1,6 @@
 #!/bin/bash 
 
+echo "==============================================="
 echo "run          " $run
 echo "lumi_section " [$lumi_start,$lumi_end]
 echo "LUTname      " $LUTname
@@ -10,6 +11,7 @@ echo "release_L1   " $release_L1
 echo "arch_L1      " $arch_L1
 echo "dataset      " $dataset
 echo "tier2        " $tier2
+echo "==============================================="
 
 cd ..
 scram -a $arch_LUT project $release_LUT
