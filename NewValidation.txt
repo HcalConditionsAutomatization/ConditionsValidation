@@ -6,13 +6,18 @@ validate no
 #------------------------------------------------
 # VALIDATION INPUTS
 #------------------------------------------------
-week 39
-year 2017
-LUTname Physics2018v10
-TAGname HcalL1TriggerObjects_2018_v15.0_data
-run  303835
+week       39
+year       2017
+LUTtag     Physics2018v10
+Run        303835
 lumi_start 49 
 lumi_end   50
+L1TOtag    HcalL1TriggerObjects_2018_v15.0_data
+
+OldLUTtag  Physics2018v10
+OldRun     303835
+
+
 
 #------------------------------------------------
 # LUT GENERATION
