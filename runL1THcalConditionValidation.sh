@@ -1,14 +1,15 @@
 #!/bin/bash 
 
-echo "run         " $run
-echo "LUTname     " $LUTname
-echo "TAGname     " $TAGname
-echo "release_LUT " $release_LUT
-echo "arch_LUT    " $arch_LUT
-echo "release_L1  " $release_L1
-echo "arch_L1     " $arch_L1
-echo "dataset     " $dataset
-echo "tier2       " $tier2
+echo "run          " $run
+echo "lumi_section " [$lumi_start,$lumi_end]
+echo "LUTname      " $LUTname
+echo "TAGname      " $TAGname
+echo "release_LUT  " $release_LUT
+echo "arch_LUT     " $arch_LUT
+echo "release_L1   " $release_L1
+echo "arch_L1      " $arch_L1
+echo "dataset      " $dataset
+echo "tier2        " $tier2
 
 cd ..
 scram -a $arch_LUT project $release_LUT
