@@ -1,4 +1,4 @@
-#!/bin/bash -ex 
+#!/bin/bash 
 
 cd ..
 #scram -a $arch_LUT project $release_LUT
