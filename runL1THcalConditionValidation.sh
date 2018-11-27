@@ -10,7 +10,7 @@ echo "arch_L1     " $arch_L1
 echo "dataset     " $dataset
 echo "tier2       " $tier2
 
-cd ..
+#cd ..
 #scram -a $arch_LUT project $release_LUT
 #cd CMSSW_10_4_0_pre1/src
 #eval `scram runtime -sh`
