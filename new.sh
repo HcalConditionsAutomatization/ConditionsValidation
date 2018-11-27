@@ -22,7 +22,7 @@ export dataset=`grep "dataset" $file | awk '{print $2}'`
 export tier2=`grep "tier2" $file | awk '{print $2}'`
 
 > lumimask.json
-echo {"322113": [[$lumi_start, $lumi_end]]} > lumimask.json
+echo {'"322113"': [[$lumi_start, $lumi_end]]} > lumimask.json
 
 
 ###L1T###

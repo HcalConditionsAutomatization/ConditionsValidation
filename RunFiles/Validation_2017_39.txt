@@ -8,11 +8,9 @@ validate yes
 #------------------------------------------------
 week 39
 year 2017
+run  303835
 LUTname Physics2018v10
 TAGname HcalL1TriggerObjects_2018_v15.0_data
-run         303835
-lumi_start  49
-lumi_end    50
 
 #------------------------------------------------
 # LUT GENERATION
