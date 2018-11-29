@@ -2,6 +2,7 @@
 '''Example of generating two sets of LUTs and comparisons
 for validation.'''
 import os
+import sys
 
 GT = sys.argv[5]
 RUNS = [sys.argv[3], sys.argv[1]]
