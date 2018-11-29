@@ -49,7 +49,7 @@ cp conditions/$NewLUTtag/Deploy/Gen_L1TriggerObjects_${NewLUTtag}.txt ../../..
 cd ../../..
 cp ../../HcalConditionsValidation/writetoSQL9x.csh .
 chmod +x writetoSQL9x.csh
-./writetoSQL9x.csh $geometry L1triggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 H${L1TOtag}.db
+./writetoSQL9x.csh $geometry L1TriggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 H${L1TOtag}.db
 #copy sqlfile to output directory
 
 
