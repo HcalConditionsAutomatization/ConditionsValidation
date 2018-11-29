@@ -45,9 +45,10 @@ python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT
 # L1TriggerObjects Tag generation
 #======================================================================================================================
 cp conditions/$NewLUTtag/Deploy/Gen_L1TriggerObjects_${NewLUTtag}.txt ../../..
-copy conditions to output directory
+#copy conditions to output directory
 cd ../../..
 cp ../../HcalConditionsValidation/writetoSQL9x.csh .
+chmod +x writetoSQL9x.csh
 ./writetoSQL9x.csh $geometry L1triggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 H${L1TOtag}.db
 #copy sqlfile to output directory
 
