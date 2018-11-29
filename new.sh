@@ -7,13 +7,16 @@ then
 
 export year=`grep "year" $file | awk '{print $2}'`
 export week=`grep "week" $file | awk '{print $2}'`
+
 export NewLUTtag=`grep "NewLUTtag" $file | awk '{print $2}'`
-export L1TOtag=`grep "L1TOtag" $file | awk '{print $2}'`
 export NewRun=`grep "NewRun" $file | awk '{print $2}'`
 export lumi_start=`grep "lumi_start" $file | awk '{print $2}'`
 export lumi_end=`grep "lumi_end" $file | awk '{print $2}'`
 export OldLUTtag=`grep "OldLUTtag" $file | awk '{print $2}'`
 export OldRun=`grep "OldRun" $file | awk '{print $2}'`
+
+export GT=`grep "GT" $file | awk '{print $2}'`
+export L1TOtag=`grep "L1TOtag" $file | awk '{print $2}'`
 
 export release_LUT=`grep "release_LUT" $file | awk '{print $2}'`
 export arch_LUT=`grep "arch_LUT" $file | awk '{print $2}'`
