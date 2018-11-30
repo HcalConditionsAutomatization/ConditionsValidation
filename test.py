@@ -36,12 +36,12 @@ for run in RUNS:
     #print(gen_cmd)
 
 # run validation
-validate_cmd = "./genLUT.sh validate GT=" + TAGS[RUNS[0]][1] 
-validate_cmd += " run=" + str(RUNS[0]) 
-validate_cmd += " tags=" + TAGS[RUNS[0]][0] + "," + TAGS[RUNS[1]][0]
-validate_cmd += " quality=" + RUNS[0] + "," + RUNS[1]
-validate_cmd += " pedestals=" + RUNS[0] + "," + RUNS[1]
-validate_cmd += " respcorrs=" + RUNS[0] + "," + RUNS[1]
-validate_cmd += " gains=" + RUNS[0] + "," + RUNS[1]
-os.system(validate_cmd)
+#validate_cmd = "./genLUT.sh validate GT=" + TAGS[RUNS[0]][1] 
+#validate_cmd += " run=" + str(RUNS[0]) 
+#validate_cmd += " tags=" + TAGS[RUNS[0]][0] + "," + TAGS[RUNS[1]][0]
+#validate_cmd += " quality=" + RUNS[0] + "," + RUNS[1]
+#validate_cmd += " pedestals=" + RUNS[0] + "," + RUNS[1]
+#validate_cmd += " respcorrs=" + RUNS[0] + "," + RUNS[1]
+#validate_cmd += " gains=" + RUNS[0] + "," + RUNS[1]
+#os.system(validate_cmd)
 #print(validate_cmd)
