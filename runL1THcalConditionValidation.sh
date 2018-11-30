@@ -32,47 +32,17 @@ echo "==============================================="
 #scram b -j 16
 #scram b -j 16
 #cd CaloOnlineTools/HcalOnlineDb/test
-#!/bin/bash 
-
-echo "==============================================="
-echo "NewRun       " $NewRun
-echo "NewLUTtag    " $NewLUTtag
-echo "OldRun       " $OldRun
-echo "OldLUTtag    " $OldLUTtag
-echo "GT           " $GT
-echo "L1TOtag      " $L1TOtag
-echo "lumi_section " [$lumi_start,$lumi_end]
-echo "release_LUT  " $release_LUT
-echo "arch_LUT     " $arch_LUT
-echo "release_L1   " $release_L1
-echo "arch_L1      " $arch_L1
-echo "dataset      " $dataset
-echo "tier2        " $tier2
-echo "==============================================="
-
-#======================================================================================================================
-# LUT generation and validation
-#======================================================================================================================
-cd ..
-scram -a $arch_LUT project $release_LUT
-cd CMSSW_10_4_0_pre1/src
-eval `scram runtime -sh`
-git cms-init
-git cms-addpkg CaloOnlineTools/HcalOnlineDb
-scram b -j 16
-scram b -j 16
-cd CaloOnlineTools/HcalOnlineDb/test
-cp ../../../../../HcalConditionsValidation/test.py .
-python test.py $NewRun $NewLUTtag $OldRun $OldLUTtag $GT
+#cp ../../../../../HcalConditionsValidation/test.py .
+#python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT   
 
 #======================================================================================================================
 # L1TriggerObjects Tag generation
 #======================================================================================================================
-cp conditions/$NewLUTtag/Deploy/Gen_L1TriggerObjects_${NewLUTtag}.txt ../../..
+#cp conditions/$NewLUTtag/Deploy/Gen_L1TriggerObjects_${NewLUTtag}.txt ../../..
 #copy conditions to output directory
-cd ../../..
-cp ../../HcalConditionsValidation/writetoSQL9x.csh .
-./writetoSQL9x.csh 2018 L1TriggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 H${L1TOtag}.db
+#cd ../../..
+#cp ../../HcalConditionsValidation/writetoSQL9x.csh .
+#./writetoSQL9x.csh $geometry L1triggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 H${L1TOtag}.db
 #copy sqlfile to output directory
 
 
@@ -97,3 +67,4 @@ cp ../../HcalConditionsValidation/writetoSQL9x.csh .
 #scram b -j 16
 #cd HcalTrigger/Validation/scripts
 #./submit_jobs.py -l ../../../../../HcalConditionsValidation/lumimask.json -d $dataset -t $L1TOtag -o $tier2
+
