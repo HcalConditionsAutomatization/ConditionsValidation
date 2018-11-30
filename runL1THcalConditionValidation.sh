@@ -6,12 +6,12 @@ echo "year         " $year
 echo "NewLUTtag    " $NewLUTtag
 echo "NewGT        " $NewGT
 echo "NewRun       " $NewRun
-echo "lumi_section " [$lumi_start,$lumi_end]
 echo "OldLUTtag    " $OldLUTtag
 echo "OldGT        " $OldGT
 echo "OldRun       " $OldRun
-echo "L1TOtag      " $L1TOtag
 echo "geometry     " $geometry
+echo "run          " $run
+echo "lumi_section " [$lumi_start,$lumi_end]
 echo "dataset      " $dataset
 echo "tier2        " $tier2
 echo "release_LUT  " $release_LUT
@@ -49,7 +49,7 @@ cp conditions/$NewLUTtag/Deploy/Gen_L1TriggerObjects_${NewLUTtag}.txt ../../..
 cd ../../..
 cp ../../HcalConditionsValidation/writetoSQL9x.csh .
 chmod +x writetoSQL9x.csh
-./writetoSQL9x.csh $geometry L1TriggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 H${L1TOtag}.db
+./writetoSQL9x.csh $geometry L1TriggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 HcalL1TriggerObjects.db
 #copy sqlfile to output directory
 
 
@@ -73,5 +73,6 @@ git clone git@github.com:cms-hcal-trigger/Validation.git HcalTrigger/Validation
 scram b -j 16
 scram b -j 16
 cd HcalTrigger/Validation/scripts
-./submit_jobs.py -l ../../../../../HcalConditionsValidation/lumimask.json -d $dataset -t $L1TOtag -o $tier2
+cp ../../../../../HcalConditionsValidation/submit_jobs.py .
+./submit_jobs.py -l ../../../../../HcalConditionsValidation/lumimask.json -d $dataset -t Tag -o $tier2
 
