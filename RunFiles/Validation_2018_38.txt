@@ -36,3 +36,4 @@ arch_LUT     slc6_amd64_gcc700
 #------------------------------------------------
 release_L1  CMSSW_10_2_1
 arch_L1     slc6_amd64_gcc700
+

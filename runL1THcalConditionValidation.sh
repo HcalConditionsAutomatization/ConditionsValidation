@@ -33,7 +33,7 @@ echo "==============================================="
 #scram b -j 16
 #cd CaloOnlineTools/HcalOnlineDb/test
 #cp ../../../../../HcalConditionsValidation/test.py .
-python test.py $NewRun $NewLUTtag $ $NewGT $OldRun $OldLUTtag $OldGT   
+python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT   
 
 #======================================================================================================================
 # L1TriggerObjects Tag generation
