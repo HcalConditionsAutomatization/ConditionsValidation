@@ -1,7 +1,7 @@
 #------------------------------------------------
 # CHANGE TO "yes" IN ORDER TO START THE VALIDATION
 #------------------------------------------------
-validate yes
+validate no
 
 #------------------------------------------------
 # VALIDATION INPUTS
