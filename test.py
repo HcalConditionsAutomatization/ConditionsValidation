@@ -4,12 +4,11 @@ for validation.'''
 import os
 import sys
 
-GT = sys.argv[5]
-RUNS = [sys.argv[3], sys.argv[1]]
+RUNS = [sys.argv[4], sys.argv[1]]
 CONDITIONS = ["ChannelQuality", "Pedestals", "Gains", "RespCorrs", 
               "ElectronicsMap", "TPParameters", "TPChannelParameters", 
               "LUTCorrs", "QIEData", "QIETypes", "LutMetadata"]
-TAGS = {sys.argv[3] : sys.argv[4], sys.argv[1] : sys.argv[2]}
+TAGS = {sys.argv[4] : [sys.argv[5], sys.argv[6]], sys.argv[1] : [sys.argv[2], sys.argv[3]]}
 COMMENT = "validation"
 
 # dump conditions; used for inputs to LUT generation
@@ -17,29 +16,32 @@ COMMENT = "validation"
 for run in RUNS:
     for condition in CONDITIONS:
         dump_cmd = "./genLUT.sh dump "
-        dump_cmd += "record=" + condition + " run=" + run + " GT=" + GT
-        os.system(dump_cmd)
+        dump_cmd += "record=" + condition + " run=" + run + " GT=" + TAGS[run][1]
+        #os.system(dump_cmd)
+        print(dump_cmd)
 
 # generate LUTs. Two sets of LUTs are generated here so that the comparison 
 # tests can be run. This will create two new sets of files 
 # in the "conditions" directory.
 for run in RUNS:
     gen_cmd = "./genLUT.sh generate"
-    gen_cmd += " GT=" + GT
+    gen_cmd += " GT=" + TAGS[run][1]
     gen_cmd += " run=" + run 
-    gen_cmd += " tag=" + TAGS[run] 
+    gen_cmd += " tag=" + TAGS[run][0] 
     gen_cmd += " comment=" + COMMENT
     gen_cmd += " HO_master_file=HO_ped9_inputLUTcoderDec.txt"
     for condition in CONDITIONS:
         gen_cmd += " " + condition + "=" + run
-    os.system(gen_cmd)
+    #os.system(gen_cmd)
+    print(gen_cmd)
 
 # run validation
-validate_cmd = "./genLUT.sh validate GT="
-validate_cmd += GT + " run=" + str(RUNS[0]) 
+validate_cmd = "./genLUT.sh validate GT=" + TAGS[RUNS[0]][1] 
+validate_cmd += " run=" + str(RUNS[0]) 
 validate_cmd += " tags=" + TAGS[RUNS[0]] + "," + TAGS[RUNS[1]]
 validate_cmd += " quality=" + RUNS[0] + "," + RUNS[1]
 validate_cmd += " pedestals=" + RUNS[0] + "," + RUNS[1]
 validate_cmd += " respcorrs=" + RUNS[0] + "," + RUNS[1]
 validate_cmd += " gains=" + RUNS[0] + "," + RUNS[1]
-os.system(validate_cmd)
+#os.system(validate_cmd)
+print(validate_cmd)

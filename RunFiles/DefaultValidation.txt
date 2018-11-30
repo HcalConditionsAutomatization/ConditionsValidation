@@ -6,31 +6,34 @@ validate no
 #------------------------------------------------
 # VALIDATION INPUTS
 #------------------------------------------------
-week       36
+week       38
 year       2018
 
-NewLUTtag  Physics2018v9
-NewRun     321732
+NewLUTtag  Physics2018v10
+NewGT      101X_dataRun2_HLT_Candidate_2018_09_04_15_22_38
+NewRun     322800
 lumi_start 1 
 lumi_end   30
 
-OldLUTtag  Physics2018v8
-OldRun     321730
+OldLUTtag  Physics2018v9
+OldGT      101X_dataRun2_HLT_Candidate_2018_08_23_18_06_31
+OldRun     321800
 
-GT         101X_dataRun2_HLT_Candidate_2018_09_04_15_22_38
-L1TOtag    HcalL1TriggerObjects_2018_v14.0_data
+L1TOtag    HcalL1TriggerObjects_2018_v15.0_data
+geometry   2018 
 
+dataset    /ZeroBias/Run2018D-v1/RAW
+tier2      T2_BR_SPRACE
 
 #------------------------------------------------
-# LUT GENERATION
+# RELEASE LUT GENERATION
 #------------------------------------------------
 release_LUT  CMSSW_10_4_0_pre1
 arch_LUT     slc6_amd64_gcc700
 
 #------------------------------------------------
-# L1 RATE VALIDATION
+# RELEASE L1 RATE VALIDATION
 #------------------------------------------------
 release_L1  CMSSW_10_2_1
 arch_L1     slc6_amd64_gcc700
-dataset     /ZeroBias/Run2018D-v1/RAW
-tier2       T2_BR_SPRACE
+
