@@ -1,5 +1,5 @@
 #------------------------------------------------
-# CHANGE TO "no" IN ORDER TO START THE VALIDATION
+# CHANGE TO "yes" IN ORDER TO START THE VALIDATION
 #------------------------------------------------
 validate yes
 
