@@ -36,8 +36,9 @@ echo {'"'${NewRun}'"': [[$lumi_start, $lumi_end]]} > lumimask.json
 ###L1T###
 ./runL1THcalConditionValidation.sh 
 
-mv $file RunFiles/Validation_${year}_${week}.txt
-cp RunFiles/DefaultValidation.txt NewValidation.txt
+cp $file RunFiles/Validation_${year}_${week}.txt
+#cp RunFiles/DefaultValidation.txt NewValidation.txt
+sed -ie 's/yes/no/' $file
 git add RunFiles/Validation_${year}_${week}.txt
 git commit -a -m "clean validation inputs"
 git push -u origin HEAD:master
