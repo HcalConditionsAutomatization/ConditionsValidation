@@ -34,6 +34,12 @@ scram b -j 16
 cd CaloOnlineTools/HcalOnlineDb/test
 cp ../../../../../HcalConditionsValidation/test.py .
 python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT   
+#./genLUT.sh dumpAll card=cardPhysics.sh
+#./genLUT.sh generate card=cardPhysics.sh
+#./genLUT.sh dumpAll card=cardPhysics.sh
+#./genLUT.sh generate card=cardPhysics.sh
+#./genLUT.sh validate card=cardPhysics.sh
+
 
 #======================================================================================================================
 # L1TriggerObjects Tag generation
