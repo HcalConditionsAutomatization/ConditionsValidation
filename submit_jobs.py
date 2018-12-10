@@ -20,7 +20,7 @@ CALOSTAGE2PARAMS = '2018_v1_3'
 # assume that there is an input file
 DEFAULTINPUT = '/store/express/Run2017B/ExpressPhysics/FEVT/Express-v1/000/297/562/00000/EE1F5F26-145B-E711-A146-02163E019C23.root'
 # frontier database (needs to be specified when overriding conditions)
-FRONTIER = 'sqlite_file:../../../../../CMSSW_10_4_0_pre1/src/HcalL1TriggerObjects.db'
+FRONTIER = 'sqlite_file:HcalL1TriggerObjects.db'
 
 def check_setup():
     if not ("CMSSW_BASE" in os.environ):
@@ -105,7 +105,7 @@ for jobtype in COND_LIST:
     crab_submit_script.close()
     
     # concatenate crab submission file with template
-    filename = 'submit_run_' + str(RUN) + '_' + jobtype + '.py'
+    filename = 'submit_run_' + jobtype + '.py'
     command = "cat submit_tmp.py ntuple_submit_template.py > " + filename
     os.system(command)
     os.remove(tmpfile)
@@ -116,8 +116,10 @@ for jobtype in COND_LIST:
         os.system(generate_ntuple_config(jobtype, ARGS.newtag, ARGS.caloparams))
     else:
         print generate_ntuple_config(jobtype,0, ARGS.caloparams)
-        os.system(generate_ntuple_config(jobtype, 0, ARGS.caloparams))  
-
-    if(not ARGS.no_exec):
-        crabcmd = "crab submit " + filename
+        os.system(generate_ntuple_config(jobtype, 0, ARGS.caloparams))
+        crabcmd = "crab submit -c " + filename
         os.system(crabcmd)
+
+    #if(not ARGS.no_exec):
+    #    crabcmd = "crab submit " + filename
+    #    os.system(crabcmd)

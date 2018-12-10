@@ -74,5 +74,8 @@ scram b -j 16
 scram b -j 16
 cd HcalTrigger/Validation/scripts
 cp ../../../../../HcalConditionsValidation/submit_jobs.py .
-./submit_jobs.py -l ../../../../../HcalConditionsValidation/lumimask.json -d $dataset -t Tag -o $tier2
-
+cp ../../../../../HcalConditionsValidation/lumimask.json .
+cp ../../../../../CMSSW_10_4_0_pre1/src/HcalL1TriggerObjects.db .
+./submit_jobs.py -l lumimask.json -d $dataset -t Tag -o $tier2
+sed -i '/config.JobType.outputFiles/ i\config.JobType.inputFiles = ["HcalL1TriggerObjects.db"]' submit_new_cond.py
+crab submit -c submit_new_cond.py
