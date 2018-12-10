@@ -20,7 +20,7 @@ CALOSTAGE2PARAMS = '2018_v1_3'
 # assume that there is an input file
 DEFAULTINPUT = '/store/express/Run2017B/ExpressPhysics/FEVT/Express-v1/000/297/562/00000/EE1F5F26-145B-E711-A146-02163E019C23.root'
 # frontier database (needs to be specified when overriding conditions)
-FRONTIER = 'sqlite_file:HcalL1TriggerObjects.db'
+FRONTIER = 'sqlite_file:./HcalL1TriggerObjects.db'
 
 def check_setup():
     if not ("CMSSW_BASE" in os.environ):
