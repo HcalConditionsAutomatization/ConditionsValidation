@@ -30,7 +30,7 @@ geometry     2018
 #------------------------------------------------
 run          322252
 lumi_start   101   
-lumi_end     400
+lumi_end     103
 dataset      /ZeroBias/Run2018D-v1/RAW
 tier2        T2_BR_SPRACE
 
