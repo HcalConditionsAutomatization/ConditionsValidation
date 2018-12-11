@@ -79,4 +79,51 @@ cp ../../../../../CMSSW_10_4_0_pre1/src/HcalL1TriggerObjects.db .
 ./submit_jobs.py -l lumimask.json -d $dataset -t Tag -o $tier2
 sed -i '/config.JobType.outputFiles/ i\config.JobType.inputFiles = ["HcalL1TriggerObjects.db"]' submit_new_cond.py
 crab submit submit_def.py
-crab submit submit_new_cond.py
+crab submit submit_new_cond.py 
+
+crab status -d crab_hcal_${run}_def > status_def.log
+#while ! grep -q "finished" status_def.log; do
+#    sleep 180
+#    crab status -d crab_hcal_${run}_def > status_def.log
+#done
+
+crab status -d crab_hcal_${run}_new_cond > status_new_cond.log
+#while ! grep -q "finished" status_new_cond.log; do
+#    sleep 180
+#    crab status -d crab_hcal_${run}_new_cond > status_new_cond.log
+#done
+
+crab getoutput -d crab_hcal_${run}_def --checksum=no > retrieve_def.log
+#while ! grep -q "All files successfully retrieved" retrieve_def.log; do
+#    crab getoutput -d crab_hcal_${run}_def --checksum=no > retrieve_def.log
+#done
+
+crab getoutput -d crab_hcal_${run}_new_cond --checksum=no > retrieve_new_cond.log
+#while ! grep -q "All files successfully retrieved" retrieve_new_cond.log; do
+#    crab getoutput -d crab_hcal_${run}_new_cond --checksum=no > retrieve_new_cond.log
+#done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
