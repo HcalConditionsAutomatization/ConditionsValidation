@@ -52,7 +52,7 @@ cd ../../..
 cp ../../HcalConditionsValidation/writetoSQL9x.csh .
 chmod +x writetoSQL9x.csh
 ./writetoSQL9x.csh $geometry L1TriggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 HcalL1TriggerObjects.db
-cp HcalL1TriggerObjects.db $outdir
+cp HcalL1TriggerObjects.db $outdir/${NewLUTtag}
 
 
 #=====================================================================================================================
