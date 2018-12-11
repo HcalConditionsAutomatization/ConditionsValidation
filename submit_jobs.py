@@ -105,7 +105,7 @@ for jobtype in COND_LIST:
     crab_submit_script.close()
     
     # concatenate crab submission file with template
-    filename = 'submit_run_' + jobtype + '.py'
+    filename = 'submit_' + jobtype + '.py'
     command = "cat submit_tmp.py ntuple_submit_template.py > " + filename
     os.system(command)
     os.remove(tmpfile)
@@ -117,7 +117,7 @@ for jobtype in COND_LIST:
     else:
         print generate_ntuple_config(jobtype,0, ARGS.caloparams)
         os.system(generate_ntuple_config(jobtype, 0, ARGS.caloparams))
-        crabcmd = "crab submit -c " + filename
+        crabcmd = "crab submit " + filename
         os.system(crabcmd)
 
     #if(not ARGS.no_exec):
