@@ -23,11 +23,13 @@ export lumi_start=`grep "lumi_start" $file | awk '{print $2}'`
 export lumi_end=`grep "lumi_end" $file | awk '{print $2}'`
 export dataset=`grep "dataset" $file | awk '{print $2}'`
 export tier2=`grep "tier2" $file | awk '{print $2}'`
+export outdir=`grep "outdir" $file | awk '{print $2}'`
 
 export release_LUT=`grep "release_LUT" $file | awk '{print $2}'`
 export arch_LUT=`grep "arch_LUT" $file | awk '{print $2}'`
 export release_L1=`grep "release_L1" $file | awk '{print $2}'`
 export arch_L1=`grep "arch_L1" $file | awk '{print $2}'`
+
 
 
 > lumimask.json
