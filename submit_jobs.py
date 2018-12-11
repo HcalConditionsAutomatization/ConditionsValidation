@@ -117,8 +117,6 @@ for jobtype in COND_LIST:
     else:
         print generate_ntuple_config(jobtype,0, ARGS.caloparams)
         os.system(generate_ntuple_config(jobtype, 0, ARGS.caloparams))
-        crabcmd = "crab submit " + filename
-        os.system(crabcmd)
 
     #if(not ARGS.no_exec):
     #    crabcmd = "crab submit " + filename
