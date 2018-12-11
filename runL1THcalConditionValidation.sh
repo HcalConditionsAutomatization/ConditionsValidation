@@ -35,10 +35,6 @@ scram b -j 16
 cd CaloOnlineTools/HcalOnlineDb/test
 cp ../../../../../HcalConditionsValidation/test.py .
 python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT   
-#./genLUT.sh dumpAll card=cardPhysics.sh
-#./genLUT.sh generate card=cardPhysics.sh
-#./genLUT.sh dumpAll card=cardPhysics.sh
-#./genLUT.sh generate card=cardPhysics.sh
 #./genLUT.sh validate card=cardPhysics.sh
 cp -r conditions/${NewLUTtag} $outdir
  
@@ -47,7 +43,6 @@ cp -r conditions/${NewLUTtag} $outdir
 # L1TriggerObjects Tag generation
 #======================================================================================================================
 cp conditions/$NewLUTtag/Deploy/Gen_L1TriggerObjects_${NewLUTtag}.txt ../../..
-#copy conditions to output directory
 cd ../../..
 cp ../../HcalConditionsValidation/writetoSQL9x.csh .
 chmod +x writetoSQL9x.csh
