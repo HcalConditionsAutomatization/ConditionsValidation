@@ -85,12 +85,18 @@ crab submit submit_new_cond.py
 
 crab status -d crab_hcal_${run}_def > status_def.log
 while ! grep -q "finished" status_def.log; do
+    if grep -q "failed" status_def.log; then
+        crab resubmit -d crab_hcal_${run}_def
+    fi
     sleep 180
     crab status -d crab_hcal_${run}_def > status_def.log
 done
 
 crab status -d crab_hcal_${run}_new_cond > status_new_cond.log
 while ! grep -q "finished" status_new_cond.log; do
+    if grep -q "failed" status_new_cond.log; then
+        crab resubmit -d crab_hcal_${run}_new_cond
+    fi
     sleep 180
     crab status -d crab_hcal_${run}_new_cond > status_new_cond.log
 done
