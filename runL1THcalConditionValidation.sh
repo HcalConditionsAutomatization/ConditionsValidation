@@ -14,6 +14,7 @@ echo "run          " $run
 echo "lumi_section " [$lumi_start,$lumi_end]
 echo "dataset      " $dataset
 echo "tier2        " $tier2
+echo "outdir       " $outdir
 echo "release_LUT  " $release_LUT
 echo "arch_LUT     " $arch_LUT
 echo "release_L1   " $release_L1
