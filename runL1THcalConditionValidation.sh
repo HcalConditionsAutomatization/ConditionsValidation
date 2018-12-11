@@ -39,7 +39,8 @@ python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT
 #./genLUT.sh dumpAll card=cardPhysics.sh
 #./genLUT.sh generate card=cardPhysics.sh
 #./genLUT.sh validate card=cardPhysics.sh
-
+cp -r conditions/${NewLUTtag} $outdir
+ 
 
 #======================================================================================================================
 # L1TriggerObjects Tag generation
@@ -50,7 +51,7 @@ cd ../../..
 cp ../../HcalConditionsValidation/writetoSQL9x.csh .
 chmod +x writetoSQL9x.csh
 ./writetoSQL9x.csh $geometry L1TriggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 HcalL1TriggerObjects.db
-#copy sqlfile to output directory
+cp HcalL1TriggerObjects.db $outdir
 
 
 #=====================================================================================================================
