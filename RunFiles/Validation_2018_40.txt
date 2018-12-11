@@ -6,6 +6,8 @@ validate     yes
 week         40
 year         2018
 
+outdir       /afs/cern.ch/work/g/gcorreia/public/
+
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
