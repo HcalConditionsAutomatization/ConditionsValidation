@@ -47,7 +47,7 @@ cd ../../..
 cp ../../HcalConditionsValidation/writetoSQL9x.csh .
 chmod +x writetoSQL9x.csh
 ./writetoSQL9x.csh $geometry L1TriggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 HcalL1TriggerObjects.db
-cp HcalL1TriggerObjects.db $outdir/${NewLUTtag}
+cp HcalL1TriggerObjects.db ${outdir}/${NewLUTtag}
 
 
 #=====================================================================================================================
@@ -121,7 +121,11 @@ done
 
 #------------------------------------------------------------------------------------
 
-
+rates.exe def crab_hcal_${run}_def/results
+rates.exe new crab_hcal_${run}_new_cond/results
+mkdir plots
+draw_rates.exe
+cp -r plots ${outdir}/${NewLUTtag}
 
 
 
