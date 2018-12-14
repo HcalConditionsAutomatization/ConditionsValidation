@@ -77,6 +77,7 @@ git clone https://github.com/cms-l1t-offline/L1Trigger-L1TCalorimeter.git L1Trig
 #git clone https://github.com/cms-l1t-offline/L1Trigger-L1TCalorimeter.git L1Trigger/L1TCalorimeter/datascram b -j 16
 git clone git@github.com:cms-hcal-trigger/Validation.git HcalTrigger/Validation
 scram b -j 16
+scram b -j 16
 cd HcalTrigger/Validation/scripts
 cp ../../../../../HcalConditionsValidation/submit_jobs.py .
 cp ../../../../../HcalConditionsValidation/lumimask.json .
