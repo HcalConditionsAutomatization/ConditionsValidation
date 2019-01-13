@@ -28,11 +28,9 @@ cd ..
 scram -a $arch_LUT project $release_LUT
 cd CMSSW_10_4_0_pre1/src
 eval `scram runtime -sh`
-scram b -j 16
-git cms-init
-git cms-addpkg CaloOnlineTools/HcalOnlineDb
-scram b -j 16
-cd CaloOnlineTools/HcalOnlineDb/test
+git cms-merge-topic -u akhukhun:xmldbformat
+scram b
+cd CaloOnlineTools/HcalOnlineDb/test/
 cp ../../../../../HcalConditionsValidation/test.py .
 python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT   
 #./genLUT.sh validate card=cardPhysics.sh
