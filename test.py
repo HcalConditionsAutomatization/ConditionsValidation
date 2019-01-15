@@ -16,32 +16,15 @@ COMMENT = "validation"
 for run in RUNS:
     for condition in CONDITIONS:
         dump_cmd = "./genLUT.sh dump "
-        dump_cmd += "record=" + condition + " run=" + run + " GT=" + TAGS[run][1]
+        dump_cmd += "record=" + condition + " Run=" + run + " GlobalTag=" + TAGS[run][1]
         os.system(dump_cmd)
         #print(dump_cmd)
 
 # generate LUTs. Two sets of LUTs are generated here so that the comparison 
 # tests can be run. This will create two new sets of files 
 # in the "conditions" directory.
-for run in RUNS:
-    gen_cmd = "./genLUT.sh generate"
-    gen_cmd += " GT=" + TAGS[run][1]
-    gen_cmd += " run=" + run 
-    gen_cmd += " tag=" + TAGS[run][0] 
-    gen_cmd += " comment=" + COMMENT
-    gen_cmd += " HO_master_file=HO_ped9_inputLUTcoderDec.txt"
-    for condition in CONDITIONS:
-        gen_cmd += " " + condition + "=" + run
-    os.system(gen_cmd)
-    #print(gen_cmd)
+os.system("./genLUT.sh generate card=cardPhysics.sh")
+os.system("./genLUT.sh generate card=cardPhysics_gen_old.sh")
 
 # run validation
-#validate_cmd = "./genLUT.sh validate GT=" + TAGS[RUNS[0]][1] 
-#validate_cmd += " run=" + str(RUNS[0]) 
-#validate_cmd += " tags=" + TAGS[RUNS[0]][0] + "," + TAGS[RUNS[1]][0]
-#validate_cmd += " quality=" + RUNS[0] + "," + RUNS[1]
-#validate_cmd += " pedestals=" + RUNS[0] + "," + RUNS[1]
-#validate_cmd += " respcorrs=" + RUNS[0] + "," + RUNS[1]
-#validate_cmd += " gains=" + RUNS[0] + "," + RUNS[1]
-#os.system(validate_cmd)
-#print(validate_cmd)
+os.system("./genLUT.sh validate card=cardPhysics.sh")

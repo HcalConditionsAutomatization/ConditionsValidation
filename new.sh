@@ -58,7 +58,7 @@ echo O2OL1TriggerObjects=false >> cardPhysics_gen_old.sh
 echo O2OInputs=false >> cardPhysics_gen_old.sh
 
 ###L1T###
-#./runL1THcalConditionValidation.sh 
+./runL1THcalConditionValidation.sh 
 
 cp $file RunFiles/Validation_${year}_${week}.txt
 sed -i 's/yes/no/' $file
