@@ -19,6 +19,7 @@ OldLUTtag    Physics2018v9
 OldGT        101X_dataRun2_HLT_Candidate_2018_08_23_18_06_31
 OldRun       321800
 
+HOAsciiInput HO_ped9_inputLUTcoderDec.txt
 release_LUT  CMSSW_10_4_0_pre1
 arch_LUT     slc6_amd64_gcc700
 

@@ -16,6 +16,8 @@ export OldLUTtag=`grep "OldLUTtag" $file | awk '{print $2}'`
 export OldGT=`grep "OldGT" $file | awk '{print $2}'`
 export OldRun=`grep "OldRun" $file | awk '{print $2}'`
 
+export HOAsciiInput=`grep "HOAsciiInput" $file | awk '{print $2}'`
+
 export geometry=`grep "geometry" $file | awk '{print $2}'`
 
 export run=`grep "run" $file | awk '{print $2}'`
@@ -42,7 +44,7 @@ echo Run=$NewRun >> cardPhysics.sh
 echo OldTag=$OldLUTtag >> cardPhysics.sh
 echo OldRun=$OldRun >> cardPhysics.sh
 echo description='"validation"' >> cardPhysics.sh
-echo HOAsciiInput=HO_ped9_inputLUTcoderDec.txt >> cardPhysics.sh
+echo HOAsciiInput=$HOAsciiInput >> cardPhysics.sh
 echo O2OL1TriggerObjects=false >> cardPhysics.sh
 echo O2OInputs=false >> cardPhysics.sh
 
