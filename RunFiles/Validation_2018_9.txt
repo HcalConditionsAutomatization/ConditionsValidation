@@ -3,7 +3,7 @@
 #------------------------------------------------
 validate     no
 
-week         10
+week         9
 year         2018
 
 outdir       /eos/user/g/gcorreia/Hcal_project
@@ -11,13 +11,13 @@ outdir       /eos/user/g/gcorreia/Hcal_project
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
-NewLUTtag    Physics2018v10
-NewGT        101X_dataRun2_HLT_Candidate_2018_09_04_15_22_38
-NewRun       322800
+NewLUTtag    Physics2018v9
+NewGT        101X_dataRun2_HLT_Candidate_2018_08_23_18_06_31
+NewRun       321800
 
-OldLUTtag    Physics2018v9
-OldGT        101X_dataRun2_HLT_Candidate_2018_08_23_18_06_31
-OldRun       321800
+OldLUTtag    Physics2018v8
+OldGT        101X_dataRun2_HLT_Candidate_2018_08_10_14_55_01
+OldRun       321200
 
 HOAsciiInput HO_ped9_inputLUTcoderDec.txt
 release_LUT  CMSSW_10_4_0_pre1
