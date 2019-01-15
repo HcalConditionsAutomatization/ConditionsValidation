@@ -33,6 +33,7 @@ git cms-merge-topic -u akhukhun:xmldbformat
 scram b
 cd CaloOnlineTools/HcalOnlineDb/test/
 cp ../../../../../HcalConditionsValidation/test.py .
+cp ../../../../../HcalConditionsValidation/cardPhysics* .
 python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT   
 cp -r conditions/${NewLUTtag} $outdir
  
