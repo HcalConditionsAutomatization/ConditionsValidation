@@ -48,6 +48,15 @@ echo HOAsciiInput=$HOAsciiInput >> cardPhysics.sh
 echo O2OL1TriggerObjects=false >> cardPhysics.sh
 echo O2OInputs=false >> cardPhysics.sh
 
+> cardPhysics_gen_old.sh
+echo GlobalTag=$OldGT >> cardPhysics_gen_old.sh
+echo Tag=$OldLUTtag >> cardPhysics_gen_old.sh
+echo Run=$OldRun >> cardPhysics_gen_old.sh
+echo description='"validation"' >> cardPhysics_gen_old.sh
+echo HOAsciiInput=$HOAsciiInput >> cardPhysics_gen_old.sh
+echo O2OL1TriggerObjects=false >> cardPhysics_gen_old.sh
+echo O2OInputs=false >> cardPhysics_gen_old.sh
+
 ###L1T###
 #./runL1THcalConditionValidation.sh 
 

@@ -9,6 +9,7 @@ echo "NewRun       " $NewRun
 echo "OldLUTtag    " $OldLUTtag
 echo "OldGT        " $OldGT
 echo "OldRun       " $OldRun
+echo "HOAsciiInput " $HOAsciiInput
 echo "geometry     " $geometry
 echo "run          " $run
 echo "lumi_section " [$lumi_start,$lumi_end]
