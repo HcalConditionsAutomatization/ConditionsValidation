@@ -3,7 +3,7 @@
 #------------------------------------------------
 validate     no
 
-week         10
+week         11
 year         2018
 
 outdir       /eos/user/g/gcorreia/Hcal_project
@@ -11,13 +11,13 @@ outdir       /eos/user/g/gcorreia/Hcal_project
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
-NewLUTtag    Physics2018v10
-NewGT        101X_dataRun2_HLT_Candidate_2018_09_04_15_22_38
-NewRun       322800
+NewLUTtag    Physics2018v11
+NewGT        101X_dataRun2_HLT_Candidate_2018_10_24_18_32_13
+NewRun       325500
 
-OldLUTtag    Physics2018v9
-OldGT        101X_dataRun2_HLT_Candidate_2018_08_23_18_06_31
-OldRun       321800
+OldLUTtag    Physics2018v10
+OldGT        101X_dataRun2_HLT_Candidate_2018_09_04_15_22_38
+OldRun       322800
 
 HOAsciiInput HO_ped9_inputLUTcoderDec.txt
 release_LUT  CMSSW_10_4_0_pre1
@@ -31,11 +31,11 @@ geometry     2018
 #------------------------------------------------
 # L1 RATE VALIDATION
 #------------------------------------------------
-run          322252
-lumi_start   102   
-lumi_end     103
+run          325170
+lumi_start   1   
+lumi_end     300
 dataset      /ZeroBias/Run2018D-v1/RAW
 tier2        T2_BR_SPRACE
 
-release_L1   CMSSW_10_3_1
+release_L1   CMSSW_10_2_1
 arch_L1      slc6_amd64_gcc700
