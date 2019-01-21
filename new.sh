@@ -38,7 +38,7 @@ export arch_L1=`grep "arch_L1" $file | awk '{print $2}'`
 
 cp $file RunFiles/Validation_${year}_${week}.txt
 sed -i 's/yes/no/' $file
-sed -i 's/"const std::map<int, std::shared_ptr<LutXml> > _zdc_lut_xml = getZdcLutXml( _tag, split_by_crate );"/"//const std::map<int, std::shared_ptr<LutXml> > _zdc_lut_xml = getZdcLutXml( _tag, split_by_crate );"/' 'HcalLutManager.cc'
+sed -i "s/'const std::map<int, std::shared_ptr<LutXml> > _zdc_lut_xml = getZdcLutXml( _tag, split_by_crate );'/'//const std::map<int, std::shared_ptr<LutXml> > _zdc_lut_xml = getZdcLutXml( _tag, split_by_crate );'/" 'HcalLutManager.cc'
 git add RunFiles/Validation_${year}_${week}.txt
 git commit -a -m "clean validation inputs"
 git push -u origin HEAD:master
