@@ -76,7 +76,7 @@ echo " L1 rate validation"
 echo "====================================================================================================================="
 cd ../..
 scram -a $arch_L1 project $release_L1
-cd CMSSW_10_2_1/src
+cd CMSSW_10_3_1/src
 eval `scram runtime -sh`
 #git cms-init
 #git remote add cms-l1t-offline git@github.com:cms-l1t-offline/cmssw.git
