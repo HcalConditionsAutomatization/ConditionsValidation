@@ -33,30 +33,6 @@ export release_L1=`grep "release_L1" $file | awk '{print $2}'`
 export arch_L1=`grep "arch_L1" $file | awk '{print $2}'`
 
 
-
-> lumimask.json
-echo {'"'${run}'"': [[$lumi_start, $lumi_end]]} > lumimask.json
-
-> cardPhysics.sh
-echo GlobalTag=$NewGT >> cardPhysics.sh
-echo Tag=$NewLUTtag >> cardPhysics.sh
-echo Run=$NewRun >> cardPhysics.sh
-echo OldTag=$OldLUTtag >> cardPhysics.sh
-echo OldRun=$OldRun >> cardPhysics.sh
-echo description='"validation"' >> cardPhysics.sh
-echo HOAsciiInput=$HOAsciiInput >> cardPhysics.sh
-echo O2OL1TriggerObjects=false >> cardPhysics.sh
-echo O2OInputs=false >> cardPhysics.sh
-
-> cardPhysics_gen_old.sh
-echo GlobalTag=$OldGT >> cardPhysics_gen_old.sh
-echo Tag=$OldLUTtag >> cardPhysics_gen_old.sh
-echo Run=$OldRun >> cardPhysics_gen_old.sh
-echo description='"validation"' >> cardPhysics_gen_old.sh
-echo HOAsciiInput=$HOAsciiInput >> cardPhysics_gen_old.sh
-echo O2OL1TriggerObjects=false >> cardPhysics_gen_old.sh
-echo O2OInputs=false >> cardPhysics_gen_old.sh
-
 ###L1T###
 ./runL1THcalConditionValidation.sh 
 

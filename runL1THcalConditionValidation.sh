@@ -32,8 +32,29 @@ eval `scram runtime -sh`
 git cms-merge-topic -u akhukhun:xmldbformat
 scram b
 cd CaloOnlineTools/HcalOnlineDb/test/
-cp ../../../../../HcalConditionsValidation/test.py .
-cp ../../../../../HcalConditionsValidation/cardPhysics* .
+
+> cardPhysics.sh
+echo GlobalTag=$NewGT >> cardPhysics.sh
+echo Tag=$NewLUTtag >> cardPhysics.sh
+echo Run=$NewRun >> cardPhysics.sh
+echo OldTag=$OldLUTtag >> cardPhysics.sh
+echo OldRun=$OldRun >> cardPhysics.sh
+echo description='"validation"' >> cardPhysics.sh
+echo HOAsciiInput=$HOAsciiInput >> cardPhysics.sh
+echo O2OL1TriggerObjects=false >> cardPhysics.sh
+echo O2OInputs=false >> cardPhysics.sh
+
+> cardPhysics_gen_old.sh
+echo GlobalTag=$OldGT >> cardPhysics_gen_old.sh
+echo Tag=$OldLUTtag >> cardPhysics_gen_old.sh
+echo Run=$OldRun >> cardPhysics_gen_old.sh
+echo description='"validation"' >> cardPhysics_gen_old.sh
+echo HOAsciiInput=$HOAsciiInput >> cardPhysics_gen_old.sh
+echo O2OL1TriggerObjects=false >> cardPhysics_gen_old.sh
+echo O2OInputs=false >> cardPhysics_gen_old.sh
+
+cp ../../../../../HcalConditionsValidation/Tools/test.py .
+#cp ../../../../../HcalConditionsValidation/cardPhysics* .
 python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT   
 cp -r conditions/${NewLUTtag} $outdir
  
@@ -43,7 +64,7 @@ cp -r conditions/${NewLUTtag} $outdir
 #======================================================================================================================
 cp conditions/$NewLUTtag/Deploy/Gen_L1TriggerObjects_${NewLUTtag}.txt ../../..
 cd ../../..
-cp ../../HcalConditionsValidation/writetoSQL9x.csh .
+cp ../../HcalConditionsValidation/Tools/writetoSQL9x.csh .
 chmod +x writetoSQL9x.csh
 ./writetoSQL9x.csh $geometry L1TriggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 HcalL1TriggerObjects.db
 cp HcalL1TriggerObjects.db ${outdir}/${NewLUTtag}
@@ -80,8 +101,10 @@ cp HcalL1TriggerObjects.db ${outdir}/${NewLUTtag}
 #cram b -j 16
 #scram b -j 16
 #cd HcalTrigger/Validation/scripts
-#cp ../../../../../HcalConditionsValidation/submit_jobs.py .
-#p ../../../../../HcalConditionsValidation/lumimask.json .
+#cp ../../../../../HcalConditionsValidation/Tools/submit_jobs.py .
+##p ../../../../../HcalConditionsValidation/lumimask.json .
+#> lumimask.json
+#echo {'"'${run}'"': [[$lumi_start, $lumi_end]]} > lumimask.json
 #cp ../../../../../CMSSW_10_4_0_pre1/src/HcalL1TriggerObjects.db .
 #./submit_jobs.py -l lumimask.json -d $dataset -t Tag -o $tier2
 #sed -i '/config.JobType.outputFiles/ i\config.JobType.inputFiles = ["HcalL1TriggerObjects.db"]' submit_new_cond.py
