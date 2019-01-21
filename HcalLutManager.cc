@@ -1220,8 +1220,8 @@ int HcalLutManager::createLutXmlFiles_HBEFFromCoder_HOFromAscii( std::string _ta
   const std::map<int, std::shared_ptr<LutXml> > _comp_lut_xml = getCompressionLutXmlFromCoder( _transcoder, _tag, split_by_crate );
   addLutMap( xml, _comp_lut_xml );
 
-  const std::map<int, std::shared_ptr<LutXml> > _HE_FG_lut_xml = getHEFineGrainLUTs(_tag, split_by_crate );
-  addLutMap( xml, _HE_FG_lut_xml );
+  const std::map<int, std::shared_ptr<LutXml> > _HE_FG_Gilson_xml = getHEFineGrainLUTs(_tag, split_by_crate );
+  addLutMap( xml, _HE_FG_Gilson_xml );
 
   writeLutXmlFiles( xml, _tag, split_by_crate );
   
@@ -1726,8 +1726,8 @@ int HcalLutManager::createLutXmlFiles_HBEFFromCoder_HOFromAscii_ZDC( std::string
   const std::map<int, std::shared_ptr<LutXml> > _comp_lut_xml = getCompressionLutXmlFromCoder( _transcoder, _tag, split_by_crate );
   addLutMap( xml, _comp_lut_xml );
 
-  const std::map<int, std::shared_ptr<LutXml> > _HE_FG_lut_xml = getHEFineGrainLUTs(_tag, split_by_crate );
-  addLutMap( xml, _HE_FG_lut_xml );
+  const std::map<int, std::shared_ptr<LutXml> > _HE_FG_Gilson_xml = getHEFineGrainLUTs(_tag, split_by_crate );
+  addLutMap( xml, _HE_FG_Gilson_xml );
 
   for(auto masktype: {0,1,2}){
       const auto masks=getMasks(masktype, _tag, split_by_crate);
