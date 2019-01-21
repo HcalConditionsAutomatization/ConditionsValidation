@@ -21,15 +21,16 @@ echo "arch_LUT     " $arch_LUT
 echo "release_L1   " $release_L1
 echo "arch_L1      " $arch_L1
 echo "==============================================="
-
-#======================================================================================================================
-# LUT generation and validation
-#======================================================================================================================
+echo " "
+echo "======================================================================================================================"
+echo " LUT generation and validation"
+echo "======================================================================================================================"
 cd ..
 scram -a $arch_LUT project $release_LUT
 cd CMSSW_10_4_0_pre1/src
 eval `scram runtime -sh`
 git cms-merge-topic -u akhukhun:xmldbformat
+
 scram b
 cd CaloOnlineTools/HcalOnlineDb/test/
 
@@ -58,10 +59,10 @@ cp ../../../../../HcalConditionsValidation/Tools/test.py .
 python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT   
 cp -r conditions/${NewLUTtag} $outdir
  
-
-#======================================================================================================================
-# L1TriggerObjects Tag generation
-#======================================================================================================================
+echo " "
+echo "======================================================================================================================"
+echo " L1TriggerObjects Tag generation"
+echo "======================================================================================================================"
 cp conditions/$NewLUTtag/Deploy/Gen_L1TriggerObjects_${NewLUTtag}.txt ../../..
 cd ../../..
 cp ../../HcalConditionsValidation/Tools/writetoSQL9x.csh .
@@ -69,10 +70,10 @@ chmod +x writetoSQL9x.csh
 ./writetoSQL9x.csh $geometry L1TriggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 HcalL1TriggerObjects.db
 cp HcalL1TriggerObjects.db ${outdir}/${NewLUTtag}
 
-
-#=====================================================================================================================
-# L1 rate validation
-#=====================================================================================================================
+echo " "
+echo "====================================================================================================================="
+echo " L1 rate validation"
+echo "====================================================================================================================="
 #cd ../..
 #scram -a $arch_L1 project $release_L1
 #cd CMSSW_10_2_1/src
