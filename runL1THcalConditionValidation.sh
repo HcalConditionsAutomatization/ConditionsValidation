@@ -97,10 +97,10 @@ git cms-addpkg L1Trigger/L1TMuon
 git clone https://github.com/cms-l1t-offline/L1Trigger-L1TMuon.git L1Trigger/L1TMuon/data
 git cms-addpkg L1Trigger/L1TCalorimeter
 git clone https://github.com/cms-l1t-offline/L1Trigger-L1TCalorimeter.git L1Trigger/L1TCalorimeter/data
-scram b -j 16
+scram b -j 8
 #----------------------------------------------------------------------------------------------------
 git clone git@github.com:cms-hcal-trigger/Validation.git HcalTrigger/Validation
-cram b -j 16
+scram b -j 8
 cd HcalTrigger/Validation/scripts
 cp ../../../../../HcalConditionsValidation/Tools/submit_jobs.py .
 
