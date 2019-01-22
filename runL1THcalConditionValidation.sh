@@ -55,7 +55,7 @@ echo HOAsciiInput=$HOAsciiInput >> cardPhysics_gen_old.sh
 echo O2OL1TriggerObjects=false >> cardPhysics_gen_old.sh
 echo O2OInputs=false >> cardPhysics_gen_old.sh
 
-cp ../../../../../HcalConditionsValidation/Tools/test.py .
+cp ../../../../../userrepo/Tools/test.py .
 python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT   
 cp -r conditions/${NewLUTtag} $outdir
  
@@ -65,7 +65,7 @@ echo " L1TriggerObjects Tag generation"
 echo "======================================================================================================================"
 cp conditions/$NewLUTtag/Deploy/Gen_L1TriggerObjects_${NewLUTtag}.txt ../../..
 cd ../../..
-cp ../../HcalConditionsValidation/Tools/writetoSQL9x.csh .
+cp ../../userrepo/Tools/writetoSQL9x.csh .
 chmod +x writetoSQL9x.csh
 ./writetoSQL9x.csh $geometry L1TriggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 HcalL1TriggerObjects.db
 cp HcalL1TriggerObjects.db ${outdir}/${NewLUTtag}
@@ -105,7 +105,7 @@ scram b -j 8
 git clone git@github.com:cms-hcal-trigger/Validation.git HcalTrigger/Validation
 scram b -j 8
 cd HcalTrigger/Validation/scripts
-cp ../../../../../HcalConditionsValidation/Tools/submit_jobs.py .
+cp ../../../../../userrepo/Tools/submit_jobs.py .
 
 > lumimask.json
 echo {'"'${run}'"': [[$lumi_start, $lumi_end]]} > lumimask.json
