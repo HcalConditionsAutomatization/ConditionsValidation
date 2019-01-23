@@ -6,7 +6,7 @@ validate     yes
 week         11
 year         2018
 
-outdir       /eos/user/g/gcorreia/Hcal_project
+outdir       /afs/cern.ch/work/g/gcorreia/public
 
 #------------------------------------------------
 # LUT GENERATION
