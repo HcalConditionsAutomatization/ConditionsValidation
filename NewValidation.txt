@@ -6,7 +6,7 @@ validate     yes
 week         11
 year         2018
 
-outdir       /eos/user/g/gcorreia/Hcal_project/Outputs
+outdir       /eos/user/c/cmsbuild/workspace
 
 #------------------------------------------------
 # LUT GENERATION
