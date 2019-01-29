@@ -116,9 +116,10 @@ sed -i '/config.JobType.outputFiles/ i\config.JobType.inputFiles = ["HcalL1Trigg
 
 #------------------------------------------------------------------------------------
 # Submit and retrieve jobs from CRAB
+cp ../../../../../userrepo/Tools/submit_def.py .
 cp submit_def.py $outdir
 cp submit_new_cond.py $outdir
-source /cvmfs/cms.cern.ch/crab3/crab.sh
+#source /cvmfs/cms.cern.ch/crab3/crab.sh
 crab submit submit_def.py
 crab submit submit_new_cond.py 
 
