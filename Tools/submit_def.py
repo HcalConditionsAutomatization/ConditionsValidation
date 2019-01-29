@@ -34,7 +34,7 @@ config.Data.splitting = 'LumiBased'
 config.Data.unitsPerJob = 5
 config.Data.useParent = False
 
-config.General.requestName = "hcal_" + str(RUN) + "_" + conditionType
+#config.General.requestName = "hcal_" + str(RUN) + "_" + conditionType
 
 # This string is used to construct the output dataset name                                                                                   
 config.Data.outputDatasetTag = 'Hcal' + str(RUN) + '_' + conditionType
