@@ -76,31 +76,31 @@ echo " L1 rate validation"
 echo "====================================================================================================================="
 cd ../..
 scram -a $arch_L1 project $release_L1
-cd CMSSW_10_2_1/src
-eval `scram runtime -sh`
-git cms-init
-git remote add cms-l1t-offline git@github.com:cms-l1t-offline/cmssw.git
-git fetch cms-l1t-offline l1t-integration-CMSSW_10_2_1
-git cms-merge-topic -u cms-l1t-offline:l1t-integration-v101.0
-git cms-addpkg L1Trigger/L1TCommon
-git cms-addpkg L1Trigger/L1TMuon
-git clone https://github.com/cms-l1t-offline/L1Trigger-L1TMuon.git L1Trigger/L1TMuon/data
-git cms-addpkg L1Trigger/L1TCalorimeter
-git clone https://github.com/cms-l1t-offline/L1Trigger-L1TCalorimeter.git L1Trigger/L1TCalorimeter/data
-scram b -j 8
-
-#cd CMSSW_10_3_1/src
+#cd CMSSW_10_2_1/src
 #eval `scram runtime -sh`
 #git cms-init
 #git remote add cms-l1t-offline git@github.com:cms-l1t-offline/cmssw.git
-#git fetch cms-l1t-offline l1t-integration-CMSSW_10_3_1
-#git cms-merge-topic -u cms-l1t-offline:l1t-integration-v102.1-CMSSW_10_3_1
+#git fetch cms-l1t-offline l1t-integration-CMSSW_10_2_1
+#git cms-merge-topic -u cms-l1t-offline:l1t-integration-v101.0
 #git cms-addpkg L1Trigger/L1TCommon
 #git cms-addpkg L1Trigger/L1TMuon
 #git clone https://github.com/cms-l1t-offline/L1Trigger-L1TMuon.git L1Trigger/L1TMuon/data
 #git cms-addpkg L1Trigger/L1TCalorimeter
 #git clone https://github.com/cms-l1t-offline/L1Trigger-L1TCalorimeter.git L1Trigger/L1TCalorimeter/data
 #scram b -j 8
+
+cd CMSSW_10_3_1/src
+eval `scram runtime -sh`
+git cms-init
+git remote add cms-l1t-offline git@github.com:cms-l1t-offline/cmssw.git
+git fetch cms-l1t-offline l1t-integration-CMSSW_10_3_1
+git cms-merge-topic -u cms-l1t-offline:l1t-integration-v102.1-CMSSW_10_3_1
+git cms-addpkg L1Trigger/L1TCommon
+git cms-addpkg L1Trigger/L1TMuon
+git clone https://github.com/cms-l1t-offline/L1Trigger-L1TMuon.git L1Trigger/L1TMuon/data
+git cms-addpkg L1Trigger/L1TCalorimeter
+git clone https://github.com/cms-l1t-offline/L1Trigger-L1TCalorimeter.git L1Trigger/L1TCalorimeter/data
+scram b -j 8
 #----------------------------------------------------------------------------------------------------
 git clone git@github.com:cms-hcal-trigger/Validation.git HcalTrigger/Validation
 scram b -j 8
@@ -122,9 +122,10 @@ cp submit_new_cond.py $outdir
 #source /cvmfs/cms.cern.ch/crab3/crab.sh
 crab submit submit_def.py
 crab submit submit_new_cond.py 
+cp crab_hcal_325170_new_cond/crab.log ${outdir}/${NewLUTtag}
+cp crab_hcal_325170_def/crab.log ${outdir}/${NewLUTtag}
 
 crab status -d crab_hcal_${run}_def > status_def.log
-cp status_def.log ${outdir}/${NewLUTtag}
 while ! grep -q "finished" status_def.log; do
     if grep -q "failed" status_def.log; then
         crab resubmit -d crab_hcal_${run}_def
