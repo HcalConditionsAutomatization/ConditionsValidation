@@ -1,7 +1,7 @@
 #------------------------------------------------
 # VALIDATION INFO
 #------------------------------------------------
-validate     yes
+validate     no
 
 week         11
 year         2018
@@ -37,5 +37,5 @@ lumi_end     3
 dataset      /ZeroBias/Run2018D-v1/RAW
 tier2        T2_CH_CERN
 
-release_L1   CMSSW_10_2_1
+release_L1   CMSSW_10_3_1
 arch_L1      slc6_amd64_gcc700
