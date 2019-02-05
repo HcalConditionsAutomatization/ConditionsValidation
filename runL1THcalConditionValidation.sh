@@ -29,7 +29,6 @@ cd ..
 scram -a $arch_LUT project $release_LUT
 cd CMSSW_10_4_0_pre1/src
 eval `scram runtime -sh`
-crab checkusername
 git cms-merge-topic -u akhukhun:xmldbformat
 sed -i "s/const std::map<int, std::shared_ptr<LutXml> > _zdc_lut_xml = getZdcLutXml( _tag, split_by_crate );/\/\/const std::map<int, std::shared_ptr<LutXml> > _zdc_lut_xml = getZdcLutXml( _tag, split_by_crate );/" 'CaloOnlineTools/HcalOnlineDb/src/HcalLutManager.cc'
 sed -i "s/addLutMap( xml, _zdc_lut_xml );/\/\/addLutMap( xml, _zdc_lut_xml );/" 'CaloOnlineTools/HcalOnlineDb/src/HcalLutManager.cc'
