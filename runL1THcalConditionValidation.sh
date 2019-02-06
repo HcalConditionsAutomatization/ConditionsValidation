@@ -55,7 +55,7 @@ echo HOAsciiInput=$HOAsciiInput >> cardPhysics_gen_old.sh
 echo O2OL1TriggerObjects=false >> cardPhysics_gen_old.sh
 echo O2OInputs=false >> cardPhysics_gen_old.sh
 
-cp ../../../../../userrepo/Tools/test.py .
+cp ../../../../../ConditionsValidation/Tools/test.py .
 python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT   
 cp -r conditions/${NewLUTtag} $outdir
  
@@ -65,7 +65,7 @@ echo " L1TriggerObjects Tag generation"
 echo "======================================================================================================================"
 cp conditions/$NewLUTtag/Deploy/Gen_L1TriggerObjects_${NewLUTtag}.txt ../../..
 cd ../../..
-cp ../../userrepo/Tools/writetoSQL9x.csh .
+cp ../../ConditionsValidation/Tools/writetoSQL9x.csh .
 chmod +x writetoSQL9x.csh
 ./writetoSQL9x.csh $geometry L1TriggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 HcalL1TriggerObjects.db
 cp HcalL1TriggerObjects.db ${outdir}/${NewLUTtag}
@@ -105,7 +105,7 @@ scram b -j 8
 git clone git@github.com:cms-hcal-trigger/Validation.git HcalTrigger/Validation
 scram b -j 8
 cd HcalTrigger/Validation/scripts
-cp ../../../../../userrepo/Tools/submit_jobs.py .
+cp ../../../../../ConditionsValidation/Tools/submit_jobs.py .
 
 > lumimask.json
 echo {'"'${run}'"': [[$lumi_start, $lumi_end]]} > lumimask.json
@@ -116,7 +116,7 @@ sed -i '/config.JobType.outputFiles/ i\config.JobType.inputFiles = ["HcalL1Trigg
 
 #------------------------------------------------------------------------------------
 # Submit and retrieve jobs from CRAB
-#cp ../../../../../userrepo/Tools/submit_def.py .
+#cp ../../../../../ConditionsValidation/Tools/submit_def.py .
 cp submit_def.py $outdir
 cp submit_new_cond.py $outdir
 #source /cvmfs/cms.cern.ch/crab3/crab.sh
