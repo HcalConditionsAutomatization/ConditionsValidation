@@ -118,13 +118,13 @@ sed -i '/config.JobType.outputFiles/ i\config.JobType.inputFiles = ["HcalL1Trigg
 # Submit and retrieve jobs from CRAB
 #cp ../../../../../ConditionsValidation/Tools/submit_def.py .
 cp submit_def.py $outdir
-cp submit_new_cond.py $outdir
+cp ntuple_maker_def.py $outdir
 #source /cvmfs/cms.cern.ch/crab3/crab.sh
 crab submit submit_def.py
 crab submit submit_new_cond.py 
-cp crab_hcal_325170_new_cond/crab.log ${outdir}/${NewLUTtag}
-cp crab_hcal_325170_def/crab.log ${outdir}/${NewLUTtag}
-crab status -d crab_hcal_${run}_def
+#cp crab_hcal_325170_new_cond/crab.log ${outdir}/${NewLUTtag}
+#cp crab_hcal_325170_def/crab.log ${outdir}/${NewLUTtag}
+#crab status -d crab_hcal_${run}_def
 crab status -d crab_hcal_${run}_def > status_def.log
 while ! grep -q "finished" status_def.log; do
     if grep -q "failed" status_def.log; then
