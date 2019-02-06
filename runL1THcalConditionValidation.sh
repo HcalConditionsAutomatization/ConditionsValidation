@@ -116,48 +116,54 @@ sed -i '/config.JobType.outputFiles/ i\config.JobType.inputFiles = ["HcalL1Trigg
 
 #------------------------------------------------------------------------------------
 # Submit and retrieve jobs from CRAB
-#cp ../../../../../ConditionsValidation/Tools/submit_def.py .
-cp submit_def.py $outdir
-cp ntuple_maker_def.py $outdir
+cp ../../../../../ConditionsValidation/Tools/ntuple_maker_def.py .
+cmsRun ntuple_maker_def.py
+#cp submit_def.py $outdir
+#cp ntuple_maker_def.py $outdir
 #source /cvmfs/cms.cern.ch/crab3/crab.sh
-crab submit submit_def.py
-crab submit submit_new_cond.py 
+
+
+
+
+
+#crab submit submit_def.py
+#crab submit submit_new_cond.py 
 #cp crab_hcal_325170_new_cond/crab.log ${outdir}/${NewLUTtag}
 #cp crab_hcal_325170_def/crab.log ${outdir}/${NewLUTtag}
 #crab status -d crab_hcal_${run}_def
-crab status -d crab_hcal_${run}_def > status_def.log
-while ! grep -q "finished" status_def.log; do
-    if grep -q "failed" status_def.log; then
-        crab resubmit -d crab_hcal_${run}_def
-    fi
-    sleep 180
-    crab status -d crab_hcal_${run}_def > status_def.log
-done
+#crab status -d crab_hcal_${run}_def > status_def.log
+#while ! grep -q "finished" status_def.log; do
+#    if grep -q "failed" status_def.log; then
+#        crab resubmit -d crab_hcal_${run}_def
+#    fi
+#    sleep 180
+#    crab status -d crab_hcal_${run}_def > status_def.log
+#done
 
-crab status -d crab_hcal_${run}_new_cond > status_new_cond.log
-while ! grep -q "finished" status_new_cond.log; do
-    if grep -q "failed" status_new_cond.log; then
-        crab resubmit -d crab_hcal_${run}_new_cond
-    fi
-    sleep 180
-    crab status -d crab_hcal_${run}_new_cond > status_new_cond.log
-done
+#crab status -d crab_hcal_${run}_new_cond > status_new_cond.log
+#while ! grep -q "finished" status_new_cond.log; do
+#    if grep -q "failed" status_new_cond.log; then
+#        crab resubmit -d crab_hcal_${run}_new_cond
+#    fi
+#    sleep 180
+#    crab status -d crab_hcal_${run}_new_cond > status_new_cond.log
+#done
 
-crab getoutput -d crab_hcal_${run}_def --checksum=no > retrieve_def.log
-while ! grep -q "All files successfully retrieved" retrieve_def.log; do
-    crab getoutput -d crab_hcal_${run}_def --checksum=no > retrieve_def.log
-done
+#crab getoutput -d crab_hcal_${run}_def --checksum=no > retrieve_def.log
+#while ! grep -q "All files successfully retrieved" retrieve_def.log; do
+#    crab getoutput -d crab_hcal_${run}_def --checksum=no > retrieve_def.log
+#done
 
-crab getoutput -d crab_hcal_${run}_new_cond --checksum=no > retrieve_new_cond.log
-while ! grep -q "All files successfully retrieved" retrieve_new_cond.log; do
-    crab getoutput -d crab_hcal_${run}_new_cond --checksum=no > retrieve_new_cond.log
-done
+#crab getoutput -d crab_hcal_${run}_new_cond --checksum=no > retrieve_new_cond.log
+#while ! grep -q "All files successfully retrieved" retrieve_new_cond.log; do
+#    crab getoutput -d crab_hcal_${run}_new_cond --checksum=no > retrieve_new_cond.log
+#done
 
 #------------------------------------------------------------------------------------
 
-rates.exe def crab_hcal_${run}_def/results
-rates.exe new crab_hcal_${run}_new_cond/results
-mkdir plots
-draw_rates.exe
-cp -r plots ${outdir}/${NewLUTtag}
+#rates.exe def crab_hcal_${run}_def/results
+#rates.exe new crab_hcal_${run}_new_cond/results
+#mkdir plots
+#draw_rates.exe
+#cp -r plots ${outdir}/${NewLUTtag}
 
