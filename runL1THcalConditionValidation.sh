@@ -116,9 +116,17 @@ sed -i '/config.JobType.outputFiles/ i\config.JobType.inputFiles = ["HcalL1Trigg
 
 #------------------------------------------------------------------------------------
 # Submit and retrieve jobs from CRAB
-cp ../../../../../ConditionsValidation/Tools/ntuple_maker_def.py .
-cmsRun ntuple_maker_def.py
-#cp submit_def.py $outdir
+#cp ../../../../../ConditionsValidation/Tools/ntuple_maker_def.py .
+#cmsRun ntuple_maker_def.py
+cp submit_def.py $outdir
+crab preparelocal --dir='crab_hcal_325170_def'
+cp -r crab_hcal_325170_def $outdir
+
+
+
+
+
+
 #cp ntuple_maker_def.py $outdir
 #source /cvmfs/cms.cern.ch/crab3/crab.sh
 
