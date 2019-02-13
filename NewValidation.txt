@@ -34,7 +34,7 @@ geometry     2018
 run          325170
 lumi_start   1   
 lumi_end     2
-dataset      Run2018D/ZeroBias/RAW/v1
+dataset      /ZeroBias/Run2018D-v1/RAW
 tier2        T2_CH_CERN
 
 release_L1   CMSSW_10_3_1
