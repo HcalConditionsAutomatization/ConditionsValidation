@@ -114,25 +114,24 @@ cp ../../../../../CMSSW_10_4_0_pre1/src/HcalL1TriggerObjects.db .
 ./submit_jobs.py -l lumimask.json -d $dataset -t Tag -o $tier2
 sed -i '/config.JobType.outputFiles/ i\config.JobType.inputFiles = ["HcalL1TriggerObjects.db"]' submit_new_cond.py
 
+
+cp ../../../../../ConditionsValidation/Tools/ntuple_maker_* .
+source runcrab3.sch
+cmsRun ntuple_maker_def.py
+cmsRun ntuple_maker_new_cond.py
+
 #------------------------------------------------------------------------------------
 # Submit and retrieve jobs from CRAB
 #cp ../../../../../ConditionsValidation/Tools/ntuple_maker_def.py .
 #cmsRun ntuple_maker_def.py
-cp submit_def.py $outdir
-crab submit submit_def.py
-crab preparelocal --dir='crab_hcal_325170_def'
-cp -r crab_hcal_325170_def $outdir
-
-
-
-
+#cp submit_def.py $outdir
+#crab submit submit_def.py
+#crab preparelocal --dir='crab_hcal_325170_def'
+#cp -r crab_hcal_325170_def $outdir
 
 
 #cp ntuple_maker_def.py $outdir
 #source /cvmfs/cms.cern.ch/crab3/crab.sh
-
-
-
 
 
 #crab submit submit_def.py
@@ -170,9 +169,9 @@ cp -r crab_hcal_325170_def $outdir
 
 #------------------------------------------------------------------------------------
 
-#rates.exe def crab_hcal_${run}_def/results
-#rates.exe new crab_hcal_${run}_new_cond/results
-#mkdir plots
-#draw_rates.exe
-#cp -r plots ${outdir}/${NewLUTtag}
+rates.exe def crab_hcal_${run}_def/results
+rates.exe new crab_hcal_${run}_new_cond/results
+mkdir plots
+draw_rates.exe
+cp -r plots ${outdir}/${NewLUTtag}
 
