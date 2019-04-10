@@ -116,8 +116,9 @@ sed -i '/config.JobType.outputFiles/ i\config.JobType.inputFiles = ["HcalL1Trigg
 
 
 cp ../../../../../ConditionsValidation/Tools/ntuple_maker_* .
-cp ../../../../../ConditionsValidation/Tools/runcrab3.csh .
-source runcrab3.csh
+#cp ../../../../../ConditionsValidation/Tools/runcrab3.csh .
+source /cvmfs/cms.cern.ch/crab3/crab.sh
+#source runcrab3.csh
 cmsRun ntuple_maker_def.py
 cmsRun ntuple_maker_new_cond.py
 
