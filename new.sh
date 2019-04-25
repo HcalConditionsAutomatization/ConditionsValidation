@@ -34,6 +34,7 @@ export arch_L1=`grep "arch_L1" $file | awk '{print $2}'`
 
 
 ###L1T###
+chmod +x runL1THcalConditionValidation.sh
 ./runL1THcalConditionValidation.sh 
 
 cp $file RunFiles/Validation_${year}_${week}.txt
