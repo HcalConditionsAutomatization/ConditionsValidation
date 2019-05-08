@@ -120,9 +120,9 @@ mkdir hcal_${run}_new_cond
 
 cp ../../../../../ConditionsValidation/Tools/ntuple_maker_def.py ./hcal_${run}_def
 cp ../../../../../ConditionsValidation/Tools/ntuple_maker_new_cond.py ./hcal_${run}_new_cond 
-cp ../../../../../ConditionsValidation/Tools/runcrab3.csh .
+#cp ../../../../../ConditionsValidation/Tools/runcrab3.csh .
 #source /cvmfs/cms.cern.ch/crab3/crab.sh
-source runcrab3.csh
+#source runcrab3.csh
 
 # Generate L1 Ntuple for default condition
 cd hcal_${run}_def
