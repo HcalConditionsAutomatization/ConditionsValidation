@@ -1,9 +1,9 @@
 #------------------------------------------------
 # VALIDATION INFO
 #------------------------------------------------
-validate     no
+validate     yes
 
-week         11
+week         12
 year         2018
 
 outdir       /eos/user/g/gcorreia/Hcal_project/Outputs
