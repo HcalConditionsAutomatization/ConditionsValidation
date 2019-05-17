@@ -49,7 +49,8 @@ process.configurationMetadata = cms.untracked.PSet(
 
 # Other statements
 from Configuration.AlCa.GlobalTag import GlobalTag
-process.GlobalTag = GlobalTag(process.GlobalTag, '101X_dataRun2_HLT_v7', 'HcalL1TriggerObjects_2018_v15.0_data,HcalL1TriggerObjectsRcd,frontier://FrontierProd/CMS_CONDITIONS')
+#process.GlobalTag = GlobalTag(process.GlobalTag, '101X_dataRun2_HLT_v7', 'HcalL1TriggerObjects_2018_v15.0_data,HcalL1TriggerObjectsRcd,frontier://FrontierProd/CMS_CONDITIONS')
+process.GlobalTag = GlobalTag(process.GlobalTag, '101X_dataRun2_HLT_v7', 'Tag,HcalL1TriggerObjectsRcd,frontier:sqlite_file:../HcalL1TriggerObjects.db')
 
 # Path and EndPath definitions
 process.raw2digi_step = cms.Path(process.RawToDigi)
