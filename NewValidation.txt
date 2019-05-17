@@ -3,7 +3,7 @@
 #------------------------------------------------
 validate     no
 
-week         12
+week         11
 year         2018
 
 outdir       /eos/user/g/gcorreia/Hcal_project/Outputs
@@ -11,7 +11,7 @@ outdir       /eos/user/g/gcorreia/Hcal_project/Outputs
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
-NewLUTtag    Physics2018v11
+NewLUTtag    Physics2018v11Test
 NewGT        101X_dataRun2_HLT_Candidate_2018_10_24_18_32_13
 NewRun       325500
 
