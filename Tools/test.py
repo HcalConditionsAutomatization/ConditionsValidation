@@ -4,6 +4,7 @@ for validation.'''
 import os
 import sys
 
+"""
 RUNS = [sys.argv[4], sys.argv[1]]
 CONDITIONS = ["ChannelQuality", "Pedestals", "Gains", "RespCorrs", 
               "ElectronicsMap", "TPParameters", "TPChannelParameters", 
@@ -19,6 +20,10 @@ for run in RUNS:
         dump_cmd += "record=" + condition + " Run=" + run + " GlobalTag=" + TAGS[run][1]
         os.system(dump_cmd)
         #print(dump_cmd)
+"""
+
+os.system("./genLUT.sh dumpAll card=cardPhysics.sh")
+os.system("./genLUT.sh dumpAll card=cardPhysics_gen_old.sh")
 
 # generate LUTs. Two sets of LUTs are generated here so that the comparison 
 # tests can be run. This will create two new sets of files 
