@@ -111,7 +111,7 @@ cd HcalTrigger/Validation/scripts
 #> lumimask.json
 #echo {'"'${run}'"': [[$lumi_start, $lumi_end]]} > lumimask.json
 
-#cp ../../../../../CMSSW_10_4_0_pre1/src/HcalL1TriggerObjects.db .
+cp ../../../../../CMSSW_10_4_0_pre1/src/HcalL1TriggerObjects.db .
 #./submit_jobs.py -l lumimask.json -d $dataset -t Tag -o $tier2
 #sed -i '/config.JobType.outputFiles/ i\config.JobType.inputFiles = ["HcalL1TriggerObjects.db"]' submit_new_cond.py
 
