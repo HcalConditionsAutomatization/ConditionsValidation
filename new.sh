@@ -39,7 +39,6 @@ export max_file_num=`grep "max_file_num" $file | awk '{print $2}'`
 ###L1T###
 chmod +x runL1THcalConditionValidation.sh
 ./runL1THcalConditionValidation.sh 
-exit 0
 cp $file RunFiles/Validation_${year}_${week}.txt
 sed -i 's/yes/no/' $file
 git add RunFiles/Validation_${year}_${week}.txt
