@@ -6,7 +6,7 @@ validate     yes
 week         11
 year         2018
 
-outdir       /eos/user/g/gcorreia/Hcal_project/Outputs
+outdir       /eos/user/y/yuanc/HCALValidation
 
 #------------------------------------------------
 # LUT GENERATION
@@ -36,6 +36,9 @@ lumi_start   1
 lumi_end     3
 dataset      /ZeroBias/Run2018D-v1/RAW
 tier2        T2_CH_CERN
+max_file_num 5
+nEvts	     1000
 
 release_L1   CMSSW_10_3_1
 arch_L1      slc6_amd64_gcc700
+version_L1   102.2
