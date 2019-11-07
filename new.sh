@@ -31,12 +31,15 @@ export release_LUT=`grep "release_LUT" $file | awk '{print $2}'`
 export arch_LUT=`grep "arch_LUT" $file | awk '{print $2}'`
 export release_L1=`grep "release_L1" $file | awk '{print $2}'`
 export arch_L1=`grep "arch_L1" $file | awk '{print $2}'`
+export version_L1=`grep "version_L1" $file | awk '{print $2}'`
+export nEvts=`grep "nEvts" $file | awk '{print $2}'`
+export max_file_num=`grep "max_file_num" $file | awk '{print $2}'`
 
 
 ###L1T###
 chmod +x runL1THcalConditionValidation.sh
 ./runL1THcalConditionValidation.sh 
-
+exit 0
 cp $file RunFiles/Validation_${year}_${week}.txt
 sed -i 's/yes/no/' $file
 git add RunFiles/Validation_${year}_${week}.txt

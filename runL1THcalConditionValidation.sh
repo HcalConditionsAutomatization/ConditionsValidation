@@ -1,5 +1,9 @@
 #!/bin/bash 
 
+#nEvts=100
+#max_file_num=2
+jobs_in_parallel=10
+listFiles="listOfFiles.txt"
 echo "==============================================="
 echo "week         " $week
 echo "year         " $year
@@ -20,6 +24,9 @@ echo "release_LUT  " $release_LUT
 echo "arch_LUT     " $arch_LUT
 echo "release_L1   " $release_L1
 echo "arch_L1      " $arch_L1
+echo "nEvts        " $nEvts
+echo "max_file_num " $max_file_num
+echo "jobs_in_parallel  " $jobs_in_parallel
 echo "==============================================="
 echo " "
 echo "======================================================================================================================"
@@ -77,25 +84,13 @@ echo " L1 rate validation"
 echo "====================================================================================================================="
 cd ../..
 scram -a $arch_L1 project $release_L1
-#cd CMSSW_10_2_1/src
-#eval `scram runtime -sh`
-#git cms-init
-#git remote add cms-l1t-offline git@github.com:cms-l1t-offline/cmssw.git
-#git fetch cms-l1t-offline l1t-integration-CMSSW_10_2_1
-#git cms-merge-topic -u cms-l1t-offline:l1t-integration-v101.0
-#git cms-addpkg L1Trigger/L1TCommon
-#git cms-addpkg L1Trigger/L1TMuon
-#git clone https://github.com/cms-l1t-offline/L1Trigger-L1TMuon.git L1Trigger/L1TMuon/data
-#git cms-addpkg L1Trigger/L1TCalorimeter
-#git clone https://github.com/cms-l1t-offline/L1Trigger-L1TCalorimeter.git L1Trigger/L1TCalorimeter/data
-#scram b -j 8
 
-cd CMSSW_10_3_1/src
+cd ${release_L1}/src
 eval `scram runtime -sh`
 git cms-init
 git remote add cms-l1t-offline git@github.com:cms-l1t-offline/cmssw.git
-git fetch cms-l1t-offline l1t-integration-CMSSW_10_3_1
-git cms-merge-topic -u cms-l1t-offline:l1t-integration-v102.2
+git fetch cms-l1t-offline l1t-integration-${release_L1}
+git cms-merge-topic -u cms-l1t-offline:l1t-integration-v${version_L1}
 git cms-addpkg L1Trigger/L1TCommon
 git cms-addpkg L1Trigger/L1TMuon
 git clone https://github.com/cms-l1t-offline/L1Trigger-L1TMuon.git L1Trigger/L1TMuon/data
@@ -107,34 +102,40 @@ git clone git@github.com:cms-hcal-trigger/Validation.git HcalTrigger/Validation
 scram b -j 8
 cd HcalTrigger/Validation/scripts
 
-#cp ../../../../../ConditionsValidation/Tools/submit_jobs.py .
+mkdir hcal_${run}_def
+mkdir hcal_${run}_new_cond
+cp ../../../../../ConditionsValidation/Tools/ntuple_maker_template.sh ./
+cp ../../../../../CMSSW_10_4_0_pre1/src/HcalL1TriggerObjects.db .
+
+dasgoclient -query="file dataset=${dataset} run=${run}" > $listFiles
+n=0
+for file in `less ./${listFiles}`
+do
+  n=$[$n+1]
+  echo "$n. $file"
+  if (( "$n" <= "$max_file_num" )) || (( "$max_file_num" < 0 ))
+  then
+    sh ./ntuple_maker_template.sh default $n $nEvts Run2_2018 101X_dataRun2_HLT_v7 root://cms-xrd-global.cern.ch//$file && mv ntuple_maker_def_$n.py ./hcal_${run}_def 
+    sh ./ntuple_maker_template.sh new_con $n $nEvts Run2_2018 101X_dataRun2_HLT_v7 root://cms-xrd-global.cern.ch//$file && mv ntuple_maker_new_$n.py ./hcal_${run}_new_cond
+    ( cd ./hcal_${run}_def/ && cmsRun ntuple_maker_def_$n.py && rm ntuple_maker_def_$n.py && mv L1Ntuple.root L1Ntuple_$n.root ) & ( cd ./hcal_${run}_new_cond/ && cmsRun ntuple_maker_new_$n.py && rm ntuple_maker_new_$n.py && mv L1Ntuple.root L1Ntuple_$n.root ) &
+    wait   
+#    if [ $(jobs | wc -l) -ge $jobs_in_parallel ]; then
+#      echo "Waiting for background processes to finish ..."
+#      wait
+#    fi
+  else
+    break
+  fi
+done
+echo "Waiting for background processes to finish ..."
+wait
 
 #> lumimask.json
 #echo {'"'${run}'"': [[$lumi_start, $lumi_end]]} > lumimask.json
 
-cp ../../../../../CMSSW_10_4_0_pre1/src/HcalL1TriggerObjects.db .
-#./submit_jobs.py -l lumimask.json -d $dataset -t Tag -o $tier2
-#sed -i '/config.JobType.outputFiles/ i\config.JobType.inputFiles = ["HcalL1TriggerObjects.db"]' submit_new_cond.py
-
-mkdir hcal_${run}_def
-mkdir hcal_${run}_new_cond
-
-cp ../../../../../ConditionsValidation/Tools/ntuple_maker_def.py ./hcal_${run}_def
-cp ../../../../../ConditionsValidation/Tools/ntuple_maker_new_cond.py ./hcal_${run}_new_cond 
 #cp ../../../../../ConditionsValidation/Tools/runcrab3.csh .
 #source runcrab3.csh
 
-# Generate L1 Ntuple for default condition
-cd hcal_${run}_def
-cmsRun ntuple_maker_def.py
-mv L1Ntuple.root L1Ntuple_def.root #rates.exe ony reads L1Ntuple_*.root
-
-# Generate L1 Ntuple for new condition
-cd ../hcal_${run}_new_cond
-cmsRun ntuple_maker_new_cond.py
-mv L1Ntuple.root L1Ntuple_new_cond.root #rates.exe ony reads L1Ntuple_*.root
-
-cd ..
 #------------------------------------------------------------------------------------
 # Submit and retrieve jobs from CRAB
 #cp ../../../../../ConditionsValidation/Tools/ntuple_maker_def.py .
@@ -184,9 +185,11 @@ cd ..
 
 #------------------------------------------------------------------------------------
 
+echo "!!!Making rates ..."
 rates.exe def ./hcal_${run}_def/
 rates.exe new ./hcal_${run}_new_cond/
 mkdir plots
 draw_rates.exe
+echo "!!!finished."
 cp -r plots ${outdir}/${NewLUTtag}
 
