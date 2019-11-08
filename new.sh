@@ -21,8 +21,7 @@ export HOAsciiInput=`grep "HOAsciiInput" $file | awk '{print $2}'`
 export geometry=`grep "geometry" $file | awk '{print $2}'`
 
 export run=`grep "run" $file | awk '{print $2}'`
-export lumi_start=`grep "lumi_start" $file | awk '{print $2}'`
-export lumi_end=`grep "lumi_end" $file | awk '{print $2}'`
+export lumimask=`grep "lumimask" $file | awk '{print $2}'`
 export dataset=`grep "dataset" $file | awk '{print $2}'`
 export tier2=`grep "tier2" $file | awk '{print $2}'`
 export outdir=`grep "outdir" $file | awk '{print $2}'`

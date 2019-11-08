@@ -32,12 +32,11 @@ geometry     2018
 # L1 RATE VALIDATION
 #------------------------------------------------
 run          325170
-lumi_start   1   
-lumi_end     3
+lumimask     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/PromptReco/Cert_314472-325175_13TeV_PromptReco_Collisions18_JSON.txt
 dataset      /ZeroBias/Run2018D-v1/RAW
 tier2        T2_CH_CERN
-max_file_num 5
-nEvts	     1000
+max_file_num 10
+nEvts	     5000
 
 release_L1   CMSSW_10_3_1
 arch_L1      slc6_amd64_gcc700
