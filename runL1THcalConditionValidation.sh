@@ -16,9 +16,9 @@ echo "geometry     " $geometry
 echo "run          " $run
 if [[ $lumiblock == \#* ]]
 then
-  echo "lumimask   " $lumimask
+  echo "lumimask     " $lumimask
 else
-  echo "lumiblock  " $lumiblock 
+  echo "lumiblock    " $lumiblock 
 fi
 echo "dataset      " $dataset
 echo "tier2        " $tier2
@@ -115,7 +115,7 @@ if [[ $lumiblock == \#* ]]
 then
   :
 else
-  echo '{\"$run\": $lumiblock}' > ./lumimask.txt
+  echo "{\"$run\": $lumiblock}" > ./lumimask.txt
   lumimask="../../lumimask.txt"
 fi
 
@@ -198,9 +198,9 @@ wait
 
 #------------------------------------------------------------------------------------
 
-rates.exe def ./hcal_${run}_def/
-rates.exe new ./hcal_${run}_new_cond/
-mkdir plots
-draw_rates.exe
-cp -r plots ${outdir}/${NewLUTtag}
+#rates.exe def ./hcal_${run}_def/
+#rates.exe new ./hcal_${run}_new_cond/
+#mkdir plots
+#draw_rates.exe
+#cp -r plots ${outdir}/${NewLUTtag}
 
