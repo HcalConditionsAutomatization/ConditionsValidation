@@ -1,7 +1,5 @@
 #!/bin/bash 
 
-#nEvts=100
-#max_file_num=2
 jobs_in_parallel=10
 listFiles="listOfFiles.txt"
 echo "==============================================="
@@ -16,8 +14,12 @@ echo "OldRun       " $OldRun
 echo "HOAsciiInput " $HOAsciiInput
 echo "geometry     " $geometry
 echo "run          " $run
-#echo "lumi_section " [$lumi_start,$lumi_end]
-echo "lumimask     " $lumimask
+if [[ $lumiblock == \#* ]]
+then
+  echo "lumimask   " $lumimask
+else
+  echo "lumiblock  " $lumiblock 
+fi
 echo "dataset      " $dataset
 echo "tier2        " $tier2
 echo "outdir       " $outdir
@@ -109,6 +111,13 @@ cp ../../../../../ConditionsValidation/Tools/ntuple_maker_template.sh ./
 cp ../../../../../CMSSW_10_4_0_pre1/src/HcalL1TriggerObjects.db .
 cp ../../../../../CMSSW_10_4_0_pre1/src/HcalL1TriggerObjects.db ./hcal_${run}_def 
 cp ../../../../../CMSSW_10_4_0_pre1/src/HcalL1TriggerObjects.db ./hcal_${run}_new_cond
+if [[ $lumiblock == \#* ]]
+then
+  :
+else
+  echo '{\"$run\": $lumiblock}' > ./lumimask.txt
+  lumimask="../../lumimask.txt"
+fi
 
 dasgoclient -query="file dataset=${dataset} run=${run}" > $listFiles
 n=0
@@ -122,7 +131,7 @@ do
     mkdir -p ./hcal_${run}_def/ntuple_maker_$numfolder && mkdir -p ./hcal_${run}_new_cond/ntuple_maker_$numfolder
     sh ./ntuple_maker_template.sh default $n $nEvts Run2_2018 101X_dataRun2_HLT_v7 root://cms-xrd-global.cern.ch//$file $lumimask && mv ntuple_maker_def_$n.py ./hcal_${run}_def/ntuple_maker_$numfolder 
     sh ./ntuple_maker_template.sh new_con $n $nEvts Run2_2018 101X_dataRun2_HLT_v7 root://cms-xrd-global.cern.ch//$file $lumimask && mv ntuple_maker_new_$n.py ./hcal_${run}_new_cond/ntuple_maker_$numfolder
-    ( cd ./hcal_${run}_def/ntuple_maker_$numfolder && cmsRun ntuple_maker_def_$n.py && rm ntuple_maker_def_$n.py && mv L1Ntuple.root ../L1Ntuple_$n.root ) & ( cd ./hcal_${run}_new_cond/ntuple_maker_$numfolder && cmsRun ntuple_maker_new_$n.py && rm ntuple_maker_new_$n.py && mv L1Ntuple.root ../L1Ntuple_$n.root ) &
+    ( cd ./hcal_${run}_def/ntuple_maker_$numfolder && cmsRun ntuple_maker_def_$n.py && mv L1Ntuple.root ../L1Ntuple_$n.root ) & ( cd ./hcal_${run}_new_cond/ntuple_maker_$numfolder && cmsRun ntuple_maker_new_$n.py && mv L1Ntuple.root ../L1Ntuple_$n.root ) &
 #    wait   
     if [ $(jobs | wc -l) -ge $jobs_in_parallel ]; then
       echo "Waiting for background processes to finish ..."
@@ -136,9 +145,6 @@ do
 done
 echo "Waiting for background processes to finish ..."
 wait
-
-#> lumimask.json
-#echo {'"'${run}'"': [[$lumi_start, $lumi_end]]} > lumimask.json
 
 #cp ../../../../../ConditionsValidation/Tools/runcrab3.csh .
 #source runcrab3.csh
@@ -192,11 +198,9 @@ wait
 
 #------------------------------------------------------------------------------------
 
-echo "!!!Making rates ..."
 rates.exe def ./hcal_${run}_def/
 rates.exe new ./hcal_${run}_new_cond/
 mkdir plots
 draw_rates.exe
-echo "!!!finished."
 cp -r plots ${outdir}/${NewLUTtag}
 

@@ -1,6 +1,7 @@
 #!/bin/bash
 
-file="NewValidation.txt"
+file="_NewValidation.txt"
+sed 's/^#.*$//g' "NewValidation.txt" > $file
 validate=`grep "validate" $file | awk '{print $2}'`
 if [ $validate = "yes" ]; 
 then
@@ -22,6 +23,7 @@ export geometry=`grep "geometry" $file | awk '{print $2}'`
 
 export run=`grep "run" $file | awk '{print $2}'`
 export lumimask=`grep "lumimask" $file | awk '{print $2}'`
+export lumiblock=`grep "lumiblock" $file | awk '{print $2}'`
 export dataset=`grep "dataset" $file | awk '{print $2}'`
 export tier2=`grep "tier2" $file | awk '{print $2}'`
 export outdir=`grep "outdir" $file | awk '{print $2}'`
@@ -36,6 +38,7 @@ export max_file_num=`grep "max_file_num" $file | awk '{print $2}'`
 
 
 ###L1T###
+
 chmod +x runL1THcalConditionValidation.sh
 ./runL1THcalConditionValidation.sh 
 cp $file RunFiles/Validation_${year}_${week}.txt
@@ -44,7 +47,6 @@ git add RunFiles/Validation_${year}_${week}.txt
 git commit -a -m "clean validation inputs"
 git push -u origin HEAD:master
 
-
 else
-echo "Not validate"
+  echo "Not validate"
 fi
