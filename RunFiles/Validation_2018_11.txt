@@ -1,6 +1,6 @@
-#------------------------------------------------
-# VALIDATION INFO
-#------------------------------------------------
+
+
+
 validate     yes
 
 week         11
@@ -8,9 +8,9 @@ year         2018
 
 outdir       /eos/user/y/yuanc/HCALValidation
 
-#------------------------------------------------
-# LUT GENERATION
-#------------------------------------------------
+
+
+
 NewLUTtag    Physics2018v11Test
 NewGT        101X_dataRun2_HLT_Candidate_2018_10_24_18_32_13
 NewRun       325500
@@ -23,16 +23,18 @@ HOAsciiInput HO_ped9_inputLUTcoderDec.txt
 release_LUT  CMSSW_10_4_0_pre1
 arch_LUT     slc6_amd64_gcc700
 
-#------------------------------------------------
-# TAG GENERATION
-#------------------------------------------------
+
+
+
 geometry     2018
 
-#------------------------------------------------
-# L1 RATE VALIDATION
-#------------------------------------------------
+
+
+
 run          325170
 lumimask     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/PromptReco/Cert_314472-325175_13TeV_PromptReco_Collisions18_JSON.txt
+
+lumiblock    [[1,100]]
 dataset      /ZeroBias/Run2018D-v1/RAW
 tier2        T2_CH_CERN
 max_file_num 10
