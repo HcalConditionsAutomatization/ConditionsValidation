@@ -37,7 +37,7 @@ lumimask     /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13
 lumiblock    [[1,600]]
 dataset      /ZeroBias/Run2018D-v1/RAW
 tier2        T2_CH_CERN
-max_file_num 10
+max_file_num 5
 nEvts	     5000
 
 release_L1   CMSSW_10_3_1
