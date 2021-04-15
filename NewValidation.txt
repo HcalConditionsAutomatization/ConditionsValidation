@@ -6,7 +6,7 @@ validate     yes
 week         11
 year         2018
 
-outdir       /eos/user/m/mkrohn/HCALValidation_newWebHook/
+outdir       /eos/user/m/mkrohn/HCALValidation/
 
 #------------------------------------------------
 # LUT GENERATION
