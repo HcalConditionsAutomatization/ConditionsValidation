@@ -6,7 +6,7 @@ validate     yes
 week         11
 year         2018
 
-outdir       /eos/user/m/mkrohn/HCALValidation/
+outdir       /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
 
 #------------------------------------------------
 # LUT GENERATION
@@ -21,7 +21,7 @@ OldRun       340500
 
 HOAsciiInput HO_ped9_inputLUTcoderDec.txt
 release_LUT  CMSSW_11_1_8
-arch_LUT     slc7_amd64_gcc820
+arch_LUT     slc6_amd64_gcc700
 
 #------------------------------------------------
 # TAG GENERATION
