@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 jobs_in_parallel=10
 listFiles="listOfFiles.txt"
@@ -18,7 +18,7 @@ if [[ $lumiblock == \#* ]]
 then
   echo "lumimask     " $lumimask
 else
-  echo "lumiblock    " $lumiblock 
+  echo "lumiblock    " $lumiblock
 fi
 echo "dataset      " $dataset
 echo "tier2        " $tier2
@@ -37,7 +37,7 @@ echo " LUT generation and validation"
 echo "======================================================================================================================"
 cd ..
 scram -a $arch_LUT project $release_LUT
-cd CMSSW_10_4_0_pre1/src
+cd $release_LUT/src
 eval `scram runtime -sh`
 git cms-merge-topic -u akhukhun:xmldbformat
 sed -i "s/const std::map<int, std::shared_ptr<LutXml> > _zdc_lut_xml = getZdcLutXml( _tag, split_by_crate );/\/\/const std::map<int, std::shared_ptr<LutXml> > _zdc_lut_xml = getZdcLutXml( _tag, split_by_crate );/" 'CaloOnlineTools/HcalOnlineDb/src/HcalLutManager.cc'
@@ -66,10 +66,10 @@ echo O2OL1TriggerObjects=false >> cardPhysics_gen_old.sh
 echo O2OInputs=false >> cardPhysics_gen_old.sh
 
 cp ../../../../../ConditionsValidation/Tools/test.py .
-#python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT   
+#python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT
 python test.py
 cp -r conditions/${NewLUTtag} $outdir
- 
+
 echo " "
 echo "======================================================================================================================"
 echo " L1TriggerObjects Tag generation"
@@ -109,7 +109,7 @@ mkdir hcal_${run}_def
 mkdir hcal_${run}_new_cond
 cp ../../../../../ConditionsValidation/Tools/ntuple_maker_template.sh ./
 cp ../../../../../CMSSW_10_4_0_pre1/src/HcalL1TriggerObjects.db .
-cp ../../../../../CMSSW_10_4_0_pre1/src/HcalL1TriggerObjects.db ./hcal_${run}_def 
+cp ../../../../../CMSSW_10_4_0_pre1/src/HcalL1TriggerObjects.db ./hcal_${run}_def
 cp ../../../../../CMSSW_10_4_0_pre1/src/HcalL1TriggerObjects.db ./hcal_${run}_new_cond
 if [[ $lumiblock == \#* ]]
 then
@@ -129,10 +129,10 @@ do
   then
     numfolder=(`find ./hcal_${run}_def/  -maxdepth 1 -name "ntuple_maker_*" -type d | wc -l`)
     mkdir -p ./hcal_${run}_def/ntuple_maker_$numfolder && mkdir -p ./hcal_${run}_new_cond/ntuple_maker_$numfolder
-    sh ./ntuple_maker_template.sh default $n $nEvts Run2_2018 101X_dataRun2_HLT_v7 root://cms-xrd-global.cern.ch//$file $lumimask && mv ntuple_maker_def_$n.py ./hcal_${run}_def/ntuple_maker_$numfolder 
+    sh ./ntuple_maker_template.sh default $n $nEvts Run2_2018 101X_dataRun2_HLT_v7 root://cms-xrd-global.cern.ch//$file $lumimask && mv ntuple_maker_def_$n.py ./hcal_${run}_def/ntuple_maker_$numfolder
     sh ./ntuple_maker_template.sh new_con $n $nEvts Run2_2018 101X_dataRun2_HLT_v7 root://cms-xrd-global.cern.ch//$file $lumimask && mv ntuple_maker_new_$n.py ./hcal_${run}_new_cond/ntuple_maker_$numfolder
     ( cd ./hcal_${run}_def/ntuple_maker_$numfolder && cmsRun ntuple_maker_def_$n.py && mv L1Ntuple.root ../L1Ntuple_$n.root ) & ( cd ./hcal_${run}_new_cond/ntuple_maker_$numfolder && cmsRun ntuple_maker_new_$n.py && mv L1Ntuple.root ../L1Ntuple_$n.root ) &
-#    wait   
+#    wait
     if [ $(jobs | wc -l) -ge $jobs_in_parallel ]; then
       echo "Waiting for background processes to finish ..."
       wait
@@ -164,7 +164,7 @@ wait
 
 
 #crab submit submit_def.py
-#crab submit submit_new_cond.py 
+#crab submit submit_new_cond.py
 #cp crab_hcal_325170_new_cond/crab.log ${outdir}/${NewLUTtag}
 #cp crab_hcal_325170_def/crab.log ${outdir}/${NewLUTtag}
 #crab status -d crab_hcal_${run}_def
@@ -203,4 +203,3 @@ rates.exe new ./hcal_${run}_new_cond/
 mkdir plots
 draw_rates.exe
 cp -r plots ${outdir}/${NewLUTtag}
-
