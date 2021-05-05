@@ -109,9 +109,9 @@ cd HcalTrigger/Validation/scripts
 mkdir hcal_${run}_def
 mkdir hcal_${run}_new_cond
 cp ../../../../../ConditionsValidation/Tools/ntuple_maker_template.sh ./
-cp ../../../../../CMSSW_10_4_0_pre1/src/HcalL1TriggerObjects.db .
-cp ../../../../../CMSSW_10_4_0_pre1/src/HcalL1TriggerObjects.db ./hcal_${run}_def
-cp ../../../../../CMSSW_10_4_0_pre1/src/HcalL1TriggerObjects.db ./hcal_${run}_new_cond
+cp ../../../../../$release_LUT/src/HcalL1TriggerObjects.db .
+cp ../../../../../$release_LUT/src/HcalL1TriggerObjects.db ./hcal_${run}_def
+cp ../../../../../$release_LUT/src/HcalL1TriggerObjects.db ./hcal_${run}_new_cond
 if [[ $lumiblock == \#* ]]
 then
   :
