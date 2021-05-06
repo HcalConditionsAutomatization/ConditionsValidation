@@ -69,14 +69,11 @@ echo O2OInputs=false >> cardPhysics_gen_old.sh
 cp ../../../../../ConditionsValidation/Tools/test.py .
 #python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT
 python test.py
-echo $outdir
-ls $outdir
-echo '/eos/user/m/mkrohn/'
-ls /eos/user/m/mkrohn/
 echo 'eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/'
 eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/
 echo conditions/${NewLUTtag}
-cp -r conditions/${NewLUTtag} $outdir
+#cp -r conditions/${NewLUTtag} $outdir
+xrdcp conditions/${NewLUTtag} root://eos<experiment>.cern.ch/$outdir
 
 echo " "
 echo "======================================================================================================================"
