@@ -73,8 +73,8 @@ echo $outdir
 ls $outdir
 echo '/eos/user/m/mkrohn/'
 ls /eos/user/m/mkrohn/
-echo 'eos ls /eos/user/m/mkrohn/'
-eos ls /eos/user/m/mkrohn/
+echo 'eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/'
+eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/
 echo conditions/${NewLUTtag}
 cp -r conditions/${NewLUTtag} $outdir
 
