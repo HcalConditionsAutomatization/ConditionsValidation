@@ -69,6 +69,7 @@ echo O2OInputs=false >> cardPhysics_gen_old.sh
 cp ../../../../../ConditionsValidation/Tools/test.py .
 #python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT
 python test.py
+mkdir -p $outdir
 cp -r conditions/${NewLUTtag} $outdir
 
 echo " "
