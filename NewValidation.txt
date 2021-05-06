@@ -1,12 +1,12 @@
 #------------------------------------------------
 # VALIDATION INFO
 #------------------------------------------------
-validate     no
+validate     yes
 
 week         11
 year         2018
 
-outdir       /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
+outdir       /eos/user/m/mkrohn/HcalValidation/
 
 #------------------------------------------------
 # LUT GENERATION
