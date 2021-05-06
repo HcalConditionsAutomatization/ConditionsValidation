@@ -71,6 +71,8 @@ cp ../../../../../ConditionsValidation/Tools/test.py .
 python test.py
 echo $outdir
 ls $outdir
+echo '/eos/user/m/mkrohn/'
+ls /eos/user/m/mkrohn/
 echo conditions/${NewLUTtag}
 cp -r conditions/${NewLUTtag} $outdir
 
