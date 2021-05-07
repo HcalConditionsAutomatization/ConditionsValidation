@@ -73,7 +73,7 @@ echo 'eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/'
 eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/
 echo conditions/${NewLUTtag}
 #cp -r conditions/${NewLUTtag} $outdir
-xrdcp conditions/${NewLUTtag} root://eos<experiment>.cern.ch/$outdir
+xrdcp conditions/${NewLUTtag} root://eoscms.cern.ch/$outdir
 
 echo " "
 echo "======================================================================================================================"
