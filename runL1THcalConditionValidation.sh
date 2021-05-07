@@ -73,7 +73,7 @@ echo 'eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/'
 eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/
 echo conditions/${NewLUTtag}
 #cp -r conditions/${NewLUTtag} $outdir
-xrdcp conditions/${NewLUTtag} root://eoscms.cern.ch/$outdir
+xrdcp -r conditions/${NewLUTtag} root://eoscms.cern.ch/$outdir
 
 echo " "
 echo "======================================================================================================================"
@@ -84,7 +84,7 @@ cd ../../..
 cp ../../ConditionsValidation/Tools/writetoSQL9x.csh .
 chmod +x writetoSQL9x.csh
 ./writetoSQL9x.csh $geometry L1TriggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 HcalL1TriggerObjects.db
-cp HcalL1TriggerObjects.db ${outdir}/${NewLUTtag}
+xrdcp HcalL1TriggerObjects.db ${outdir}/${NewLUTtag}/HcalL1TriggerObjects.db
 
 echo " "
 echo "====================================================================================================================="
@@ -207,4 +207,4 @@ rates.exe def ./hcal_${run}_def/
 rates.exe new ./hcal_${run}_new_cond/
 mkdir plots
 draw_rates.exe
-cp -r plots ${outdir}/${NewLUTtag}
+xrdcp -r plots ${outdir}/${NewLUTtag}
