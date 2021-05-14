@@ -73,8 +73,7 @@ echo 'eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/'
 eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/
 echo conditions/${NewLUTtag}
 #cp -r conditions/${NewLUTtag} $outdir
-#xrdcp -r conditions/${NewLUTtag} root://cmseos.fnal.gov//store/user/keanet/HCALValidation
-xrdcp -r conditions/${NewLUTtag} root://cmsxrootd.fnal.gov//store/user/mkrohn/HCALValidation/
+xrdcp -r conditions/${NewLUTtag} root://cmsxrootd.fnal.gov//store/user/keanet/HCALValidation
 echo " "
 echo "======================================================================================================================"
 echo " L1TriggerObjects Tag generation"
@@ -84,8 +83,7 @@ cd ../../..
 cp ../../ConditionsValidation/Tools/writetoSQL9x.csh .
 chmod +x writetoSQL9x.csh
 ./writetoSQL9x.csh $geometry L1TriggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 HcalL1TriggerObjects.db
-#xrdcp HcalL1TriggerObjects.db ${outdir}/${NewLUTtag}/HcalL1TriggerObjects.db
-xrdcp -r HcalL1TriggerObjects.db root://cmsxrootd.fnal.gov//store/user/mkrohn/HCALValidation/
+xrdcp HcalL1TriggerObjects.db ${outdir}/${NewLUTtag}/HcalL1TriggerObjects.db
 
 echo " "
 echo "====================================================================================================================="
@@ -208,5 +206,4 @@ rates.exe def ./hcal_${run}_def/
 rates.exe new ./hcal_${run}_new_cond/
 mkdir plots
 draw_rates.exe
-#xrdcp -r plots ${outdir}/${NewLUTtag}
-xrdcp -r plots root://cmsxrootd.fnal.gov//store/user/mkrohn/HCALValidation/
+xrdcp -r plots ${outdir}/${NewLUTtag}
