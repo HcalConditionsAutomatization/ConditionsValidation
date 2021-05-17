@@ -73,7 +73,7 @@ echo 'eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/'
 eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/
 echo conditions/${NewLUTtag}
 #cp -r conditions/${NewLUTtag} $outdir
-xrdcp -rf conditions/${NewLUTtag} root://cmsxrootd.fnal.gov//store/user/keanet/HCALValidation
+xrdcp -rf conditions/${NewLUTtag} /eos/cms/store/user/rtaus
 # echo " "
 # echo "======================================================================================================================"
 # echo " L1TriggerObjects Tag generation"
