@@ -73,8 +73,7 @@ echo 'eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/'
 eos ls /eos/cms/store/user/rtaus/HCALValidation
 echo conditions/${NewLUTtag}
 #cp -r conditions/${NewLUTtag} $outdir
-xrdcp -rf conditions/${NewLUTtag} root://eoscms.cern.ch//eos/cms/store/user/rtaus/HCALValidation
-eos ls /eos/cms/store/user/rtaus/HCALValidation
+xrdcp -rf conditions/${NewLUTtag} root://cmseos.fnal.gov//store/user/keanet/HCALValidation
 
 # echo " "
 # echo "======================================================================================================================"
