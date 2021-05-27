@@ -75,6 +75,7 @@ echo conditions/${NewLUTtag}
 #cp -r conditions/${NewLUTtag} $outdir
 xrdcp -rf conditions/${NewLUTtag} root://cmseos.fnal.gov//store/user/keanet/HCALValidation
 
+#echo
 # echo " "
 # echo "======================================================================================================================"
 # echo " L1TriggerObjects Tag generation"
