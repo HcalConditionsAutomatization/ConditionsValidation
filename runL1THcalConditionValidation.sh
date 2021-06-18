@@ -54,6 +54,10 @@ sed -n '141p' ../../../../../ConditionsValidation/LUTFigureParameters/HcalLutAna
 echo "finished copying the plotting parameters"
 sed -n '34,35p' PlotLUT.py
 sed -n '141p' ../plugins/HcalLutAnalyzer.cc
+cd ../plugins
+scram b clean
+scram b
+cd ../test
 
 > cardPhysics.sh
 echo GlobalTag=$NewGT >> cardPhysics.sh
@@ -77,7 +81,7 @@ echo O2OInputs=false >> cardPhysics_gen_old.sh
 
 cp ../../../../../ConditionsValidation/Tools/test.py .
 #python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT
-python test.py
+python test.py ${NewLUTtag} ${OldLUTtag}
 echo 'eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/'
 eos ls $outdir
 echo conditions/${NewLUTtag}
