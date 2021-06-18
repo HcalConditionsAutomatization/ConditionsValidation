@@ -3,7 +3,7 @@
 file="_NewValidation.txt"
 sed 's/^#.*$//g' "NewValidation.txt" > $file
 validate=`grep "validate" $file | awk '{print $2}'`
-if [ $validate = "yes" ]; 
+if [ $validate = "yes" ];
 then
 
 export year=`grep "year" $file | awk '{print $2}'`
@@ -12,6 +12,7 @@ export week=`grep "week" $file | awk '{print $2}'`
 export NewLUTtag=`grep "NewLUTtag" $file | awk '{print $2}'`
 export NewGT=`grep "NewGT" $file | awk '{print $2}'`
 export NewRun=`grep "NewRun" $file | awk '{print $2}'`
+export NewGains=`grep "NewGains" $file | awk '{print $2}'`
 
 export OldLUTtag=`grep "OldLUTtag" $file | awk '{print $2}'`
 export OldGT=`grep "OldGT" $file | awk '{print $2}'`
@@ -40,7 +41,7 @@ export max_file_num=`grep "max_file_num" $file | awk '{print $2}'`
 ###L1T###
 
 chmod +x runL1THcalConditionValidation.sh
-./runL1THcalConditionValidation.sh 
+./runL1THcalConditionValidation.sh
 cp $file RunFiles/Validation_${year}_${week}.txt
 sed -i 's/yes/no/' $file
 git add RunFiles/Validation_${year}_${week}.txt
