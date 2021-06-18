@@ -8,6 +8,7 @@ echo "year         " $year
 echo "NewLUTtag    " $NewLUTtag
 echo "NewGT        " $NewGT
 echo "NewRun       " $NewRun
+echo "NewGains     " $NewGains
 echo "OldLUTtag    " $OldLUTtag
 echo "OldGT        " $OldGT
 echo "OldRun       " $OldRun
@@ -63,6 +64,7 @@ cd ../test
 echo GlobalTag=$NewGT >> cardPhysics.sh
 echo Tag=$NewLUTtag >> cardPhysics.sh
 echo Run=$NewRun >> cardPhysics.sh
+echo Gains=$NewGains >> cardPhysics.sh
 echo OldTag=$OldLUTtag >> cardPhysics.sh
 echo OldRun=$OldRun >> cardPhysics.sh
 echo description='"validation"' >> cardPhysics.sh

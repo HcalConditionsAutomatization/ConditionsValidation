@@ -14,6 +14,7 @@ outdir    /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
 NewLUTtag    test_2021_v0a
 NewGT        111X_dataRun3_Prompt_v3
 NewRun       340502
+NewGains     HcalGains_2020_o2oTest_v1.0
 
 OldLUTtag    test_2021_v0
 OldGT        111X_dataRun3_Prompt_v3
