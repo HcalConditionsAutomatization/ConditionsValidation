@@ -84,7 +84,6 @@ echo conditions/${NewLUTtag}
 #cp -r conditions/${NewLUTtag} $outdir
 xrdcp -rf conditions/${NewLUTtag} $outdir
 
-#
 #echo
 # echo " "
 # echo "======================================================================================================================"
