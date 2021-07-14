@@ -92,9 +92,10 @@ xrdcp -rf conditions/${NewLUTtag} $outdir
 
 #echo
 # echo " "
-# echo "======================================================================================================================"
-# echo " L1TriggerObjects Tag generation"
-# echo "======================================================================================================================"
+echo "======================================================================================================================"
+echo " L1TriggerObjects Tag generation"
+echo "======================================================================================================================"
+ls conditions/$NewLUTtag/Deploy/
 cp conditions/$NewLUTtag/Deploy/Gen_L1TriggerObjects_${NewLUTtag}.txt ../../..
 cd ../../..
 cp ../../ConditionsValidation/Tools/writetoSQL9x.csh .
