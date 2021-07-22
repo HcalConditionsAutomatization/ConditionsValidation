@@ -3,33 +3,29 @@
 jobs_in_parallel=10
 listFiles="listOfFiles.txt"
 echo "==============================================="
-echo "week         " $week
-echo "year         " $year
+echo "HOAsciiInput " $HOAsciiInput
+echo "release_L1   " $release_L1
 echo "NewLUTtag    " $NewLUTtag
 echo "NewGT        " $NewGT
-echo "NewRun       " $NewRun
-echo "NewGains     " $NewGains
-echo "OldLUTtag    " $OldLUTtag
-echo "OldGT        " $OldGT
-echo "OldRun       " $OldRun
-echo "HOAsciiInput " $HOAsciiInput
-echo "geometry     " $geometry
-echo "run          " $run
-if [[ $lumiblock == \#* ]]
-then
-  echo "lumimask     " $lumimask
-else
-  echo "lumiblock    " $lumiblock
-fi
 echo "dataset      " $dataset
-echo "tier2        " $tier2
-echo "outdir       " $outdir
-echo "release_LUT  " $release_LUT
-echo "arch_LUT     " $arch_LUT
-echo "release_L1   " $release_L1
-echo "arch_L1      " $arch_L1
+echo "year         " $year
 echo "nEvts        " $nEvts
+echo "lumi_start   " $lumi_start
+echo "tier2        " $tier2
+echo "OldRun       " $OldRun
+echo "lumi_end     " $lumi_end
+echo "version_L1   " $version_L1
+echo "OldLUTtag    " $OldLUTtag
+echo "week         " $week
+echo "run          " $run
 echo "max_file_num " $max_file_num
+echo "OldGT        " $OldGT
+echo "NewRun       " $NewRun
+echo "release_LUT  " $release_LUT
+echo "outdir       " $outdir
+echo "geometry     " $geometry
+echo "arch_L1      " $arch_L1
+echo "arch_LUT     " $arch_LUT
 echo "jobs_in_parallel  " $jobs_in_parallel
 echo "==============================================="
 echo " "
@@ -64,7 +60,6 @@ cd ../test
 echo GlobalTag=$NewGT >> cardPhysics.sh
 echo Tag=$NewLUTtag >> cardPhysics.sh
 echo Run=$NewRun >> cardPhysics.sh
-echo Gains=$NewGains >> cardPhysics.sh
 echo OldTag=$OldLUTtag >> cardPhysics.sh
 echo OldRun=$OldRun >> cardPhysics.sh
 echo description='"validation"' >> cardPhysics.sh
@@ -81,6 +76,7 @@ echo HOAsciiInput=$HOAsciiInput >> cardPhysics_gen_old.sh
 echo O2OL1TriggerObjects=false >> cardPhysics_gen_old.sh
 echo O2OInputs=false >> cardPhysics_gen_old.sh
 
+echo 'cp ../../../../../ConditionsValidation/Tools/test.py .'
 cp ../../../../../ConditionsValidation/Tools/test.py .
 #python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT
 python test.py ${NewLUTtag} ${OldLUTtag}
@@ -92,18 +88,18 @@ xrdcp -rf conditions/${NewLUTtag} $outdir
 
 #echo
 # echo " "
-echo "======================================================================================================================"
-echo " L1TriggerObjects Tag generation"
-echo "======================================================================================================================"
-ls conditions/$NewLUTtag/Deploy/
-cp conditions/$NewLUTtag/Deploy/Gen_L1TriggerObjects_${NewLUTtag}.txt ../../..
-cd ../../..
-cp ../../ConditionsValidation/Tools/writetoSQL9x.csh .
-chmod +x writetoSQL9x.csh
-./writetoSQL9x.csh $geometry L1TriggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 HcalL1TriggerObjects.db
-xrdcp HcalL1TriggerObjects.db $outdir/${NewLUTtag}/HcalL1TriggerObjects.db
-echo 'eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/'
-eos ls $outdir/${NewLUTtag}
+# echo "======================================================================================================================"
+# echo " L1TriggerObjects Tag generation"
+# echo "======================================================================================================================"
+# ls conditions/$NewLUTtag/Deploy/
+# cp conditions/$NewLUTtag/Deploy/Gen_L1TriggerObjects_${NewLUTtag}.txt ../../..
+# cd ../../..
+# cp ../../ConditionsValidation/Tools/writetoSQL9x.csh .
+# chmod +x writetoSQL9x.csh
+# ./writetoSQL9x.csh $geometry L1TriggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 HcalL1TriggerObjects.db
+# xrdcp HcalL1TriggerObjects.db $outdir/${NewLUTtag}/HcalL1TriggerObjects.db
+# echo 'eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/'
+# eos ls $outdir/${NewLUTtag}
 
 # echo " "
 # echo "====================================================================================================================="
