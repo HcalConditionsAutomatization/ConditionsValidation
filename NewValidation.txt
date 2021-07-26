@@ -21,7 +21,7 @@ OldRun       322800
 
 HOAsciiInput HO_ped9_inputLUTcoderDec.txt
 release_LUT  CMSSW_10_4_0_pre1
-arch_LUT     slc6_amd64_gcc700
+arch_LUT     slc7_amd64_gcc820
 
 #------------------------------------------------
 # TAG GENERATION
@@ -40,5 +40,5 @@ max_file_num 5
 nEvts       1000
 
 release_L1   CMSSW_10_3_1
-arch_L1      slc6_amd64_gcc700
+arch_L1      slc7_amd64_gcc820
 version_L1   102.2
