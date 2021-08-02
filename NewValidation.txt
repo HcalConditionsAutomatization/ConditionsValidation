@@ -11,13 +11,13 @@ outdir    /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
-NewLUTtag    Physics2018v11Test
-NewGT        101X_dataRun2_HLT_Candidate_2018_10_24_18_32_13
-NewRun       325500
+NewLUTtag    Physics2018v9
+NewGT        101X_dataRun2_HLT_Candidate_2018_08_23_18_06_31
+NewRun       321800
 
-OldLUTtag    Physics2018v10
-OldGT        101X_dataRun2_HLT_Candidate_2018_09_04_15_22_38
-OldRun       322800
+OldLUTtag    Physics2018v8
+OldGT        101X_dataRun2_HLT_Candidate_2018_08_10_14_55_01
+OldRun       321200
 
 HOAsciiInput HO_ped9_inputLUTcoderDec.txt
 release_LUT  CMSSW_11_1_8
@@ -39,6 +39,6 @@ tier2        T2_CH_CERN
 max_file_num 5
 nEvts       1000
 
-release_L1   CMSSW_10_4_0_pre2
+release_L1   CMSSW_11_1_8
 arch_L1      slc7_amd64_gcc820
 version_L1   102.2
