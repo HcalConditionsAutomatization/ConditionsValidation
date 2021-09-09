@@ -101,36 +101,38 @@ xrdcp -f HcalL1TriggerObjects.db $outdir/${NewLUTtag}/HcalL1TriggerObjects.db
 echo 'eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/'
 eos ls $outdir/${NewLUTtag}
 
-# echo " "
-# echo "====================================================================================================================="
-# echo " L1 rate validation"
-# echo "====================================================================================================================="
-# cd ../..
-# scram -a $arch_L1 project $release_L1
-#
-# cd ${release_L1}/src
-# eval `scram runtime -sh`
-# git cms-init
-# git remote add cms-l1t-offline git@github.com:cms-l1t-offline/cmssw.git
-# git fetch cms-l1t-offline l1t-integration-${release_L1}
-# git cms-merge-topic -u cms-l1t-offline:l1t-integration-v${version_L1}
-# git cms-addpkg L1Trigger/L1TCommon
-# git cms-addpkg L1Trigger/L1TMuon
-# git clone https://github.com/cms-l1t-offline/L1Trigger-L1TMuon.git L1Trigger/L1TMuon/data
-# git cms-addpkg L1Trigger/L1TCalorimeter
-# git clone https://github.com/cms-l1t-offline/L1Trigger-L1TCalorimeter.git L1Trigger/L1TCalorimeter/data
-# scram b -j 8
-# #----------------------------------------------------------------------------------------------------
-# git clone git@github.com:cms-hcal-trigger/Validation.git HcalTrigger/Validation
-# scram b -j 8
-# cd HcalTrigger/Validation/scripts
-#
-# mkdir hcal_${run}_def
-# mkdir hcal_${run}_new_cond
-# cp ../../../../../ConditionsValidation/Tools/ntuple_maker_template.sh ./
-# cp ../../../../../$release_LUT/src/HcalL1TriggerObjects.db .
-# cp ../../../../../$release_LUT/src/HcalL1TriggerObjects.db ./hcal_${run}_def
-# cp ../../../../../$release_LUT/src/HcalL1TriggerObjects.db ./hcal_${run}_new_cond
+echo " "
+echo "====================================================================================================================="
+echo " L1 rate validation"
+echo "====================================================================================================================="
+cd ../..
+scram -a $arch_L1 project $release_L1
+
+cd ${release_L1}/src
+eval `scram runtime -sh`
+git cms-init
+git remote add cms-l1t-offline git@github.com:cms-l1t-offline/cmssw.git
+git fetch cms-l1t-offline l1t-integration-${release_L1}
+git cms-merge-topic -u cms-l1t-offline:l1t-integration-v${version_L1}
+git cms-addpkg L1Trigger/L1TCommon
+git cms-addpkg L1Trigger/L1TMuon
+git clone https://github.com/cms-l1t-offline/L1Trigger-L1TMuon.git L1Trigger/L1TMuon/data
+git cms-addpkg L1Trigger/L1TCalorimeter
+git clone https://github.com/cms-l1t-offline/L1Trigger-L1TCalorimeter.git L1Trigger/L1TCalorimeter/data
+scram b -j 8
+#----------------------------------------------------------------------------------------------------
+git clone git@github.com:cms-hcal-trigger/Validation.git HcalTrigger/Validation
+scram b -j 8
+cd HcalTrigger/Validation/scripts
+
+mkdir hcal_${run}_def
+mkdir hcal_${run}_new_cond
+
+cp ../../../../../ConditionsValidation/Tools/ntuple_maker_template.sh ./
+cp ../../../../../$release_LUT/src/HcalL1TriggerObjects.db .
+cp ../../../../../$release_LUT/src/HcalL1TriggerObjects.db ./hcal_${run}_def
+cp ../../../../../$release_LUT/src/HcalL1TriggerObjects.db ./hcal_${run}_new_cond
+ls
 # if [[ $lumiblock == \#* ]]
 # then
 #   :
