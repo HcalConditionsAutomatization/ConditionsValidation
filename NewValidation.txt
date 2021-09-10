@@ -39,6 +39,6 @@ tier2        T2_CH_CERN
 max_file_num 5
 nEvts       1000
 
-release_L1   CMSSW_11_2_0
+release_L1   CMSSW_11_0_2
 arch_L1      slc7_amd64_gcc820
 version_L1   102.2
