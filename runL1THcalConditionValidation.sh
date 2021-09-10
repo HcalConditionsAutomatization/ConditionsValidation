@@ -112,7 +112,7 @@ cd ${release_L1}/src
 eval `scram runtime -sh`
 git cms-init
 git remote add cms-l1t-offline git@github.com:cms-l1t-offline/cmssw.git
-git fetch cms-l1t-offline l1t-integration-${release_L1}
+git fetch cms-l1t-offline l1t-integration-CMSSW_11_2_0
 git cms-merge-topic -u cms-l1t-offline:l1t-integration-v${version_L1}
 git cms-addpkg L1Trigger/L1TCommon
 git cms-addpkg L1Trigger/L1TMuon
