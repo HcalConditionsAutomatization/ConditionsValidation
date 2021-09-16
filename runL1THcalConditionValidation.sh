@@ -152,6 +152,8 @@ do
     numfolder=(`find ./hcal_${run}_def/  -maxdepth 1 -name "ntuple_maker_*" -type d | wc -l`)
     mkdir -p ./hcal_${run}_def/ntuple_maker_$numfolder && mkdir -p ./hcal_${run}_new_cond/ntuple_maker_$numfolder
     sh ./ntuple_maker_template.sh default $n $nEvts Run2_2018 101X_dataRun2_HLT_v7 root://cms-xrd-global.cern.ch//$file $lumimask && mv ntuple_maker_def_$n.py ./hcal_${run}_def/ntuple_maker_$numfolder
+    echo "cat ntuple_maker_new_$n.py"
+    cat ntuple_maker_new_$n.py
     sh ./ntuple_maker_template.sh new_con $n $nEvts Run2_2018 101X_dataRun2_HLT_v7 root://cms-xrd-global.cern.ch//$file $lumimask && mv ntuple_maker_new_$n.py ./hcal_${run}_new_cond/ntuple_maker_$numfolder
     ( cd ./hcal_${run}_def/ntuple_maker_$numfolder && cmsRun ntuple_maker_def_$n.py && mv L1Ntuple.root ../L1Ntuple_$n.root ) & ( cd ./hcal_${run}_new_cond/ntuple_maker_$numfolder && cmsRun ntuple_maker_new_$n.py && mv L1Ntuple.root ../L1Ntuple_$n.root ) &
 #    wait
@@ -165,8 +167,7 @@ do
     break
   fi
 done
-echo "cat ntuple_maker_new_1.py"
-cat ntuple_maker_new_1.py
+
 echo "Waiting for background processes to finish ..."
 wait
 
