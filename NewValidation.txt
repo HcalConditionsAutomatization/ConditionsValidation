@@ -20,7 +20,7 @@ OldGT        101X_dataRun2_HLT_Candidate_2018_08_10_14_55_01
 OldRun       321200
 
 HOAsciiInput HO_ped9_inputLUTcoderDec.txt
-release_LUT  CMSSW_11_1_8
+release_LUT  CMSSW_10_5_0
 arch_LUT     slc7_amd64_gcc820
 
 #------------------------------------------------
@@ -39,6 +39,6 @@ tier2        T2_CH_CERN
 max_file_num 5
 nEvts       1000
 
-release_L1   CMSSW_11_2_0_pre1
+release_L1   CMSSW_10_5_0
 arch_L1      slc7_amd64_gcc820
 version_L1   102.3
