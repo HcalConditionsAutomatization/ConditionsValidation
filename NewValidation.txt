@@ -11,7 +11,7 @@ outdir    /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
-NewLUTtag    Oct_Test_Beam_Taeun
+NewLUTtag    Physics2018v9
 NewGT        120X_dataRun3_HLT_v3
 NewRun       321800
 
@@ -40,5 +40,5 @@ max_file_num 5
 nEvts       1000
 
 release_L1   CMSSW_12_0_2
-arch_L1      slc7_amd64_gcc820
+arch_L1      slc7_amd64_gcc900
 version_L1   114.0
