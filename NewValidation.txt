@@ -12,7 +12,7 @@ outdir    /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
 # LUT GENERATION
 #------------------------------------------------
 NewLUTtag    Physics2018v9
-NewGT        120X_dataRun3_HLT_v3
+NewGT        101X_dataRun2_HLT_Candidate_2018_08_23_18_06_31
 NewRun       321800
 
 OldLUTtag    Physics2018v8
@@ -31,14 +31,14 @@ geometry     2018
 #------------------------------------------------
 # L1 RATE VALIDATION
 #------------------------------------------------
-run          346494
+run          325170
 lumi_start   1
 lumi_end     3
-dataset      /MinimumBias/Commissioning2021-v1/RAW
+dataset      /ZeroBias/Run2018D-v1/RAW
 tier2        T2_CH_CERN
 max_file_num 5
 nEvts       1000
 
-release_L1   CMSSW_12_0_2
-arch_L1      slc7_amd64_gcc900
-version_L1   114.0
+release_L1   CMSSW_11_2_0_pre1
+arch_L1      slc7_amd64_gcc820
+version_L1   102.3
