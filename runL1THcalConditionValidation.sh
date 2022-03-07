@@ -81,6 +81,8 @@ cp ../../../../../ConditionsValidation/Tools/test.py .
 #python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT
 python test.py ${NewLUTtag} ${OldLUTtag}
 echo 'eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/'
+echo 'eos ls $outdir'
+echo "======================================================"
 eos ls $outdir
 echo conditions/${NewLUTtag}
 #cp -r conditions/${NewLUTtag} $outdir
