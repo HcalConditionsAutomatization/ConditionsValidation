@@ -38,6 +38,7 @@ cd $release_LUT/src
 eval `scram runtime -sh`
 git cms-addpkg CaloOnlineTools/HcalOnlineDb
 git cms-merge-topic -u akhukhun:xmldbformat
+git cms-merge-topic -u Michael-Krohn:skip-ZDC-LUT-generation
 sed -i "s/const std::map<int, std::shared_ptr<LutXml> > _zdc_lut_xml = getZdcLutXml( _tag, split_by_crate );/\/\/const std::map<int, std::shared_ptr<LutXml> > _zdc_lut_xml = getZdcLutXml( _tag, split_by_crate );/" 'CaloOnlineTools/HcalOnlineDb/src/HcalLutManager.cc'
 sed -i "s/addLutMap( xml, _zdc_lut_xml );/\/\/addLutMap( xml, _zdc_lut_xml );/" 'CaloOnlineTools/HcalOnlineDb/src/HcalLutManager.cc'
 scram b
