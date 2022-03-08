@@ -86,6 +86,7 @@ echo 'eos ls $outdir'
 echo "======================================================"
 eos ls $outdir
 echo conditions/${NewLUTtag}
+eos mkdir $outdir/${NewLUTtag}
 xrdcp -rf conditions/${NewLUTtag} $outdir/${NewLUTtag}
 
 echo
