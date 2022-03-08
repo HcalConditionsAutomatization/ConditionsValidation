@@ -86,8 +86,7 @@ echo 'eos ls $outdir'
 echo "======================================================"
 eos ls $outdir
 echo conditions/${NewLUTtag}
-#cp -r conditions/${NewLUTtag} $outdir
-xrdcp -rf conditions/${NewLUTtag} $outdir
+xrdcp -rf conditions/${NewLUTtag} $outdir/.
 
 echo
 echo " "
@@ -102,7 +101,7 @@ chmod +x writetoSQL9x.csh
 ./writetoSQL9x.csh $geometry L1TriggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 HcalL1TriggerObjects.db
 xrdcp -f HcalL1TriggerObjects.db $outdir/${NewLUTtag}/HcalL1TriggerObjects.db
 echo 'eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/'
-eos ls $outdir/${NewLUTtag}
+eos ls $outdir/${NewLUTtag}/.
 
 echo " "
 echo "====================================================================================================================="
@@ -224,4 +223,4 @@ rates.exe def ./hcal_${run}_def/
 rates.exe new ./hcal_${run}_new_cond/
 mkdir plots
 draw_rates.exe
-xrdcp -r plots ${outdir}/${NewLUTtag}
+xrdcp -rf plots ${outdir}/${NewLUTtag}/.

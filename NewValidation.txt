@@ -4,7 +4,7 @@
 validate     yes
 
 week         11
-year         2018
+year         2022
 
 outdir    /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
 
@@ -31,7 +31,7 @@ geometry     2022
 #------------------------------------------------
 # L1 RATE VALIDATION
 #------------------------------------------------
-run          325170
+run          347807
 lumi_start   1
 lumi_end     3
 dataset      /HcalNZS/Commissioning2022-v1/RAW
@@ -39,6 +39,6 @@ tier2        T2_CH_CERN
 max_file_num 5
 nEvts       1000
 
-release_L1   CMSSW_11_2_0_pre1
-arch_L1      slc7_amd64_gcc820
-version_L1   102.3
+release_L1   CMSSW_12_3_0_pre1
+arch_L1      slc7_amd64_gcc900
+version_L1   120.0
