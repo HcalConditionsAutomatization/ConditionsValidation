@@ -13,7 +13,7 @@ outdir    /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
 #------------------------------------------------
 NewLUTtag    Physics2018v9
 NewGT        120X_dataRun3_HLT_v3
-NewRun       321800
+NewRun       346494
 
 OldLUTtag    Physics2018v8
 OldGT        101X_dataRun2_HLT_Candidate_2018_08_10_14_55_01
