@@ -115,7 +115,7 @@ cd ${release_L1}/src
 eval `scram runtime -sh`
 git cms-init
 git remote add cms-l1t-offline git@github.com:cms-l1t-offline/cmssw.git
-git fetch cms-l1t-offline l1t-integration-${release_L1} --update-head-ok
+git fetch -u cms-l1t-offline l1t-integration-${release_L1}
 git cms-merge-topic -u cms-l1t-offline:l1t-integration-v${version_L1}
 git clone https://github.com/cms-l1t-offline/L1Trigger-L1TCalorimeter.git L1Trigger/L1TCalorimeter/data
 git cms-checkdeps -A -a
