@@ -173,4 +173,5 @@ rates.exe def ./hcal_${run}_def/
 rates.exe new ./hcal_${run}_new_cond/
 mkdir plots
 draw_rates.exe
-xrdcp -rf plots ${outdir}/${NewLUTtag}/.
+ls plots
+xrdcp -rf plots ${outdir}/${NewLUTtag}/plots
