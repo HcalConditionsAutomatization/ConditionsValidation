@@ -11,7 +11,7 @@ outdir    /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
-NewLUTtag    Physics2018v9
+NewLUTtag    OctTestBeam2021
 NewGT        120X_dataRun3_HLT_v3
 NewRun       346494
 
@@ -26,7 +26,7 @@ arch_LUT     slc7_amd64_gcc900
 #------------------------------------------------
 # TAG GENERATION
 #------------------------------------------------
-geometry     2018
+geometry     2021
 
 #------------------------------------------------
 # L1 RATE VALIDATION
