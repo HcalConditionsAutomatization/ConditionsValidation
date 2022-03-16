@@ -11,13 +11,13 @@ outdir    /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
-NewLUTtag    OctTestBeam2021
-NewGT        120X_dataRun3_HLT_v3
-NewRun       346494
+NewLUTtag    dataRun3_HLTNew_HCAL
+NewGT        122X_dataRun3_HLTNew_HCAL_w8_2022_v1
+NewRun       347807
 
-OldLUTtag    Physics2018v8
-OldGT        101X_dataRun2_HLT_Candidate_2018_08_10_14_55_01
-OldRun       321200
+OldLUTtag    dataRun3_HLT_v3
+OldGT        122X_dataRun3_HLT_v3
+OldRun       347806
 
 HOAsciiInput HO_ped9_inputLUTcoderDec.txt
 release_LUT  CMSSW_12_2_1
@@ -26,19 +26,19 @@ arch_LUT     slc7_amd64_gcc900
 #------------------------------------------------
 # TAG GENERATION
 #------------------------------------------------
-geometry     2021
+geometry     2022
 
 #------------------------------------------------
 # L1 RATE VALIDATION
 #------------------------------------------------
-run          346494
+run          347807
 lumi_start   1
 lumi_end     3
-dataset      /MinimumBias/Commissioning2021-v1/RAW
+dataset      /HcalNZS/Commissioning2022-v1/RAW
 tier2        T2_CH_CERN
 max_file_num 5
 nEvts       1000
 
-release_L1   CMSSW_12_0_2
+release_L1   CMSSW_12_3_0_pre1
 arch_L1      slc7_amd64_gcc900
-version_L1   114.0
+version_L1   120.0
