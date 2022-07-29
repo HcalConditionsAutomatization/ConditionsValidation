@@ -11,17 +11,17 @@ outdir    /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
-NewLUTtag    dataRun3_HLTNew_HCAL
-NewGT        122X_dataRun3_HLTNew_HCAL_w8_2022_v1
-NewRun       347807
+NewLUTtag    Run3Aug2022
+NewGT        124X_dataRun3_HLT_Candidate_2022_07_06_15_20_04
+NewRun       356290
 
-OldLUTtag    dataRun3_HLT_v3
-OldGT        122X_dataRun3_HLT_v3
-OldRun       347806
+OldLUTtag    dataRun3_HLTNew_HCAL_Rollback_PFA2
+OldGT        124X_dataRun3_HLT_v4
+OldRun       356248
 
 HOAsciiInput HO_ped9_inputLUTcoderDec.txt
-release_LUT  CMSSW_12_2_1
-arch_LUT     slc7_amd64_gcc900
+release_LUT  CMSSW_12_4_X_2022-07-27-2300
+arch_LUT     slc7_amd64_gcc10
 
 #------------------------------------------------
 # TAG GENERATION
@@ -39,6 +39,7 @@ tier2        T2_CH_CERN
 max_file_num 5
 nEvts       1000
 
-release_L1   CMSSW_12_3_0_pre1
+release_L1   CMSSW_12_4_0
+version_L1   132.0
 arch_L1      slc7_amd64_gcc900
 version_L1   120.0
