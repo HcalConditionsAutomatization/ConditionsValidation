@@ -40,6 +40,5 @@ max_file_num 5
 nEvts       1000
 
 release_L1   CMSSW_12_4_0
+arch_L1      slc7_amd64_gcc10
 version_L1   132.0
-arch_L1      slc7_amd64_gcc900
-version_L1   120.0
