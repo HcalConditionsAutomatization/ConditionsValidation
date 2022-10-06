@@ -42,3 +42,4 @@ nEvts       1000
 release_L1   CMSSW_12_3_0_pre1
 arch_L1      slc7_amd64_gcc900
 version_L1   120.0
+
