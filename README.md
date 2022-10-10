@@ -6,4 +6,4 @@ This is a README that explains how to perform Automation Validation for HCAL Con
 2. git add, git commit, and then git push the changes.
 `git push -u origin HEAD:master`
 
-Sometimes after pushing changes to GitHub, Jenkins still doesn't run.
+Sometimes after pushing changes to GitHub, Jenkins still doesn't run. 
