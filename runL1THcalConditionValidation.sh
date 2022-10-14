@@ -1,47 +1,50 @@
 #!/bin/bash
 
+
+DEFAULT_LINE_LENGTH=35
 jobs_in_parallel=10
+MAX_LEN=0
 listFiles="listOfFiles.txt"
-echo "==============================================="
-echo "HOAsciiInput " $HOAsciiInput
-echo "release_L1   " $release_L1
-echo "NewLUTtag    " $NewLUTtag
-echo "NewGT        " $NewGT
-echo "dataset      " $dataset
-echo "year         " $year
-echo "nEvts        " $nEvts
-echo "lumi_start   " $lumi_start
-echo "tier2        " $tier2
-echo "OldRun       " $OldRun
-echo "lumi_end     " $lumi_end
-echo "version_L1   " $version_L1
-echo "OldLUTtag    " $OldLUTtag
-echo "week         " $week
-echo "run          " $run
-echo "max_file_num " $max_file_num
-echo "OldGT        " $OldGT
-echo "NewRun       " $NewRun
-echo "release_LUT  " $release_LUT
-echo "outdir       " $outdir
-echo "geometry     " $geometry
-echo "arch_L1      " $arch_L1
-echo "arch_LUT     " $arch_LUT
-echo "jobs_in_parallel  " $jobs_in_parallel
-echo "==============================================="
-echo " "
-echo "======================================================================================================================"
+variables=("HOAsciiInput" "release_L1" "NewLUTtag" "NewGT" "dataset" "year" "nEvts" "lumi_start" "tier2" "OldRun" "lumi_end" "version_L1" "OldLUTtag" "week" "run" "max_file_num" "OldGT" "NewRun" "release_LUT" "outdir" "geometry" "arch_L1" "arch_LUT" "jobs_in_parallel" "calo_params" "zdc_lut_topic")
+
+function make_line(){
+    local length=${1:-$DEFAULT_LINE_LENGTH}
+    head -c $length < /dev/zero | tr '\0' '='
+    echo ""
+}
+
+for var in ${variables[@]}; do
+    : $(( MAX_LEN = (MAX_LEN > ${#var})? MAX_LEN : ${#var}  ))
+done
+
+make_line 
+for variable in ${variables[@]}; do
+    printf "%-${MAX_LEN}s = %s\n" "$variable" "${!variable}"
+done
+make_line
+
+make_line 
 echo " LUT generation and validation"
-echo "======================================================================================================================"
+make_line
+
 cd ..
 scram -a $arch_LUT project $release_LUT
 cd $release_LUT/src
 eval `scram runtime -sh`
 git cms-addpkg CaloOnlineTools/HcalOnlineDb
 git cms-merge-topic -u akhukhun:xmldbformat
-git cms-merge-topic -u Michael-Krohn:skip-ZDC-LUT-generation-and-HBonlyLLPbits
+if [[ -z "$zdc_lut_topic" ]]; then
+    echo "Merging topic $zdc_lut_topic"
+    git cms-merge-topic -u "$zdc_lut_topic"
+else
+    echo "No zdc_lut_topic provided, proceeding as is"
+fi
+
 sed -i "s/const std::map<int, std::shared_ptr<LutXml> > _zdc_lut_xml = getZdcLutXml( _tag, split_by_crate );/\/\/const std::map<int, std::shared_ptr<LutXml> > _zdc_lut_xml = getZdcLutXml( _tag, split_by_crate );/" 'CaloOnlineTools/HcalOnlineDb/src/HcalLutManager.cc'
 sed -i "s/addLutMap( xml, _zdc_lut_xml );/\/\/addLutMap( xml, _zdc_lut_xml );/" 'CaloOnlineTools/HcalOnlineDb/src/HcalLutManager.cc'
+
 scram b
+
 cd CaloOnlineTools/HcalOnlineDb/test/
 # changing the plotting parameters to zoom in on changes
 echo "copying the new plotting parameters"
@@ -83,7 +86,7 @@ cp ../../../../../ConditionsValidation/Tools/test.py .
 python test.py ${NewLUTtag} ${OldLUTtag}
 echo 'eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/'
 echo 'eos ls $outdir'
-echo "======================================================"
+make_line 
 eos ls $outdir
 echo conditions/${NewLUTtag}
 eos mkdir $outdir/${NewLUTtag}
@@ -91,9 +94,10 @@ xrdcp -rf conditions/${NewLUTtag} $outdir/${NewLUTtag}
 
 echo
 echo " "
-echo "======================================================================================================================"
+make_line
 echo " L1TriggerObjects Tag generation"
-echo "======================================================================================================================"
+make_line
+
 ls conditions/$NewLUTtag/Deploy/
 cp conditions/$NewLUTtag/Deploy/Gen_L1TriggerObjects_${NewLUTtag}.txt ../../..
 cd ../../..
@@ -105,9 +109,9 @@ echo 'eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/'
 eos ls $outdir/${NewLUTtag}/.
 
 echo " "
-echo "====================================================================================================================="
+make_line
 echo " L1 rate validation"
-echo "====================================================================================================================="
+make_line
 cd ../..
 scram -a $arch_L1 project $release_L1
 

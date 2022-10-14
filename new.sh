@@ -29,6 +29,8 @@ export outdir=`grep "outdir" $file | awk '{print $2}'`
 export geometry=`grep "geometry" $file | awk '{print $2}'`
 export arch_L1=`grep "arch_L1" $file | awk '{print $2}'`
 export arch_LUT=`grep "arch_LUT" $file | awk '{print $2}'`
+export zdc_lut_topic=`grep "zdc_lut_topic" $file | awk '{print $2}'`
+export calo_params=`grep "calo_params" $file | awk '{print $2}'`
 
 
 ###L1T###

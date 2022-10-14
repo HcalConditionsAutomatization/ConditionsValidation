@@ -10,7 +10,7 @@ if [ "$1" == "default" ]; then
   --conditions="$5" \
   --customise=L1Trigger/Configuration/customiseReEmul.L1TReEmulFromRAWsimHcalTP \
   --customise=L1Trigger/L1TNtuples/customiseL1Ntuple.L1NtupleRAWEMU \
-  --customise=L1Trigger/Configuration/customiseSettings.L1TSettingsToCaloParams_2018_v1_4 \
+  --customise="$calo_params" \
   --customise_commands='process.HcalTPGCoderULUT.LUTGenerationMode=cms.bool(False)' \
   --filein=$6 \
   --fileout=L1Ntuple_$2.root \
@@ -29,7 +29,7 @@ elif [ "$1" == "new_con" ]; then
   --conditions="$5" \
   --customise=L1Trigger/Configuration/customiseReEmul.L1TReEmulFromRAWsimHcalTP \
   --customise=L1Trigger/L1TNtuples/customiseL1Ntuple.L1NtupleRAWEMU \
-  --customise=L1Trigger/Configuration/customiseSettings.L1TSettingsToCaloParams_2018_v1_4 \
+  --customise="$calo_params" \
   --custom_conditions=Tag,HcalL1TriggerObjectsRcd,sqlite_file:../HcalL1TriggerObjects.db \
   --customise_commands='process.HcalTPGCoderULUT.LUTGenerationMode=cms.bool(False)' \
   --filein=$6 \

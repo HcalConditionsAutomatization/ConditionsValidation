@@ -43,3 +43,6 @@ release_L1   CMSSW_12_3_0_pre1
 arch_L1      slc7_amd64_gcc900
 version_L1   120.0
 
+zdc_lut_topic Michael-Krohn:skip-ZDC-LUT-generation-and-HBonlyLLPbits
+
+calo_params  L1Trigger/Configuration/customiseSettings.L1TSettingsToCaloParams_2018_v1_4
