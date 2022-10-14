@@ -33,7 +33,7 @@ cd $release_LUT/src
 eval `scram runtime -sh`
 git cms-addpkg CaloOnlineTools/HcalOnlineDb
 git cms-merge-topic -u akhukhun:xmldbformat
-if [[ -z "$zdc_lut_topic" ]]; then
+if [[ ! -z "$zdc_lut_topic" ]]; then
     echo "Merging topic $zdc_lut_topic"
     git cms-merge-topic -u "$zdc_lut_topic"
 else
