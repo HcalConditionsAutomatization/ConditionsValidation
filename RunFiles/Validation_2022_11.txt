@@ -1,0 +1,48 @@
+
+
+
+validate     yes
+
+week         11
+year         2022
+
+outdir    /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
+
+
+
+
+NewLUTtag    dataRun3_HLTNew_HCAL
+NewGT        122X_dataRun3_HLTNew_HCAL_w8_2022_v1
+NewRun       347807
+
+OldLUTtag    dataRun3_HLT_v3
+OldGT        122X_dataRun3_HLT_v3
+OldRun       347806
+
+HOAsciiInput HO_ped9_inputLUTcoderDec.txt
+release_LUT  CMSSW_12_2_1
+arch_LUT     slc7_amd64_gcc900
+
+
+
+
+geometry     2022
+
+
+
+
+run          347807
+lumi_start   1
+lumi_end     3
+dataset      /HcalNZS/Commissioning2022-v1/RAW
+tier2        T2_CH_CERN
+max_file_num 5
+nEvts       1000
+
+release_L1   CMSSW_12_3_0_pre1
+arch_L1      slc7_amd64_gcc900
+version_L1   120.0
+
+zdc_lut_topic Michael-Krohn:skip-ZDC-LUT-generation-and-HBonlyLLPbits
+
+calo_params  L1Trigger/Configuration/customiseSettings.L1TSettingsToCaloParams_2018_v1_4

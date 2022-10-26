@@ -4,8 +4,14 @@
 DEFAULT_LINE_LENGTH=35
 jobs_in_parallel=10
 MAX_LEN=0
+
 listFiles="listOfFiles.txt"
-variables=("HOAsciiInput" "release_L1" "NewLUTtag" "NewGT" "dataset" "year" "nEvts" "lumi_start" "tier2" "OldRun" "lumi_end" "version_L1" "OldLUTtag" "week" "run" "max_file_num" "OldGT" "NewRun" "release_LUT" "outdir" "geometry" "arch_L1" "arch_LUT" "jobs_in_parallel" "calo_params" "zdc_lut_topic")
+
+variables=("HOAsciiInput" "release_L1" "NewLUTtag" "NewGT" 
+           "dataset" "year" "nEvts" "lumi_start" "tier2" "OldRun" 
+           "lumi_end" "version_L1" "OldLUTtag" "week" "run" "max_file_num" 
+           "OldGT" "NewRun" "release_LUT" "outdir" "geometry" "arch_L1" "arch_LUT" 
+           "jobs_in_parallel" "calo_params" "zdc_lut_topic")
 
 function make_line(){
     local length=${1:-$DEFAULT_LINE_LENGTH}
@@ -31,13 +37,16 @@ cd ..
 scram -a $arch_LUT project $release_LUT
 cd $release_LUT/src
 eval `scram runtime -sh`
+
+base_dir="$(pwd)"
+
 git cms-addpkg CaloOnlineTools/HcalOnlineDb
 git cms-merge-topic -u akhukhun:xmldbformat
-if [[ -z "$zdc_lut_topic" ]]; then
+if [[ ! -z "$zdc_lut_topic" ]]; then
     echo "Merging topic $zdc_lut_topic"
     git cms-merge-topic -u "$zdc_lut_topic"
 else
-    echo "No zdc_lut_topic provided, proceeding as is"
+    echo "No zdc_lut_topic provided, proceeding as is."
 fi
 
 sed -i "s/const std::map<int, std::shared_ptr<LutXml> > _zdc_lut_xml = getZdcLutXml( _tag, split_by_crate );/\/\/const std::map<int, std::shared_ptr<LutXml> > _zdc_lut_xml = getZdcLutXml( _tag, split_by_crate );/" 'CaloOnlineTools/HcalOnlineDb/src/HcalLutManager.cc'
@@ -137,18 +146,14 @@ cp ../../../../../$release_LUT/src/HcalL1TriggerObjects.db .
 cp ../../../../../$release_LUT/src/HcalL1TriggerObjects.db ./hcal_${run}_def
 cp ../../../../../$release_LUT/src/HcalL1TriggerObjects.db ./hcal_${run}_new_cond
 ls
-if [[ $lumiblock == \#* ]]
-then
-  :
-else
+if [[ ! $lumiblock == \#* ]]; then
   echo "{\"$run\": [[$lumi_start,$lumi_end]]}" > ./lumimask.txt
   lumimask="../../lumimask.txt"
 fi
 
 dasgoclient -query="file dataset=${dataset} run=${run}" > $listFiles
 n=0
-for file in `less ./${listFiles}`
-do
+for file in `less ./${listFiles}`; do
   n=$[$n+1]
   echo "$n. $file"
   if (( "$n" <= "$max_file_num" )) || (( "$max_file_num" < 0 ))
