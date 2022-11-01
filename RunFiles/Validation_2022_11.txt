@@ -6,7 +6,7 @@ validate     yes
 week         11
 year         2022
 
-outdir    /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
+outdir    .
 
 
 
