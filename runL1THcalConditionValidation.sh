@@ -183,5 +183,5 @@ rates.exe new ./hcal_${run}_new_cond/
 mkdir plots
 draw_rates.exe
 ls plots
-eos mkdir ${outdir}/${NewLUTtag}/L1Plots
+eos mkdir $outdir/${NewLUTtag}/L1Plots
 xrdcp -rf plots ${outdir}/${NewLUTtag}/L1Plots
