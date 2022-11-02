@@ -3,6 +3,7 @@
 make_line
 echo " L1TriggerObjects Tag generation"
 make_line
+cd "$BASE_PATH/${release_LUT}/src/CaloOnlineTools/HcalOnlineDb/test/"
 
 ls conditions/$NewLUTtag/Deploy/
 cp conditions/$NewLUTtag/Deploy/Gen_L1TriggerObjects_${NewLUTtag}.txt ../../..

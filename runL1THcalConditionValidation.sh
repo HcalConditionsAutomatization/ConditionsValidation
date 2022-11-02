@@ -35,7 +35,7 @@ function print_vars() {
 function main(){
     print_vars
 
-    bash scripts/lutgen.sh
+#    bash scripts/lutgen.sh
     bash scripts/l1tag.sh
     bash scripts/l1rate.sh
     bash scripts/makeplots.sh
