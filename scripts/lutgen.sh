@@ -66,10 +66,15 @@ echo 'cp ../../../../../ConditionsValidation/Tools/test.py .'
 cp $BASE_PATH/ConditionsValidation/Tools/test.py .
 #python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT
 python test.py ${NewLUTtag} ${OldLUTtag}
-echo 'eos ls /eos/cms/store/group/dpg_hcal/comm_hcal/chin/'
-echo 'eos ls $outdir'
+echo "os ls $outdir"
 make_line 
-eos ls $outdir
-echo conditions/${NewLUTtag}
-eos mkdir $outdir/${NewLUTtag}
+if [[ $local_out == "true" ]]; then
+    ls $outdir
+    echo conditions/${NewLUTtag}
+    mkdir $outdir/${NewLUTtag}
+else
+    eos ls $outdir
+    echo conditions/${NewLUTtag}
+    eos mkdir $outdir/${NewLUTtag}
+fi
 xrdcp -rf conditions/${NewLUTtag} $outdir/${NewLUTtag}
