@@ -3,6 +3,9 @@ make_line
 echo "Creating output files"
 make_line
 
+cd $BASE_PATH/${release_L1}/src/HcalTrigger/Validation/scripts
+scram b -j 8
+
 rates.exe def ./hcal_${run}_def/
 rates.exe new ./hcal_${run}_new_cond/
 mkdir plots
