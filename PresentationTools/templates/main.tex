@@ -1,0 +1,37 @@
+
+\BLOCK{ macro table(items) -}
+\begin{tabular}{\VAR{ "c" * items | first | length }}
+    \VAR{ caller(mode='header') }
+    \BLOCK{ for item in items }
+    \VAR{ caller(mode="row", item=item) } \VAR{ "" if loop.last else "\\\\"}
+    \BLOCK{ endfor }
+    \end{tabular}
+\BLOCK{- endmacro }
+
+
+
+
+\documentclass{beamer}
+\title{HCAL Conditions Validation}
+\author{HCAL Automated Conditions Framework}
+\institute{CERN}
+\date{\today}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\begin{frame}{Rate Change Overview}
+
+    \BLOCK{ call(mode, item) table(items=items) }
+        \BLOCK{ if mode == 'header' }
+        \BLOCK{ else }
+        \BLOCK{ for i  in item -}
+        \VAR{i} \VAR{ "& " if not loop.last }
+        \BLOCK{- endfor }
+        \BLOCK{ endif }
+    \BLOCK{ endcall }
+
+\end{frame}
+
+\end{document}
