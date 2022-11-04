@@ -36,7 +36,7 @@ function main(){
     print_vars
 
     # Generate the Lookup Tables based on the conditions, both new and old
-    #bash scripts/lutgen.sh
+    bash scripts/lutgen.sh
 
     # Generate trigger objects for the new LUT tag
     bash scripts/l1tag.sh

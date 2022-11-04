@@ -9,6 +9,7 @@ scram -a $arch_L1 project $release_L1
 
 cd ${release_L1}/src
 eval `scram runtime -sh`
+
 git cms-init
 git remote add cms-l1t-offline git@github.com:cms-l1t-offline/cmssw.git
 git fetch -u cms-l1t-offline l1t-integration-${release_L1}
