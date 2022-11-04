@@ -55,15 +55,15 @@ sed -i "s/addLutMap( xml, _zdc_lut_xml );/\/\/addLutMap( xml, _zdc_lut_xml );/" 
 scram b
 
 cd CaloOnlineTools/HcalOnlineDb/test/
-# changing the plotting parameters to zoom in on changes
+# changing the plotting parameters to zoom in on changes - only uncomment if different plotting parameters are wanted
 echo "copying the new plotting parameters"
-cp -f ../../../../../ConditionsValidation/LUTFigureParameters/PlotLUT.py PlotLUT.py
-cp -f ../../../../../ConditionsValidation/LUTFigureParameters/HcalLutAnalyzer.cc ../plugins/HcalLutAnalyzer.cc
-sed -n '34,35p' ../../../../../ConditionsValidation/LUTFigureParameters/PlotLUT.py
-sed -n '141p' ../../../../../ConditionsValidation/LUTFigureParameters/HcalLutAnalyzer.cc
-echo "finished copying the plotting parameters"
-sed -n '34,35p' PlotLUT.py
-sed -n '141p' ../plugins/HcalLutAnalyzer.cc
+#cp -f ../../../../../ConditionsValidation/LUTFigureParameters/PlotLUT.py PlotLUT.py
+#cp -f ../../../../../ConditionsValidation/LUTFigureParameters/HcalLutAnalyzer.cc ../plugins/HcalLutAnalyzer.cc
+#sed -n '34,35p' ../../../../../ConditionsValidation/LUTFigureParameters/PlotLUT.py
+#sed -n '141p' ../../../../../ConditionsValidation/LUTFigureParameters/HcalLutAnalyzer.cc
+#echo "finished copying the plotting parameters"
+#sed -n '34,35p' PlotLUT.py
+#sed -n '141p' ../plugins/HcalLutAnalyzer.cc
 cd ../plugins
 scram b clean
 scram b
