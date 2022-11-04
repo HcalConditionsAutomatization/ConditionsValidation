@@ -1,7 +1,7 @@
 
 
 
-validate     no
+validate     yes
 
 week         11
 year         2022
@@ -27,7 +27,7 @@ arch_LUT     slc7_amd64_gcc900
 
 
 
-geometry     2022
+geometry     2021
 
 
 

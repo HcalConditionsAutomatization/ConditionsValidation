@@ -14,7 +14,7 @@ chmod +x writetoSQL9x.csh
 ./writetoSQL9x.csh $geometry L1TriggerObjects Gen_L1TriggerObjects_${NewLUTtag}.txt Tag 1 HcalL1TriggerObjects.db
 xrdcp -f HcalL1TriggerObjects.db $outdir/${NewLUTtag}/HcalL1TriggerObjects.db
 echo "eos ls $outdir"
-if [[ $local_out == "true"]]; then
+if [[ $local_out == "true" ]]; then
     ls $outdir/${NewLUTtag}/.
 else
     eos ls $outdir/${NewLUTtag}/.
