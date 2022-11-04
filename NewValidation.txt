@@ -6,8 +6,8 @@ validate     yes
 week         11
 year         2022
 
-outdir     /uscms/home/ckapsiak/nobackup/Development/test
-local_out true
+outdir       /uscms/home/ckapsiak/nobackup/Development/test
+local_out    true
 
 #------------------------------------------------
 # LUT GENERATION
