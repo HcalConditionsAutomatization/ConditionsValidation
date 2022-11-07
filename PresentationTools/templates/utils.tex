@@ -1,0 +1,19 @@
+\BLOCK{ macro table(items) -}
+\begin{tabular}{\VAR{ "c" * items | first | length }}
+    \VAR{ caller(mode='header') }
+    \BLOCK{ for item in items }
+    \VAR{ caller(mode="row", item=item) } \VAR{ "" if loop.last else "\\\\"}
+    \BLOCK{ endfor }
+    \end{tabular}
+\BLOCK{- endmacro }
+
+
+
+\BLOCK{ macro slide_images(items) -}
+\BLOCK{ for title,path,desc in items}
+\begin{frame}{ \VAR{title} }
+    \includegraphics[width=\textwidth]{\VAR{path}}
+\end{frame}
+\BLOCK{ endfor }
+\BLOCK{- endmacro }
+

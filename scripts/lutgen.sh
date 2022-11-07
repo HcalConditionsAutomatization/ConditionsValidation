@@ -69,6 +69,9 @@ python test.py ${NewLUTtag} ${OldLUTtag}
 echo "os ls $outdir"
 make_line 
 if [[ $local_out == "true" ]]; then
+    if [[ ! -d ${outdir} ]]; then
+        mkdir $outdir
+    fi
     ls $outdir
     echo conditions/${NewLUTtag}
     mkdir $outdir/${NewLUTtag}

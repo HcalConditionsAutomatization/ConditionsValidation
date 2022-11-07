@@ -1,17 +1,5 @@
-
-\BLOCK{ macro table(items) -}
-\begin{tabular}{\VAR{ "c" * items | first | length }}
-    \VAR{ caller(mode='header') }
-    \BLOCK{ for item in items }
-    \VAR{ caller(mode="row", item=item) } \VAR{ "" if loop.last else "\\\\"}
-    \BLOCK{ endfor }
-    \end{tabular}
-\BLOCK{- endmacro }
-
-
-
-
 \documentclass{beamer}
+\usepackage{graphicx}
 \title{HCAL Conditions Validation}
 \author{HCAL Automated Conditions Framework}
 \institute{CERN}
@@ -21,9 +9,12 @@
 
 \frame{\titlepage}
 
+
+
+\BLOCK{ import 'utils.tex' as util }
 \begin{frame}{Rate Change Overview}
 
-    \BLOCK{ call(mode, item) table(items=items) }
+    \BLOCK{ call(mode, item) util.table(items=items) }
         \BLOCK{ if mode == 'header' }
         \BLOCK{ else }
         \BLOCK{ for i  in item -}
@@ -32,6 +23,11 @@
         \BLOCK{ endif }
     \BLOCK{ endcall }
 
+
 \end{frame}
 
+
+\VAR{ util.slide_images(images) }
+
 \end{document}
+

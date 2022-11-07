@@ -38,11 +38,13 @@ export calo_params=`grep "calo_params" $file | awk '{print $2}'`
 
 chmod +x runL1THcalConditionValidation.sh
 ./runL1THcalConditionValidation.sh
-cp $file RunFiles/Validation_${year}_${week}.txt
-sed -i 's/yes/no/' $file
-git add RunFiles/Validation_${year}_${week}.txt
-git commit -a -m "clean validation inputs"
-git push -u origin HEAD:master
+if [[ "$local_out" == "false" ]]; then
+    cp $file RunFiles/Validation_${year}_${week}.txt
+    sed -i 's/yes/no/' $file
+    git add RunFiles/Validation_${year}_${week}.txt
+    git commit -a -m "clean validation inputs"
+    git push -u origin HEAD:master
+fi
 
 else
   echo "Not validate"

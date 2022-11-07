@@ -4,6 +4,7 @@ import shutil
 import subprocess
 import tempfile
 import os
+import pathlib
 
 class TexMaker:
     def __init__(self, buildDirectory=None, templateFileName = None, outputDirectory= ".",saveTex = False):
@@ -55,7 +56,9 @@ class TexMaker:
                 line_comment_prefix = '%#',
                 trim_blocks = True,
                 autoescape = False,
-                loader = jinja2.FileSystemLoader(os.path.abspath('/'))
+                loader = jinja2.FileSystemLoader([os.path.abspath('/'), 
+                    (pathlib.Path(__file__).parent / "templates").resolve()
+                    ])
                 )
         self.latexTemplate = self.latexTemplate.from_string(self.templateContents)
 
@@ -70,7 +73,7 @@ class TexMaker:
 
     def compile(self):
         print(f"Compiling from {self.renderedSourceName} using build directory {self.buildDirectory}")
-        subprocess.run(["pdflatex", "-output-directory", self.buildDirectory, self.buildDirectory / self.renderedSourceName] , stderr=subprocess.DEVNULL, stdout=subprocess.DEVNULL)
+        subprocess.run(["pdflatex", "-output-directory", self.buildDirectory, self.buildDirectory / self.renderedSourceName])
         outputFileName = (self.buildDirectory / self.renderedSourceName)
         outputFileName = outputFileName.with_suffix(".pdf")
         shutil.move(outputFileName,Path(self.outputDirectory)/self.outFileName)
