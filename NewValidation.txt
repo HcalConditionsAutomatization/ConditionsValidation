@@ -37,7 +37,7 @@ lumi_end     500
 dataset      /EphemeralZeroBias0/Run2022F-v1/RAW
 tier2        T2_CH_CERN
 max_file_num 5
-nEvts       1000
+nEvts       -1
 
 release_L1   CMSSW_12_6_0_pre1
 arch_L1      slc7_amd64_gcc10
