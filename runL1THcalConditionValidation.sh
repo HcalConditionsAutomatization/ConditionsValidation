@@ -99,8 +99,11 @@ make_line
 eos ls $outdir
 echo conditions/${NewLUTtag}
 eos mkdir $outdir/${NewLUTtag}
+eos ls $outdir/${NewLUTtag}
 eos mkdir $outdir/${NewLUTtag}/L1Plots
+eos ls $outdir/${NewLUTtag}
 xrdcp -rf conditions/${NewLUTtag} $outdir/${NewLUTtag}
+eos ls $outdir/${NewLUTtag}
 
 echo
 echo " "
@@ -184,4 +187,4 @@ rates.exe new ./hcal_${run}_new_cond/
 mkdir plots
 draw_rates.exe
 ls plots
-xrdcp -rf plots ${outdir}/${NewLUTtag}/L1Plots
+xrdcp -rf plots ${outdir}/${NewLUTtag}
