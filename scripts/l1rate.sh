@@ -36,6 +36,9 @@ if [[ ! $lumiblock == \#* ]]; then
 fi
 
 dasgoclient -query="file dataset=${dataset} run=${run}" > $listFiles
+echo "Running over the following filelist"
+cat $listFiles
+echo "Starting jobs"
 n=0
 for file in `less ./${listFiles}`; do
   n=$[$n+1]

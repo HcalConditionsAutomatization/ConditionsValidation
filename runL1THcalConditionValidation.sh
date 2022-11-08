@@ -1,11 +1,5 @@
 #!/bin/bash
 
-export DEFAULT_LINE_LENGTH=35
-export jobs_in_parallel=10
-export MAX_LEN=0
-export listFiles="listOfFiles.txt"
-export BASE_PATH="$(dirname $(pwd))"
-
 echo "Running from BASE_PATH ${BASE_PATH}"
 
 function make_line(){
