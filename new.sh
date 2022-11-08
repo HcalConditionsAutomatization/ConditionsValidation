@@ -33,13 +33,6 @@ export arch_LUT=`grep "arch_LUT" $file | awk '{print $2}'`
 export zdc_lut_topic=`grep "zdc_lut_topic" $file | awk '{print $2}'`
 export calo_params=`grep "calo_params" $file | awk '{print $2}'`
 
-export DEFAULT_LINE_LENGTH=35
-export jobs_in_parallel=10
-export MAX_LEN=0
-export listFiles="listOfFiles.txt"
-export BASE_PATH="$(dirname $(pwd))"
-
-
 ###L1T###
 
 chmod +x runL1THcalConditionValidation.sh

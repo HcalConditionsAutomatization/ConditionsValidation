@@ -13,12 +13,12 @@ mkdir plots
 draw_rates.exe
 ls plots
 if [[ $local_out == "true" ]]; then
-    mkdir ${outdir}/${NewLUTtag}/L1Plots
-    mkdir ${outdir}/${NewLUTtag}/rates
+#    mkdir ${outdir}/${NewLUTtag}/L1Plots
+    mkdir $OUTDIR/rates
 else
-    eos mkdir ${outdir}/${NewLUTtag}/L1Plots
-    eos mkdir ${outdir}/${NewLUTtag}/rates
+#    eos mkdir ${outdir}/${NewLUTtag}/L1Plots
+    eos mkdir $OUTDIR/rates
 fi
-xrdcp -rf plots ${outdir}/${NewLUTtag}/L1Plots
-xrdcp -rf rates_def.root ${outdir}/${NewLUTtag}/rates/
-xrdcp -rf rates_new_cond.root ${outdir}/${NewLUTtag}/rates/
+xrdcp -rf rates_def.root $OUTDIR/rates/
+xrdcp -rf rates_new_cond.root $OUTDIR/rates/
+xrdcp -rf plots $OUTDIR

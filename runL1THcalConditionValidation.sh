@@ -1,5 +1,13 @@
 #!/bin/bash
 
+
+export DEFAULT_LINE_LENGTH=35
+export jobs_in_parallel=10
+export MAX_LEN=0
+export listFiles="listOfFiles.txt"
+export BASE_PATH="$(dirname $(pwd))"
+export OUTDIR="$outdir/$NewLUTtag"
+
 echo "Running from BASE_PATH ${BASE_PATH}"
 
 function make_line(){
@@ -30,16 +38,26 @@ function main(){
     print_vars
 
     # Generate the Lookup Tables based on the conditions, both new and old
-    bash scripts/lutgen.sh
+    #bash scripts/lutgen.sh
 
     # Generate trigger objects for the new LUT tag
-    bash scripts/l1tag.sh
+    #bash scripts/l1tag.sh
 
     # Compute the L1 rates
-    bash scripts/l1rate.sh
+    #bash scripts/l1rate.sh
 
     # Make Plots
     bash scripts/makeplots.sh
+
+    # Make Prsentations
+    bash scripts/make_presentations.sh
+
+    # Transfer output to eos
+    bash scripts/finalize_transfer.sh
+
+    make_line
+    echo "Validation completed"
+    make_line
 }
 
 main

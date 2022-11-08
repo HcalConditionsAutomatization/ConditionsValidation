@@ -1,8 +1,9 @@
 \BLOCK{ macro table(items) -}
-\begin{tabular}{\VAR{ "c" * items | first | length }}
+\begin{tabular}{\VAR{ "|c" * items | first | length } |}
+    \hline
     \VAR{ caller(mode='header') }
     \BLOCK{ for item in items }
-    \VAR{ caller(mode="row", item=item) } \VAR{ "" if loop.last else "\\\\"}
+    \VAR{ caller(mode="row", item=item) } \VAR{ "" if loop.last else "\\\\"} 
     \BLOCK{ endfor }
     \end{tabular}
 \BLOCK{- endmacro }

@@ -14,15 +14,17 @@
 \BLOCK{ import 'utils.tex' as util }
 \begin{frame}{Rate Change Overview}
 
-    \BLOCK{ call(mode, item) util.table(items=items) }
+\begin{center}
+    \BLOCK{ call(mode, item) util.table(items=triggerchanges) }
         \BLOCK{ if mode == 'header' }
+        Trigger & Rate Change (new/old) \\ \hline
         \BLOCK{ else }
         \BLOCK{ for i  in item -}
-        \VAR{i} \VAR{ "& " if not loop.last }
+        \VAR{i} \VAR{ "& " if not loop.last } 
         \BLOCK{- endfor }
         \BLOCK{ endif }
     \BLOCK{ endcall }
-
+\end{center}
 
 \end{frame}
 
