@@ -4,22 +4,10 @@ from pathlib import Path
 from .rate_ratio import getRatio
 import PostAnalysis.paths as paths
 
-import importlib.util
-import sys
-
-def loadConfiguration(path):
-    spec = importlib.util.spec_from_file_location("configuration", path)
-    config = importlib.util.module_from_spec(spec)
-    sys.modules["configuration"] = config
-    spec.loader.exec_module(config)
-    return config
 
 
-rate_csv_path="rates/changes.csv"
 
-
-if __name__ == "__main__":
-    config = loadConfiguration(Path(sys.argv[1]).resolve())
+def makeOverviewSlides(config):
     changes = config.trigger_changes
     plots = config.plots
     plots = [ [t, (paths.analyzer_output/ p).resolve(), d] for t, p, d in plots]
@@ -27,9 +15,14 @@ if __name__ == "__main__":
 
     old_rates=(paths.analyzer_output/"rates"/"rates_def.root").resolve()
     new_rates=(paths.analyzer_output/"rates"/"rates_new_cond.root").resolve()
+    git_commit = paths.commit.strip()
 
     rate_changes= [[ trigger, round(getRatio(new_rates,old_rates,r[0], r[1], r[2]),3) ] 
             for trigger, r in changes.items()]
+
+
+    anomalous_changes=[ [t,c] for t,c in rate_changes if abs(c-1.0) > config.trigger_abnormality_threshold]
+    max_change = max([c for t,c in rate_changes])
 
     overview_template = (Path(__file__).parent / "templates/outline.tex").resolve()
     tm = TexMaker("../scratch",overview_template, paths.post_output )
@@ -37,9 +30,14 @@ if __name__ == "__main__":
     tm.preparation()
     tm.renderTemplate({
         "triggerchanges": rate_changes,
-        "images" :  plots
+        "images" :  plots,
+        "max_change" : max_change,
+        "bad_changes": anomalous_changes,
+        "commit" : git_commit
         })
     tm.compile()
 
 
 
+if __name__ == "__main__":
+    makeOverviewSlides()

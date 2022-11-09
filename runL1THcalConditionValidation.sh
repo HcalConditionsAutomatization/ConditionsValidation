@@ -7,6 +7,7 @@ export MAX_LEN=0
 export listFiles="listOfFiles.txt"
 export BASE_PATH="$(dirname $(pwd))"
 export OUTDIR="$outdir/$NewLUTtag"
+export GIT_COMMIT=$(git rev-parse HEAD)
 
 echo "Running from BASE_PATH ${BASE_PATH}"
 

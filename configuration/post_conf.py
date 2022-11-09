@@ -1,4 +1,6 @@
 
+trigger_abnormality_threshold=0.05
+
 trigger_changes = { 
         "L1\_SingleEG36" : ("singleEgRates_emu", 34,38),
         "L1\_SingleJet180" : ("singleJetRates_emu", 170,190),
