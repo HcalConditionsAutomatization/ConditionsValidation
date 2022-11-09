@@ -1,5 +1,12 @@
+import os
+from pathlib import Path
 
 trigger_abnormality_threshold=0.05
+
+base_path = Path(os.environ["BASE_PATH"]).resolve()
+analyzer_output = Path(os.environ["OUTDIR"]).resolve()
+post_output = Path(os.environ["OUTDIR"]).resolve()
+commit=os.environ["GIT_COMMIT"]
 
 trigger_changes = { 
         "L1\_SingleEG36" : ("singleEgRates_emu", 34,38),
