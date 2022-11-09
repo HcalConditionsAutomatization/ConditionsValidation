@@ -1,7 +1,7 @@
 #!/bin/bash
 
-file="_NewValidation.txt"
-sed 's/^#.*$//g' "NewValidation.txt" > $file
+file="configuration/_NewValidation.txt"
+sed 's/^#.*$//g' "configuration/NewValidation.txt" > $file
 validate=`grep "validate" $file | awk '{print $2}'`
 if [ $validate = "yes" ];
 then

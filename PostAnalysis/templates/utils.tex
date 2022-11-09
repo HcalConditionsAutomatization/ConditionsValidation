@@ -12,8 +12,9 @@
 
 \BLOCK{ macro slide_images(items) -}
 \BLOCK{ for title,path,desc in items}
-\begin{frame}{ \VAR{title} }
-    \includegraphics[width=\textwidth]{\VAR{path}}
+\begin{frame}{\VAR{title}}
+    \centering
+    \includegraphics[height=0.8\textheight]{\VAR{path}}
 \end{frame}
 \BLOCK{ endfor }
 \BLOCK{- endmacro }

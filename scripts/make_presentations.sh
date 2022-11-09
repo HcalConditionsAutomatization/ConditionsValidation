@@ -5,4 +5,4 @@ make_line
 
 cd $BASE_PATH/ConditionsValidation
 
-python3 -m Tools.PresentationTools.make_overview
+python3 -m PostAnalysis.make_overview configuration/post_conf.py

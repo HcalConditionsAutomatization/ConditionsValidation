@@ -47,7 +47,7 @@ function main(){
     #bash scripts/l1rate.sh
 
     # Make Plots
-    bash scripts/makeplots.sh
+    #bash scripts/makeplots.sh
 
     # Make Prsentations
     bash scripts/make_presentations.sh
