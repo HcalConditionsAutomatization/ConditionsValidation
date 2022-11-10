@@ -6,6 +6,7 @@ trigger_abnormality_threshold=0.05
 base_path = Path(os.environ["BASE_PATH"]).resolve()
 analyzer_output = Path(os.environ["OUTDIR"]).resolve()
 post_output = Path(os.environ["OUTDIR"]).resolve()
+scratch = Path(os.environ["SCRATCH_DIR"]).resolve()
 commit=os.environ["GIT_COMMIT"]
 
 trigger_changes = { 

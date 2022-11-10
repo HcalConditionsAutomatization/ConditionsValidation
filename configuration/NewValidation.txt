@@ -8,7 +8,7 @@ year         2022
 
 
 outdir       /uscms_data/d3/ckapsiak/Development/test
-transferdir  nowhere
+transferdir  
 local_out    true
 
 #------------------------------------------------

@@ -8,6 +8,7 @@ export listFiles="listOfFiles.txt"
 export BASE_PATH="$(dirname $(pwd))"
 export OUTDIR="$outdir/$NewLUTtag"
 export GIT_COMMIT=$(git rev-parse HEAD)
+export SCRATCH_DIR="$BASE_PATH/scratch"
 
 echo "Running from BASE_PATH ${BASE_PATH}"
 
@@ -38,17 +39,21 @@ function print_vars() {
 function main(){
     print_vars
 
+    mkdir -p $SCRATCH_DIR
+
+    bash scripts/setup_python.sh
+
     # Generate the Lookup Tables based on the conditions, both new and old
-    #bash scripts/lutgen.sh
+    bash scripts/lutgen.sh
 
     # Generate trigger objects for the new LUT tag
-    #bash scripts/l1tag.sh
+    bash scripts/l1tag.sh
 
     # Compute the L1 rates
-    #bash scripts/l1rate.sh
+    bash scripts/l1rate.sh
 
     # Make Plots
-    #bash scripts/makeplots.sh
+    bash scripts/makeplots.sh
 
     # Make Prsentations
     bash scripts/make_presentations.sh

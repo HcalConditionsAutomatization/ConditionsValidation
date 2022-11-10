@@ -40,9 +40,9 @@ chmod +x runL1THcalConditionValidation.sh
 if [[ "$local_out" == "false" ]]; then
     cp $file RunFiles/Validation_${year}_${week}.txt
     sed -i 's/yes/no/' $file
-    git add RunFiles/Validation_${year}_${week}.txt
-    git commit -a -m "clean validation inputs"
-    git push -u origin HEAD:master
+    #git add RunFiles/Validation_${year}_${week}.txt
+    #git commit -a -m "clean validation inputs"
+    #git push -u origin HEAD:master
 fi
 
 else

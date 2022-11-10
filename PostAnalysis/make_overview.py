@@ -24,7 +24,7 @@ def makeOverviewSlides(config):
     max_change = max([c for t,c in rate_changes])
 
     overview_template = (Path(__file__).parent / "templates/outline.tex").resolve()
-    tm = TexMaker("../scratch",overview_template, config.post_output )
+    tm = TexMaker(config.scratch ,overview_template, config.post_output )
     tm.outFileName = "overview.pdf"
     tm.preparation()
     tm.renderTemplate({
