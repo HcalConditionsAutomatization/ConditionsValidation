@@ -7,19 +7,19 @@ week         11
 year         2022
 
 
-outdir       /uscms_data/d3/ckapsiak/Development/test
+outdir       /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
 transferdir  
 local_out    true
 
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
-NewLUTtag    Run3Nov2022
+NewLUTtag    Run3Nov2022_TESTING
 NewGT        124X_dataRun3_HLT_Candidate_2022_10_30_18_17_50
 NewRun       361400
 
 OldLUTtag    Run3Oct2022_v2
-OldGT        124X_dataRun3_HLT_v4
+OldGT        124X_dataRun3_HLT_Candidate_2022_10_17_16_09_19
 OldRun       361345
 
 HOAsciiInput HO_ped9_inputLUTcoderDec.txt
@@ -39,8 +39,8 @@ lumi_start   75
 lumi_end     500
 dataset      /EphemeralZeroBias0/Run2022F-v1/RAW
 tier2        T2_CH_CERN
-max_file_num 5
-nEvts        1000
+max_file_num 61
+nEvts        -1
 
 
 
