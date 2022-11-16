@@ -26,6 +26,7 @@ export OldGT=`grep "OldGT" $file | awk '{print $2}'`
 export NewRun=`grep "NewRun" $file | awk '{print $2}'`
 export release_LUT=`grep "release_LUT" $file | awk '{print $2}'`
 export outdir=`grep "outdir" $file | awk '{print $2}'`
+export transferdir=`grep "transferdir" $file | awk '{print $2}'`
 export local_out=`grep "local_out" $file | awk '{print $2}'`
 export geometry=`grep "geometry" $file | awk '{print $2}'`
 export arch_L1=`grep "arch_L1" $file | awk '{print $2}'`

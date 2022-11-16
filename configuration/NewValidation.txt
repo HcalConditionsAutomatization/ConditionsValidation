@@ -8,8 +8,8 @@ year         2022
 
 
 outdir       /uscms_data/d3/ckapsiak/Development/test
-transferdir  
-local_out    true
+transferdir  root://cmseos.fnal.gov//store/user/ckapsiak/
+local_out    false
 
 #------------------------------------------------
 # LUT GENERATION

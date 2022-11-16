@@ -5,5 +5,6 @@ echo "Transfering final output"
 make_line
 
 if [[ ! "$local_out" == "true" ]]; then
-    xrdcp -rf $outdir $transferdir
+    echo "xrdcp -rf $OUTDIR $transferdir"
+    xrdcp -rf $OUTDIR $transferdir
 fi
