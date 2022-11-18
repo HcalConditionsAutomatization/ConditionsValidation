@@ -33,7 +33,7 @@ geometry     2021
 #------------------------------------------------
 run          361468
 lumi_start   146
-lumi_end     912
+lumi_end     246
 dataset      /EphemeralZeroBias0/Run2022F-v1/RAW
 tier2        T2_CH_CERN
 max_file_num -1
