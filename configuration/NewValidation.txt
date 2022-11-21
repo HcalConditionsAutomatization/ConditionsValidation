@@ -15,12 +15,12 @@ local_out    true
 # LUT GENERATION
 #------------------------------------------------
 NewLUTtag    Run3Nov2022_TESTING
-NewGT        124X_dataRun3_HLT_Candidate_2022_10_30_18_17_50
-NewRun       361400
+NewGT        124X_dataRun3_HLT_Candidate_2022_11_16_09_10_32
+NewRun       362200
 
-OldLUTtag    Run3Oct2022_v2
-OldGT        124X_dataRun3_HLT_Candidate_2022_10_17_16_09_19
-OldRun       361345
+OldLUTtag    Run3Nov2022_v2
+OldGT        124X_dataRun3_HLT_v4
+OldRun       362105
 
 HOAsciiInput HO_ped9_inputLUTcoderDec.txt
 release_LUT  CMSSW_12_6_X_2022-11-01-1100
@@ -34,13 +34,13 @@ geometry     2021
 #------------------------------------------------
 # L1 RATE VALIDATION
 #------------------------------------------------
-run          360820 
-lumi_start   75
-lumi_end     500
+run          361468
+lumi_start   146
+lumi_end     246
 dataset      /EphemeralZeroBias0/Run2022F-v1/RAW
 tier2        T2_CH_CERN
-max_file_num 61
-nEvts        -1
+max_file_num -1
+nEvts       -1
 
 
 
