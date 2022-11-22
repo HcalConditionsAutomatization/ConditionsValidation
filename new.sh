@@ -41,8 +41,8 @@ export hlt_max_events=`grep "hlt_max_events" $file | awk '{print $2}'`
 
 ###L1T###
 
-chmod +x runL1THcalConditionValidation.sh
-./runL1THcalConditionValidation.sh
+chmod +x runHcalConditionValidation.sh
+./runHcalConditionValidation.sh
 if [[ "$local_out" == "false" ]]; then
     cp $file RunFiles/Validation_${year}_${week}.txt
     sed -i 's/yes/no/' $file
