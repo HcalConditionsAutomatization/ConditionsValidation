@@ -10,20 +10,22 @@ export OUTDIR="$outdir/$NewLUTtag"
 export GIT_COMMIT=$(git rev-parse HEAD)
 export SCRATCH_DIR="$BASE_PATH/scratch"
 
-echo "Running from BASE_PATH ${BASE_PATH}"
-
 function make_line(){
     local length=${1:-$DEFAULT_LINE_LENGTH}
     head -c $length < /dev/zero | tr '\0' '='
     echo ""
 }
+
 export -f make_line
+
 
 export variables=("HOAsciiInput" "release_L1" "NewLUTtag" "NewGT" 
            "dataset" "year" "nEvts" "lumi_start" "tier2" "OldRun" 
            "lumi_end" "version_L1" "OldLUTtag" "week" "run" "max_file_num" 
            "OldGT" "NewRun" "release_LUT" "outdir" "geometry" "arch_L1" "arch_LUT" 
-           "jobs_in_parallel" "calo_params" "zdc_lut_topic")
+           "jobs_in_parallel" "calo_params" "zdc_lut_topic" "transferdir"
+           "release_HLT" "arch_HLT" "hlt_max_events" "hlt_dataset" "hlt_paths"
+           )
 
 function print_vars() {
     for var in ${variables[@]}; do
@@ -37,9 +39,18 @@ function print_vars() {
 }
 
 function main(){
-    print_vars
 
     mkdir -p $SCRATCH_DIR
+
+    make_line
+    echo "Running from BASE_PATH ${BASE_PATH}"
+    echo "Scratch directory is ${SCRATCH_DIR}"
+    echo "Git status is"
+    git status
+    make_line
+
+    print_vars
+
 
     bash scripts/setup_python.sh
 

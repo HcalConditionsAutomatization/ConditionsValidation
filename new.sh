@@ -33,6 +33,11 @@ export arch_L1=`grep "arch_L1" $file | awk '{print $2}'`
 export arch_LUT=`grep "arch_LUT" $file | awk '{print $2}'`
 export zdc_lut_topic=`grep "zdc_lut_topic" $file | awk '{print $2}'`
 export calo_params=`grep "calo_params" $file | awk '{print $2}'`
+export hlt_dataset=`grep "hlt_dataset" $file | awk '{print $2}'`
+export hlt_paths=`grep "hlt_paths" $file | awk '{print $2}'`
+export release_HLT=`grep "release_HLT" $file | awk '{print $2}'`
+export arch_HLT=`grep "arch_HLT" $file | awk '{print $2}'`
+export hlt_max_events=`grep "hlt_max_events" $file | awk '{print $2}'`
 
 ###L1T###
 
