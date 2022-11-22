@@ -1,0 +1,20 @@
+\BLOCK{ macro table(items) -}
+\begin{tabular}{\VAR{ "c" * items | first | length } }\toprule
+    \VAR{ caller(mode='header') }
+    \BLOCK{ for item in items }
+    \VAR{ caller(mode="row", item=item) } \\\VAR{"\\bottomrule" if loop.last}
+    \BLOCK{ endfor }
+    \end{tabular}
+\BLOCK{- endmacro }
+
+
+
+\BLOCK{ macro slide_images(items) -}
+\BLOCK{ for title,path,desc in items}
+\begin{frame}{\VAR{title}}
+    \centering
+    \includegraphics[height=0.8\textheight]{\VAR{path}}
+\end{frame}
+\BLOCK{ endfor }
+\BLOCK{- endmacro }
+

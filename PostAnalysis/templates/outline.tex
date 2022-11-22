@@ -1,0 +1,57 @@
+\documentclass{beamer}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usetheme{CambridgeUS}
+\usepackage{booktabs}
+\title{HCAL Conditions Validation}
+\author{HCAL Automated Conditions Framework}
+\institute{CERN}
+\date{\today}
+
+\begin{document}
+
+\frame{\titlepage}
+
+
+
+\BLOCK{ import 'utils.tex' as util }
+\begin{frame}{Rate Change Overview}
+
+\begin{center}
+    \BLOCK{ call(mode, item) util.table(items=triggerchanges) }
+        \BLOCK{ if mode == 'header' }
+        Trigger & Rate Change (new/old) \\ \hline
+        \BLOCK{ else }
+        \BLOCK{ for i  in item -}
+        \VAR{i} \VAR{ "& " if not loop.last } 
+        \BLOCK{- endfor }
+        \BLOCK{ endif }
+    \BLOCK{ endcall }
+
+    \BLOCK{ if bad_changes }
+    \begin{alertblock}{Warning}
+        \large Detected above average rate changes in the following triggers\\
+        \BLOCK{ for t,c in bad_changes }
+        \VAR{ t } \VAR{  "," if not loop.last}
+        \BLOCK{ endfor}
+    \end{alertblock}
+    \BLOCK{ else }
+    \centering
+    \Large No Abnormal Changes Detected \\
+    Maximum Change in Rate was \VAR{max_change}
+    \BLOCK{ endif }
+\end{center}
+
+\end{frame}
+
+
+\VAR{ util.slide_images(images) }
+
+\begin{frame}{Information}
+    This overview was produced on \today.\\
+    HCAL Validation Framework Commit: \\
+    \VAR{commit}.
+\end{frame}
+
+\end{document}
+

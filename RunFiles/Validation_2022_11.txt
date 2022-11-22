@@ -6,43 +6,48 @@ validate     yes
 week         11
 year         2022
 
-outdir    /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
+
+outdir       /uscms_data/d3/ckapsiak/Development/test
+transferdir  root://cmseos.fnal.gov//store/user/ckapsiak/test
+local_out    false
 
 
 
 
-NewLUTtag    dataRun3_HLTNew_HCAL
-NewGT        122X_dataRun3_HLTNew_HCAL_w8_2022_v1
-NewRun       347807
+NewLUTtag    Run3Nov2022
+NewGT        124X_dataRun3_HLT_Candidate_2022_10_30_18_17_50
+NewRun       361400
 
-OldLUTtag    dataRun3_HLT_v3
-OldGT        122X_dataRun3_HLT_v3
-OldRun       347806
+OldLUTtag    Run3Oct2022_v2
+OldGT        124X_dataRun3_HLT_v4
+OldRun       361345
 
 HOAsciiInput HO_ped9_inputLUTcoderDec.txt
-release_LUT  CMSSW_12_2_1
-arch_LUT     slc7_amd64_gcc900
+release_LUT  CMSSW_12_6_X_2022-11-01-1100
+arch_LUT     slc7_amd64_gcc10
 
 
 
 
-geometry     2022
+geometry     2021
 
 
 
 
-run          347807
-lumi_start   1
-lumi_end     3
-dataset      /HcalNZS/Commissioning2022-v1/RAW
+run          360820 
+lumi_start   75
+lumi_end     500
+dataset      /EphemeralZeroBias0/Run2022F-v1/RAW
 tier2        T2_CH_CERN
 max_file_num 5
-nEvts       1000
+nEvts        1000
 
-release_L1   CMSSW_12_3_0_pre1
-arch_L1      slc7_amd64_gcc900
-version_L1   120.0
 
-zdc_lut_topic Michael-Krohn:skip-ZDC-LUT-generation-and-HBonlyLLPbits
 
-calo_params  L1Trigger/Configuration/customiseSettings.L1TSettingsToCaloParams_2018_v1_4
+release_L1   CMSSW_12_6_0_pre1
+arch_L1      slc7_amd64_gcc10
+version_L1   135-CMSSW_12_6_0_pre1
+
+zdc_lut_topic Michael-Krohn:masking-ieta-iphi-9-12_51-and-n2_44
+
+calo_params  L1Trigger/Configuration/customiseSettings.L1TSettingsToCaloParams_2022_v0_4
