@@ -6,7 +6,7 @@ export jobs_in_parallel=10
 export MAX_LEN=0
 export listFiles="listOfFiles.txt"
 export BASE_PATH="$(dirname $(pwd))"
-export OUTDIR="$outdir/$NewLUTtag"
+export OUTDIR="$BASE_PATH/$outdir/$NewLUTtag"
 export GIT_COMMIT=$(git rev-parse HEAD)
 export SCRATCH_DIR="$BASE_PATH/scratch"
 
@@ -65,6 +65,9 @@ function main(){
 
     # Make Plots
     bash scripts/makeplots.sh
+
+    # Start HLT Validation
+    #bash scripts/hlt.sh
 
     # Make Prsentations
     bash scripts/make_presentations.sh

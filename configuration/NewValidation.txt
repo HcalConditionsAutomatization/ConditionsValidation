@@ -7,8 +7,8 @@ week         11
 year         2022
 
 
-outdir       /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
-transferdir  
+outdir       output
+transferdir  /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
 local_out    true
 
 #------------------------------------------------
