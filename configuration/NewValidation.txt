@@ -11,7 +11,7 @@ outdir    /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
-NewLUTtag    Run3Nov2022_v3
+NewLUTtag    Run3Nov2022_v3_TESTING
 NewGT        124X_dataRun3_HLT_Candidate_2022_11_16_09_10_32
 NewRun       362200
 
