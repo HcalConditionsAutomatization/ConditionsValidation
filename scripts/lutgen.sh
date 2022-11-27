@@ -11,13 +11,15 @@ scram -a $arch_LUT project $release_LUT
 cd $release_LUT/src
 eval `scram runtime -sh`
 
+export LUTGEN_LOG=$LOG_DIR/lutgen.log
+
 base_dir="$(pwd)"
 
-git cms-addpkg CaloOnlineTools/HcalOnlineDb
-git cms-merge-topic -u akhukhun:xmldbformat
+git cms-addpkg CaloOnlineTools/HcalOnlineDb 
+git cms-merge-topic -u akhukhun:xmldbformat 
 if [[ ! -z "$zdc_lut_topic" ]]; then
     echo "Merging topic $zdc_lut_topic"
-    git cms-merge-topic -u "$zdc_lut_topic"
+    git cms-merge-topic -u "$zdc_lut_topic" 
 else
     echo "No zdc_lut_topic provided, proceeding as is."
 fi
@@ -65,7 +67,7 @@ echo O2OInputs=false >> cardPhysics_gen_old.sh
 echo 'cp ../../../../../ConditionsValidation/Tools/test.py .'
 cp $BASE_PATH/ConditionsValidation/Tools/test.py .
 #python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT
-python test.py ${NewLUTtag} ${OldLUTtag}
+python test.py ${NewLUTtag} ${OldLUTtag} >> $LUTGEN_LOG
 echo "os ls $OUTDIR"
 make_line 
 #if [[ $local_out == "true" ]]; then
