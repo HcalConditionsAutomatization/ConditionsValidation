@@ -6,12 +6,14 @@ validate     yes
 week         11
 year         2022
 
-outdir    /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
+outdir       output
+transferdir  /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
+local_out    true
 
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
-NewLUTtag    Run3Nov2022_v3_TESTING
+NewLUTtag    Run3Nov2022_v3
 NewGT        124X_dataRun3_HLT_Candidate_2022_11_16_09_10_32
 NewRun       362200
 
@@ -42,6 +44,19 @@ nEvts       -1
 release_L1   CMSSW_12_6_0_pre1
 arch_L1      slc7_amd64_gcc10
 version_L1   135-CMSSW_12_6_0_pre1
+
+#------------------------------------------------
+# HLT Validation
+#------------------------------------------------
+hlt_dataset      root://eoscms.cern.ch//store/data/Run2022F/HLTPhysics/RAW/v1/000/360/991/00000/69592673-b357-4478-b6c8-fb4fb2bcb980.root
+hlt_paths        HLT_PFMETNoMu110_*
+release_HLT      CMSSW_12_4_11
+arch_HLT         slc7_amd64_gcc10
+hlt_max_events   1000
+
+#------------------------------------------------
+# MISC
+#------------------------------------------------
 
 zdc_lut_topic Michael-Krohn:masking-ieta-iphi-9-12_51-and-n2_44
 
