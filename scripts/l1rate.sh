@@ -5,7 +5,7 @@ echo " L1 rate validation"
 make_line
 
 cd $BASE_PATH
-export LOGFILE=$LOG_DIR/lutgen.log
+export LOGFILE=$LOG_DIR/l1rate.sh
 mkdir -p $LOGFILE
 
 {
