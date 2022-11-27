@@ -5,10 +5,15 @@ echo " L1 rate validation"
 make_line
 
 cd $BASE_PATH
+export LOGFILE=$LOG_DIR/lutgen.log
+mkdir -p $LOGFILE
+
+{
 echo "scram -a $arch_L1 project $release_L1"
 scram -a $arch_L1 project $release_L1
 
 cd ${release_L1}/src
+
 eval `scram runtime -sh`
 
 git cms-init
@@ -65,3 +70,4 @@ done
 
 echo "Waiting for background processes to finish ..."
 wait
+}  >> $LOGFILE 2>&1

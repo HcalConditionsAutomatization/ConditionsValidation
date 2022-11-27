@@ -10,6 +10,13 @@ export OUTDIR="$BASE_PATH/$outdir/$NewLUTtag"
 export GIT_COMMIT=$(git rev-parse HEAD)
 export SCRATCH_DIR="$BASE_PATH/scratch"
 
+if [[ $local_out == "true" ]]; then
+   export LOG_DIR=$BASE_PATH/logs
+else
+   export LOG_DIR=$CI_UPLOAD_DIR
+fi
+
+
 function make_line(){
     local length=${1:-$DEFAULT_LINE_LENGTH}
     head -c $length < /dev/zero | tr '\0' '='
@@ -41,6 +48,7 @@ function print_vars() {
 function main(){
 
     mkdir -p $SCRATCH_DIR
+    mkdir -p $LOG_DIR
 
     make_line
     echo "Running from BASE_PATH ${BASE_PATH}"

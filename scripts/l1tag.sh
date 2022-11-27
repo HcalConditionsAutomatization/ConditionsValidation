@@ -3,8 +3,15 @@
 make_line
 echo " L1TriggerObjects Tag generation"
 make_line
+
 cd "$BASE_PATH/${release_LUT}/src/CaloOnlineTools/HcalOnlineDb/test/"
+
+export LOGFILE=$LOG_DIR/lutgen.log
+mkdir -p $LOGFILE
+
+{
 eval `scram runtime -sh`
+
 
 ls conditions/$NewLUTtag/Deploy/
 cp conditions/$NewLUTtag/Deploy/Gen_L1TriggerObjects_${NewLUTtag}.txt ../../..
@@ -19,3 +26,4 @@ ls $OUTDIR
 #else
 #    eos ls $outdir/${NewLUTtag}/.
 #fi
+}  >> $LOGFILE 2>&1
