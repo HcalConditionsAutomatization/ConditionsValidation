@@ -16,6 +16,13 @@ else
 fi
 
 
+if [[ $local_out == "true" ]]; then
+   export LOG_DIR=$BASE_PATH/logs
+else
+   export LOG_DIR=$CI_UPLOAD_DIR
+fi
+
+
 function make_line(){
     local length=${1:-$DEFAULT_LINE_LENGTH}
     head -c $length < /dev/zero | tr '\0' '='

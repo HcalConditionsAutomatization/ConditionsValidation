@@ -6,7 +6,10 @@ echo " LUT generation and validation"
 make_line
 
 cd $BASE_PATH
+export LOGFILE=$LOG_DIR/lutgen.log
+mkdir -p $LOGFILE
 
+{
 scram -a $arch_LUT project $release_LUT
 cd $release_LUT/src
 eval `scram runtime -sh`
@@ -83,3 +86,4 @@ echo conditions/${NewLUTtag}
 #    eos mkdir $outdir/${NewLUTtag}
 #fi
 xrdcp -rf conditions/${NewLUTtag} $OUTDIR
+}  >> $LOGFILE 2>&1
