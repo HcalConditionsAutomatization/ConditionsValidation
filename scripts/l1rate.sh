@@ -6,7 +6,7 @@ make_line
 
 cd $BASE_PATH
 export LOGFILE=$LOG_DIR/l1rate.sh
-mkdir -p $LOGFILE
+mkdir -p $LOG_DIR
 
 {
 echo "scram -a $arch_L1 project $release_L1"
