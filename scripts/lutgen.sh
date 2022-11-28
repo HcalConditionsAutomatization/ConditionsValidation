@@ -7,7 +7,7 @@ make_line
 
 cd $BASE_PATH
 export LOGFILE=$LOG_DIR/lutgen.log
-mkdir -p $LOGFILE
+mkdir -p $LOG_DIR
 
 {
 scram -a $arch_LUT project $release_LUT
