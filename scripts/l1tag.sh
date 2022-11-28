@@ -7,7 +7,7 @@ make_line
 cd "$BASE_PATH/${release_LUT}/src/CaloOnlineTools/HcalOnlineDb/test/"
 
 export LOGFILE=$LOG_DIR/l1tag.log
-mkdir -p $LOGFILE
+mkdir -p $LOG_DIR
 
 {
 eval `scram runtime -sh`
