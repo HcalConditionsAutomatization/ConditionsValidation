@@ -12,7 +12,7 @@ rates.exe new ./hcal_${run}_new_cond/
 mkdir plots
 draw_rates.exe
 ls plots
-if [[! $local_out == "true" ]]; then
+if [[ ! $local_out == "true" ]]; then
 #    mkdir ${outdir}/${NewLUTtag}/L1Plots
     mkdir $OUTDIR/rates
 else
