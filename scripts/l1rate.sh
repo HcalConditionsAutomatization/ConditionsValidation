@@ -6,7 +6,6 @@ make_line
 
 cd $BASE_PATH
 export LOGFILE=$LOG_DIR/l1rate.sh
-mkdir -p $LOGFILE
 
 {
 echo "scram -a $arch_L1 project $release_L1"
@@ -70,4 +69,4 @@ done
 
 echo "Waiting for background processes to finish ..."
 wait
-}  >> $LOGFILE 2>&1
+}   >> $LOGFILE 2>&1

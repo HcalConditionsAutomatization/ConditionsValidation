@@ -2,21 +2,27 @@
 
 
 make_line 
-echo " LUT generation and validation"
+echo "LUT generation and validation"
 make_line
 
 cd $BASE_PATH
 export LOGFILE=$LOG_DIR/lutgen.log
-mkdir -p $LOGFILE
 
 {
+
+echo scram -a $arch_LUT project $release_LUT
 scram -a $arch_LUT project $release_LUT
+
 cd $release_LUT/src
+
+echo "Evaluating $(scram runtime -sh)"
 eval `scram runtime -sh`
 
 export LUTGEN_LOG=$LOG_DIR/lutgen.log
 
 base_dir="$(pwd)"
+
+echo "Successfully setup environment, now merging"
 
 git cms-addpkg CaloOnlineTools/HcalOnlineDb 
 git cms-merge-topic -u akhukhun:xmldbformat 
@@ -70,7 +76,7 @@ echo O2OInputs=false >> cardPhysics_gen_old.sh
 echo 'cp ../../../../../ConditionsValidation/Tools/test.py .'
 cp $BASE_PATH/ConditionsValidation/Tools/test.py .
 #python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT
-python test.py ${NewLUTtag} ${OldLUTtag} >> $LUTGEN_LOG
+python test.py ${NewLUTtag} ${OldLUTtag}
 echo "os ls $OUTDIR"
 make_line 
 #if [[ $local_out == "true" ]]; then
@@ -86,4 +92,4 @@ echo conditions/${NewLUTtag}
 #    eos mkdir $outdir/${NewLUTtag}
 #fi
 xrdcp -rf conditions/${NewLUTtag} $OUTDIR
-}  >> $LOGFILE 2>&1
+}   >> $LOGFILE 2>&1

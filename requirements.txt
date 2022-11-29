@@ -1,6 +1,6 @@
 black==22.8.0
 click==8.0.4
-dataclasses==0.8
+dataclasses==0.6
 importlib-metadata==4.8.3
 Jinja2==3.0.3
 MarkupSafe==2.0.1

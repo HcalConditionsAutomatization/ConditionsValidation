@@ -46,13 +46,15 @@ function print_vars() {
     done
     make_line 
     for variable in ${variables[@]}; do
-        printf "%-${MAX_LEN}s = %s\n" "$variable" "${!variable}"
+        printf "%-${MAX_LEN}s = %s\n" "$variable" "\"${!variable}\""
     done
     make_line
 }
 
 function main(){
 
+    rm -r $LOG_DIR
+    rm -r $SCRATCH_DIR
     mkdir -p $SCRATCH_DIR
     mkdir -p $LOG_DIR
 

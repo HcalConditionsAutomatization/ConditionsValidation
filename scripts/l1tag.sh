@@ -7,7 +7,6 @@ make_line
 cd "$BASE_PATH/${release_LUT}/src/CaloOnlineTools/HcalOnlineDb/test/"
 
 export LOGFILE=$LOG_DIR/l1tag.log
-mkdir -p $LOGFILE
 
 {
 eval `scram runtime -sh`
@@ -26,4 +25,4 @@ ls $OUTDIR
 #else
 #    eos ls $outdir/${NewLUTtag}/.
 #fi
-}  >> $LOGFILE 2>&1
+}   >> $LOGFILE 2>&1
