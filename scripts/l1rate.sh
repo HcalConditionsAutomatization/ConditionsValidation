@@ -5,7 +5,7 @@ echo " L1 rate validation"
 make_line
 
 cd $BASE_PATH
-export LOGFILE=$LOG_DIR/l1rate.sh
+export LOGFILE=$LOG_DIR/l1rate.log
 
 {
 echo "scram -a $arch_L1 project $release_L1"
