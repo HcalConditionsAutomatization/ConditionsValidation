@@ -18,7 +18,6 @@ cd $release_LUT/src
 echo "Evaluating $(scram runtime -sh)"
 eval `scram runtime -sh`
 
-export LUTGEN_LOG=$LOG_DIR/lutgen.log
 
 base_dir="$(pwd)"
 
@@ -92,4 +91,4 @@ echo conditions/${NewLUTtag}
 #    eos mkdir $outdir/${NewLUTtag}
 #fi
 xrdcp -rf conditions/${NewLUTtag} $OUTDIR
-}   >> $LOGFILE 2>&1
+} >> $LOGFILE 2>&1

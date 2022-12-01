@@ -72,9 +72,12 @@ private:
   double Ymax;
   double Pmin;
   double Pmax;
+   edm::ESGetToken<HcalTopology, HcalRecNumberingRecord> top_token;
 };
 
-HcalLutAnalyzer::HcalLutAnalyzer(const edm::ParameterSet& iConfig) {
+HcalLutAnalyzer::HcalLutAnalyzer(const edm::ParameterSet& iConfig):
+    top_token(esConsumes())
+{
   inputDir = iConfig.getParameter<std::string>("inputDir");
   plotsDir = iConfig.getParameter<std::string>("plotsDir");
   tags_ = iConfig.getParameter<std::vector<std::string> >("tags");
@@ -95,8 +98,9 @@ HcalLutAnalyzer::HcalLutAnalyzer(const edm::ParameterSet& iConfig) {
 void HcalLutAnalyzer::analyze(const edm::Event&, const edm::EventSetup& iSetup) {
   using namespace std;
 
-  edm::ESHandle<HcalTopology> topology;
-  iSetup.get<HcalRecNumberingRecord>().get(topology);
+  //edm::ESHandle<HcalTopology> topology;
+  //iSetup.get<HcalRecNumberingRecord>().get(topology);
+  auto topology = iSetup.getHandle(top_token);
 
   typedef std::vector<std::string> vstring;
   typedef std::map<unsigned long int, float> LUTINPUT;
