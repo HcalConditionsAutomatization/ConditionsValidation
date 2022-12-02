@@ -4,7 +4,6 @@
 export DEFAULT_LINE_LENGTH=35
 export jobs_in_parallel=10
 export MAX_LEN=0
-export listFiles="listOfFiles.txt"
 export BASE_PATH="$(dirname $(pwd))"
 export OUTDIR="$BASE_PATH/$outdir/$NewLUTtag"
 export GIT_COMMIT=$(git rev-parse HEAD)
@@ -70,13 +69,13 @@ function main(){
     print_vars
 
 
-     bash scripts/setup_python.sh
+    bash scripts/setup_python.sh
 
     # Generate the Lookup Tables based on the conditions, both new and old
-     bash scripts/lutgen.sh
+    bash scripts/lutgen.sh
 
     # Generate trigger objects for the new LUT tag
-     bash scripts/l1tag.sh
+    bash scripts/l1tag.sh
 
     # Compute the L1 rates
     bash scripts/l1rate.sh
@@ -85,7 +84,7 @@ function main(){
     bash scripts/makeplots.sh
 
     # Start HLT Validation
-    #bash scripts/hlt.sh
+    bash scripts/hlt.sh
 
     # Make Prsentations
     bash scripts/make_presentations.sh

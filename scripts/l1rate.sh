@@ -6,6 +6,7 @@ make_line
 
 cd $BASE_PATH
 export LOGFILE=$LOG_DIR/l1rate.log
+export listFiles="listOfFiles.txt"
 
 {
 echo "scram -a $arch_L1 project $release_L1"
@@ -40,6 +41,8 @@ if [[ ! $lumiblock == \#* ]]; then
   lumimask="../../lumimask.txt"
 fi
 
+echo "Executing the following das query"
+echo "dasgoclient -query=\"file dataset=${dataset} run=${run}\""
 dasgoclient -query="file dataset=${dataset} run=${run}" > $listFiles
 echo "Running over the following filelist"
 cat $listFiles
@@ -69,4 +72,4 @@ done
 
 echo "Waiting for background processes to finish ..."
 wait
-}   >> $LOGFILE 2>&1
+}   # >> $LOGFILE 2>&1
