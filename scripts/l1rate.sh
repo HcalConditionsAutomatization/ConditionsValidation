@@ -72,4 +72,4 @@ done
 
 echo "Waiting for background processes to finish ..."
 wait
-}   # >> $LOGFILE 2>&1
+}    >> $LOGFILE 2>&1
