@@ -55,8 +55,10 @@ function main(){
 
     rm -r $LOG_DIR
     rm -r $SCRATCH_DIR
+    echo "Creating directories"
     mkdir -p $SCRATCH_DIR
     mkdir -p $LOG_DIR
+    mkdir -p $OUTDIR
 
     make_line
     echo "Running from BASE_PATH ${BASE_PATH}"
@@ -77,7 +79,7 @@ function main(){
     # bash scripts/l1tag.sh
 
     # Compute the L1 rates
-    bash scripts/l1rate.sh
+    #bash scripts/l1rate.sh
 
     # Make Plots
     bash scripts/makeplots.sh

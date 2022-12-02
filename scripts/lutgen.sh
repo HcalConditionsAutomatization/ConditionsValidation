@@ -40,10 +40,10 @@ scram b
 cd CaloOnlineTools/HcalOnlineDb/test/
 # changing the plotting parameters to zoom in on changes
 echo "copying the new plotting parameters"
-cp -f ../../../../../ConditionsValidation/LUTFigureParameters/PlotLUT.py PlotLUT.py
-cp -f ../../../../../ConditionsValidation/LUTFigureParameters/HcalLutAnalyzer.cc ../plugins/HcalLutAnalyzer.cc
-sed -n '34,35p' ../../../../../ConditionsValidation/LUTFigureParameters/PlotLUT.py
-sed -n '141p' ../../../../../ConditionsValidation/LUTFigureParameters/HcalLutAnalyzer.cc
+cp -f $BASE_PATH/ConditionsValidation/LUTFigureParameters/PlotLUT.py PlotLUT.py
+cp -f $BASE_PATH/ConditionsValidation/LUTFigureParameters/HcalLutAnalyzer.cc ../plugins/HcalLutAnalyzer.cc
+sed -n '34,35p' $BASE_PATH/ConditionsValidation/LUTFigureParameters/PlotLUT.py
+sed -n '141p' $BASE_PATH/ConditionsValidation/LUTFigureParameters/HcalLutAnalyzer.cc
 echo "finished copying the plotting parameters"
 sed -n '34,35p' PlotLUT.py
 sed -n '141p' ../plugins/HcalLutAnalyzer.cc
@@ -72,23 +72,10 @@ echo HOAsciiInput=$HOAsciiInput >> cardPhysics_gen_old.sh
 echo O2OL1TriggerObjects=false >> cardPhysics_gen_old.sh
 echo O2OInputs=false >> cardPhysics_gen_old.sh
 
-echo 'cp ../../../../../ConditionsValidation/Tools/test.py .'
 cp $BASE_PATH/ConditionsValidation/Tools/test.py .
-#python test.py $NewRun $NewLUTtag $NewGT $OldRun $OldLUTtag $OldGT
 python test.py ${NewLUTtag} ${OldLUTtag}
-echo "os ls $OUTDIR"
 make_line 
-#if [[ $local_out == "true" ]]; then
-#if [[ ! -d ${OUTDIR} ]]; then
-#    mkdir $OUTDIR
-#fi
-mkdir -p $OUTDIR
 ls $OUTDIR
 echo conditions/${NewLUTtag}
-#else
-#    eos ls $OUTDIR
-#    echo conditions/${NewLUTtag}
-#    eos mkdir $outdir/${NewLUTtag}
-#fi
 xrdcp -rf conditions/${NewLUTtag} $OUTDIR
 } >> $LOGFILE 2>&1
