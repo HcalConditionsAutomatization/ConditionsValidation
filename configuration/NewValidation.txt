@@ -24,7 +24,7 @@ OldRun       362759
 
 HOAsciiInput HO_ped9_inputLUTcoderDec.txt
 release_LUT  CMSSW_13_0_X_2023-02-25-1100
-arch_LUT     slc7_amd64_gcc10
+arch_LUT     slc7_amd64_gcc11
 
 #------------------------------------------------
 # TAG GENERATION
