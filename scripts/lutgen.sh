@@ -79,3 +79,8 @@ ls $OUTDIR
 echo conditions/${NewLUTtag}
 xrdcp -rf conditions/${NewLUTtag} $OUTDIR
 } >> $LOGFILE 2>&1
+
+make_line 
+echo "Copying lutgen log file"
+make_line
+xrdcp -rf $LOGFILE $transferdir
