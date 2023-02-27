@@ -23,7 +23,7 @@ OldGT        124X_dataRun3_HLT_v4
 OldRun       362759
 
 HOAsciiInput HO_ped9_inputLUTcoderDec.txt
-release_LUT  CMSSW_12_6_X_2023-02-20-2300
+release_LUT  CMSSW_13_0_X_2023-02-25-1100
 arch_LUT     slc7_amd64_gcc10
 
 #------------------------------------------------
@@ -59,6 +59,6 @@ hlt_max_events   1000
 # MISC
 #------------------------------------------------
 
-zdc_lut_topic Michael-Krohn:masking-ieta-iphi-9-12_51-and-n2_44
+zdc_lut_topic Michael-Krohn:masking-ieta-iphi-n2_44_and_n13-n16_12
 
 calo_params  L1Trigger/Configuration/customiseSettings.L1TSettingsToCaloParams_2022_v0_4
