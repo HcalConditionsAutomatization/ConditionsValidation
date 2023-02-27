@@ -13,16 +13,17 @@ local_out    false
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
-NewLUTtag    Run3Nov2022_v3_TESTING
-NewGT        124X_dataRun3_HLT_Candidate_2022_11_16_09_10_32
-NewRun       362200
+NewLUTtag    Run3Mar2023_v1
+NewGT        124X_dataRun3_HLT_v4
+#NewGT        124X_dataRun3_HLT_Candidate_2022_11_16_09_10_32
+NewRun       364000
 
-OldLUTtag    Run3Nov2022_v2
+OldLUTtag    Run3Nov2022_v4
 OldGT        124X_dataRun3_HLT_v4
-OldRun       362105
+OldRun       362759
 
 HOAsciiInput HO_ped9_inputLUTcoderDec.txt
-release_LUT  CMSSW_12_6_X_2022-12-01-1100
+release_LUT  CMSSW_12_6_X_2023-02-20-2300
 arch_LUT     slc7_amd64_gcc10
 
 #------------------------------------------------
