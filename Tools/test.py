@@ -37,6 +37,7 @@ oldfile = "cardPhysics_gen_old.sh"
 printFileLines(newfile)
 printFileLines(oldfile)
 
+os.system("chmod u+x genLUT.sh")
 os.system("./genLUT.sh dumpAll card=cardPhysics.sh")
 os.system("./genLUT.sh dumpAll card=cardPhysics_gen_old.sh")
 
