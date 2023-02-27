@@ -85,3 +85,4 @@ echo "Copying lutgen log file"
 make_line
 xrdcp -rf $LOGFILE $transferdir
 xrdcp -rf conditions/${NewLUTtag} $transferdir
+echo "FINISHED TRANSFERING LUT"
