@@ -14,7 +14,7 @@ local_out    false
 # LUT GENERATION
 #------------------------------------------------
 NewLUTtag    Run3Mar2023_v1
-NewGT        124X_dataRun3_HLT_v4
+NewGT        126X_dataRun3_HLT_v1
 #NewGT        124X_dataRun3_HLT_Candidate_2022_11_16_09_10_32
 NewRun       364000
 
