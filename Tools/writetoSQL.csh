@@ -22,10 +22,12 @@ cat >! temp_write_cfg.py <<%
 import FWCore.ParameterSet.Config as cms
 
 process = cms.Process("ProcessOne")
-process.load("Configuration.Geometry.GeometryExtended$1_cff")
-process.load("Configuration.Geometry.GeometryExtended$1Reco_cff")
 
+process.load("Configuration.StandardSequences.GeometryDB_cff")
 process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
+from Configuration.AlCa.autoCond import autoCond
+process.GlobalTag.globaltag = autoCond["phase1_$1_realistic"]
+
 process.load("CondCore.CondDB.CondDB_cfi")
 
 process.CondDB.DBParameters.authenticationPath = cms.untracked.string('$authPath' )
@@ -61,6 +63,7 @@ process.PoolDBOutputService = cms.Service("PoolDBOutputService",
     process.CondDB,
     logconnect = cms.untracked.string('$logstring'),
     timetype = cms.untracked.string('runnumber'),
+#     timetype = cms.untracked.string('lumiid'),
     toPut = cms.VPSet(cms.PSet(
         record = cms.string('Hcal$2Rcd'),
         tag = cms.string("$4")
