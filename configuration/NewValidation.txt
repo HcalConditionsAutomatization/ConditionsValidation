@@ -13,17 +13,16 @@ local_out    false
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
-NewLUTtag    Run3Mar2023_v1
-NewGT        126X_dataRun3_HLT_v1
-#NewGT        124X_dataRun3_HLT_Candidate_2022_11_16_09_10_32
-NewRun       364000
+NewLUTtag    Run3Mar2023_v3
+NewGT        130X_dataRun3_HLT_Candidate_2023_03_23_06_20_34
+NewRun       365300
 
-OldLUTtag    Run3Nov2022_v4
-OldGT        124X_dataRun3_HLT_v4
-OldRun       362759
+OldLUTtag    Run3Mar2023_v1
+OldGT        126X_dataRun3_HLT_v1
+OldRun       365167
 
 HOAsciiInput HO_ped9_inputLUTcoderDec.txt
-release_LUT  CMSSW_13_0_X_2023-02-25-1100
+release_LUT  CMSSW_13_0_X_2023-03-22-2300
 arch_LUT     slc7_amd64_gcc11
 
 #------------------------------------------------
@@ -42,9 +41,9 @@ tier2        T2_CH_CERN
 max_file_num -1
 nEvts       -1
 
-release_L1   CMSSW_12_6_0_pre1
-arch_L1      slc7_amd64_gcc10
-version_L1   135-CMSSW_12_6_0_pre1
+release_L1   CMSSW_13_0_0_pre4
+arch_L1      slc7_amd64_gcc11
+version_L1   l1t-integration-v147
 
 #------------------------------------------------
 # HLT Validation
