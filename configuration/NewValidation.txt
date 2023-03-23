@@ -43,7 +43,7 @@ nEvts       -1
 
 release_L1   CMSSW_13_0_0_pre4
 arch_L1      slc7_amd64_gcc11
-version_L1   l1t-integration-v147
+version_L1   147
 
 #------------------------------------------------
 # HLT Validation
