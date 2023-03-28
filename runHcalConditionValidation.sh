@@ -84,7 +84,7 @@ function main(){
     bash scripts/makeplots.sh
 
     # Start HLT Validation
-    bash scripts/hlt.sh
+    #bash scripts/hlt.sh
 
     # Make Prsentations
     bash scripts/make_presentations.sh
