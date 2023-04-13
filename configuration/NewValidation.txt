@@ -13,9 +13,9 @@ local_out    false
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
-NewLUTtag    Run3Apr2023_v1_2nd
-NewGT        130X_dataRun3_HLT_Candidate_2023_04_10_05_22_21 
-NewRun       366000
+NewLUTtag    Run3Apr2023_v2
+NewGT        130X_dataRun3_HLT_Candidate_2023_04_12_12_31_09
+NewRun       366200
 
 OldLUTtag    Run3Mar2023_v3
 OldGT        130X_dataRun3_HLT_v1
@@ -34,8 +34,7 @@ geometry     2021
 # L1 RATE VALIDATION
 #------------------------------------------------
 run          361468
-lumi_start   161
-#lumi_start   146
+lumi_start   146
 lumi_end     170
 #lumi_end     200
 dataset      /EphemeralZeroBias0/Run2022F-v1/RAW
