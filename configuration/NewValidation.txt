@@ -13,8 +13,8 @@ local_out    false
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
-NewLUTtag    Run3Apr2023_v1_Testing_2nd
-NewGT        130X_dataRun3_HLT_Candidate_2023_04_10_05_22_21
+NewLUTtag    Run3Apr2023_v2_Testing
+NewGT        130X_dataRun3_HLT_Candidate_2023_04_12_12_31_09
 NewRun       366200
 
 OldLUTtag    Run3Mar2023_v3
