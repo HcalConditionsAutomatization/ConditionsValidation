@@ -13,7 +13,7 @@ local_out    false
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
-NewLUTtag    Run3Apr2023_v1_Testing
+NewLUTtag    Run3Apr2023_v1_Testing_2nd
 NewGT        130X_dataRun3_HLT_Candidate_2023_04_10_05_22_21
 NewRun       366200
 
@@ -35,7 +35,7 @@ geometry     2021
 #------------------------------------------------
 run          361468
 lumi_start   146
-lumi_end     170
+lumi_end     180
 #lumi_end     200
 dataset      /EphemeralZeroBias0/Run2022F-v1/RAW
 tier2        T2_CH_CERN
