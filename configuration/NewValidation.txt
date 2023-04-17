@@ -10,7 +10,6 @@ outdir       output
 transferdir  /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
 local_out    false
 
-
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
