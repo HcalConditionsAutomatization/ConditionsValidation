@@ -57,7 +57,7 @@ for file in `less ./${listFiles}`; do
     mkdir -p ./hcal_${run}_def/ntuple_maker_$numfolder && mkdir -p ./hcal_${run}_new_cond/ntuple_maker_$numfolder
     sh ./ntuple_maker_template.sh default $n $nEvts Run3 $OldGT root://cmsxrootd.fnal.gov//$file $lumimask && mv ntuple_maker_def_$n.py ./hcal_${run}_def/ntuple_maker_$numfolder
     sh ./ntuple_maker_template.sh new_con $n $nEvts Run3 $NewGT root://cmsxrootd.fnal.gov//$file $lumimask && mv ntuple_maker_new_$n.py ./hcal_${run}_new_cond/ntuple_maker_$numfolder
-    ( cd ./hcal_${run}_def/ntuple_maker_$numfolder && cmsRun ntuple_maker_def_$n.py && mv L1Ntuple.root ../L1Ntuple_$n.root ) & ( cd ./hcal_${run}_new_cond/ntuple_maker_$numfolder && cmsRun ntuple_maker_new_$n.py && mv L1Ntuple.root ../L1Ntuple_$n.root ) &
+    ( cd ./hcal_${run}_def/ntuple_maker_$numfolder && cmsRun ntuple_maker_def_$n.py && mv L1Ntuple.root ../L1Ntuple_$n.root && xrdcp -rf ../L1Ntuple_$n.root $transferdir) & ( cd ./hcal_${run}_new_cond/ntuple_maker_$numfolder && cmsRun ntuple_maker_new_$n.py && mv L1Ntuple.root ../L1Ntuple_$n.root ) &
 #    wait
     if [ $(jobs | wc -l) -ge $jobs_in_parallel ]; then
       echo "Waiting for background processes to finish ..."
