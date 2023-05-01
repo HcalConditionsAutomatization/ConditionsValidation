@@ -23,7 +23,7 @@ OldGT        130X_dataRun3_HLT_v1
 OldRun       365924
 
 HOAsciiInput HO_ped9_inputLUTcoderDec.txt
-release_LUT  CMSSW_13_0_X_2023-04-12-2300
+release_LUT  CMSSW_13_0_X_2023-04-25-2300
 arch_LUT     slc7_amd64_gcc11
 
 #------------------------------------------------
