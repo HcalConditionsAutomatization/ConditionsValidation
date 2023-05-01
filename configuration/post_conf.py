@@ -17,10 +17,12 @@ LUMIEND=os.environ["LUMIEND"]
 GT=os.environ["GT"]
 
 trigger_changes = { 
-        "L1\_SingleEG36" : ("singleEgRates_emu", 34,38),
         "L1\_SingleJet180" : ("singleJetRates_emu", 170,190),
+        "L1\_METHF90" : ("metHFSumRates_emu", 80,100),
+        "L1\_HTT360" : ("htSumRates_emu", 350,370),
         "L1\_DoubleIsoTau34" : ("doubleTauRates_emu", 32,36),
-        #"L1_HTT360" : ("htSumRates_emu", 350,370)
+        "L1\_SingleEG36" : ("singleEgRates_emu", 34,38),
+	"L1\_SingleIsoEG30" : ("singleISOEgRates_emu", 28,32),
         }
 
 plots = [ 
