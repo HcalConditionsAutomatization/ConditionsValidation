@@ -10,19 +10,20 @@ outdir       output
 transferdir  /eos/cms/store/group/dpg_hcal/comm_hcal/chin/HCALValidation
 local_out    false
 
+
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
-NewLUTtag    Run3Mar2023_v3
-NewGT        130X_dataRun3_HLT_Candidate_2023_03_23_06_20_34
-NewRun       365300
+NewLUTtag    Run3Apr2023_v1p1
+NewGT        130X_dataRun3_HLT_Candidate_2023_04_10_05_22_21
+NewRun       366200
 
-OldLUTtag    Run3Mar2023_v1
-OldGT        126X_dataRun3_HLT_v1
-OldRun       365167
+OldLUTtag    Run3Mar2023_v3
+OldGT        130X_dataRun3_HLT_v1
+OldRun       365924
 
 HOAsciiInput HO_ped9_inputLUTcoderDec.txt
-release_LUT  CMSSW_13_0_X_2023-03-22-2300
+release_LUT  CMSSW_13_0_X_2023-04-25-2300
 arch_LUT     slc7_amd64_gcc11
 
 #------------------------------------------------
@@ -35,8 +36,8 @@ geometry     2021
 #------------------------------------------------
 run          361468
 lumi_start   146
-lumi_end     160
-#lumi_end     200
+lumi_end     170
+#lumi_end     180
 dataset      /EphemeralZeroBias0/Run2022F-v1/RAW
 tier2        T2_CH_CERN
 max_file_num -1
