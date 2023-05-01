@@ -8,6 +8,13 @@ analyzer_output = Path(os.environ["OUTDIR"]).resolve()
 post_output = Path(os.environ["OUTDIR"]).resolve()
 scratch = Path(os.environ["SCRATCH_DIR"]).resolve()
 commit=os.environ["GIT_COMMIT"]
+commit=os.environ["GIT_COMMIT"]
+CMSSWl1=os.environ["CMSSW_L1"]
+DATASETraw=os.environ["DATASET"]
+L1RUN=os.environ["L1RUN"]
+LUMISTART=os.environ["LUMISTART"]
+LUMIEND=os.environ["LUMIEND"]
+GT=os.environ["GT"]
 
 trigger_changes = { 
         "L1\_SingleEG36" : ("singleEgRates_emu", 34,38),
