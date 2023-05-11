@@ -21,6 +21,7 @@ def makeOverviewSlides(config):
     lumistart = config.LUMISTART.strip()
     lumiend = config.LUMIEND.strip()
     gt = config.GT.strip()
+    ntags = config.NTAGS.strip()
 
     rate_changes= [[ trigger, round(getRatio(new_rates,old_rates,r[0], r[1], r[2]),3) ] 
             for trigger, r in changes.items()]
@@ -44,7 +45,8 @@ def makeOverviewSlides(config):
         "l1run" : l1run,
         "lumistart" : lumistart,
         "lumiend" : lumiend,
-        "gt" : gt
+        "gt" : gt,
+        "ntags" : ntags
         })
     tm.compile()
 

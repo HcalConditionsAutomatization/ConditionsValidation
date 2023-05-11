@@ -15,6 +15,7 @@ L1RUN=os.environ["L1RUN"]
 LUMISTART=os.environ["LUMISTART"]
 LUMIEND=os.environ["LUMIEND"]
 GT=os.environ["GT"]
+NTAGS=os.environ["nTagsAndL1TriggerObject"]
 
 trigger_changes = { 
         "L1\_SingleJet180" : ("singleJetRates_emu", 170,190),
