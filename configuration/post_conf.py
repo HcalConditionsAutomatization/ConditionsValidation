@@ -15,7 +15,7 @@ L1RUN=os.environ["L1RUN"]
 LUMISTART=os.environ["LUMISTART"]
 LUMIEND=os.environ["LUMIEND"]
 GT=os.environ["GT"]
-NTAGS=os.environ["nTagsAndL1TriggerObject"]
+NTAGS=os.environ["nTags"]
 NEWTAGS=os.environ["NEWTAG"]
 
 trigger_changes = { 
