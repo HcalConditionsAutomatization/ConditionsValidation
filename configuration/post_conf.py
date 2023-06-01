@@ -20,6 +20,7 @@ NEWTAGS=os.environ["NEWTAG"]
 
 trigger_changes = { 
         "L1\_SingleJet180" : ("singleJetRates_emu", 170,190),
+        "L1\_HTT200\_SingleLLPJet60" : ("singleJetRates_emu", 50,70),
         "L1\_METHF90" : ("metHFSumRates_emu", 80,100),
         "L1\_HTT360" : ("htSumRates_emu", 350,370),
         "L1\_DoubleIsoTau34" : ("doubleTauRates_emu", 32,36),
@@ -33,4 +34,5 @@ plots = [
         ["Tau Rates", "plots/tauRates_emu.pdf", "Tau rates"],
         ["Scalar Sum Rates", "plots/scalarSumRates_emu.pdf", "Scalar rates"],
         ["Vector Sum Rates", "plots/vectorSumRates_emu.pdf", "Vector rates"]
+        ["LLP Jet Rates", "plots/jetLLPRates_emu.pdf", "LLP Jet rates"]
         ]
