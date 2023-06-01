@@ -14,16 +14,16 @@ local_out    false
 #------------------------------------------------
 # LUT GENERATION
 #------------------------------------------------
-NewLUTtag    Run3Apr2023_v1p1
-NewGT        130X_dataRun3_HLT_Candidate_2023_04_10_05_22_21
-NewRun       366200
+NewLUTtag    Run3May2023_v1
+NewGT        130X_dataRun3_HLT_Candidate_2023_06_01_06_22_47
+NewRun       368072
 
-OldLUTtag    Run3Mar2023_v3
-OldGT        130X_dataRun3_HLT_v1
-OldRun       365924
+OldLUTtag    Run3Apr2023_v1p1
+OldGT        130X_dataRun3_HLT_v2
+OldRun       367908
 
 HOAsciiInput HO_ped9_inputLUTcoderDec.txt
-release_LUT  CMSSW_13_0_X_2023-04-25-2300
+release_LUT  CMSSW_13_0_X_2023-05-25-1100
 arch_LUT     slc7_amd64_gcc11
 
 #------------------------------------------------
@@ -34,18 +34,17 @@ geometry     2021
 #------------------------------------------------
 # L1 RATE VALIDATION
 #------------------------------------------------
-run          361468
-lumi_start   146
-lumi_end     170
-#lumi_end     180
-dataset      /EphemeralZeroBias0/Run2022F-v1/RAW
+run          367908
+lumi_start   1
+lumi_end     75
+dataset      /ZeroBias/Run2023C-v1/RAW
 tier2        T2_CH_CERN
 max_file_num -1
 nEvts       -1
 
-release_L1   CMSSW_13_0_0_pre4
+release_L1   CMSSW_13_1_0_pre4
 arch_L1      slc7_amd64_gcc11
-version_L1   147
+version_L1   156
 
 #------------------------------------------------
 # HLT Validation
@@ -62,4 +61,4 @@ hlt_max_events   1000
 
 zdc_lut_topic Michael-Krohn:masking-ieta-iphi-n2_44_and_n13-n16_12
 
-calo_params  L1Trigger/Configuration/customiseSettings.L1TSettingsToCaloParams_2022_v0_4
+calo_params  L1Trigger/Configuration/customiseSettings.L1TSettingsToCaloParams_2023_v0_2
