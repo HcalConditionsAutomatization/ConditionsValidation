@@ -33,6 +33,6 @@ plots = [
         ["Jet Rates", "plots/jetRates_emu.pdf", "Jet rates"],
         ["Tau Rates", "plots/tauRates_emu.pdf", "Tau rates"],
         ["Scalar Sum Rates", "plots/scalarSumRates_emu.pdf", "Scalar rates"],
-        ["Vector Sum Rates", "plots/vectorSumRates_emu.pdf", "Vector rates"]
+        ["Vector Sum Rates", "plots/vectorSumRates_emu.pdf", "Vector rates"],
         ["LLP Jet Rates", "plots/jetLLPRates_emu.pdf", "LLP Jet rates"]
         ]
