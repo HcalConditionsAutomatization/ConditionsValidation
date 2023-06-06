@@ -17,6 +17,7 @@ LUMIEND=os.environ["LUMIEND"]
 GT=os.environ["GT"]
 NTAGS=os.environ["nTags"]
 NEWTAGS=os.environ["NEWTAG"]
+CALOPARAMS=os.environ["CALOPARAMS"]
 
 trigger_changes = { 
         "L1\_SingleJet180" : ("singleJetRates_emu", 170,190),
