@@ -10,14 +10,11 @@ scratch = Path(os.environ["SCRATCH_DIR"]).resolve()
 commit=os.environ["GIT_COMMIT"]
 commit=os.environ["GIT_COMMIT"]
 CMSSWl1=os.environ["CMSSW_L1"]
-DATASETraw=os.environ["DATASET"]
-L1RUN=os.environ["L1RUN"]
-LUMISTART=os.environ["LUMISTART"]
-LUMIEND=os.environ["LUMIEND"]
-GT=os.environ["GT"]
-NTAGS=os.environ["nTags"]
-NEWTAGS=os.environ["NEWTAG"]
-CALOPARAMS=os.environ["CALOPARAMS"]
+#DATASETraw=os.environ["DATASET"]
+#L1RUN=os.environ["L1RUN"]
+#GT=os.environ["GT"]
+#NTAGS=os.environ["nTags"]
+#NEWTAGS=os.environ["NEWTAG"]
 
 trigger_changes = { 
         "L1\_SingleJet180" : ("singleJetRates_emu", 170,190),
@@ -30,10 +27,14 @@ trigger_changes = {
         }
 
 plots = [ 
-        ["EG Rates", "plots/egRates_emu.pdf", "EG Rates"],
-        ["Jet Rates", "plots/jetRates_emu.pdf", "Jet rates"],
-        ["Tau Rates", "plots/tauRates_emu.pdf", "Tau rates"],
-        ["Scalar Sum Rates", "plots/scalarSumRates_emu.pdf", "Scalar rates"],
-        ["Vector Sum Rates", "plots/vectorSumRates_emu.pdf", "Vector rates"],
-        ["LLP Jet Rates", "plots/jetLLPRates_emu.pdf", "LLP Jet rates"]
+        ["EG Rates", "Inclusive/plots/egRates_emu.pdf", "EG Rates"],
+        ["Jet Rates", "Inclusive/plots/jetRates_emu.pdf", "Jet rates"],
+        ["Jet Rates HB", "HB/plots/jetRates_emu.pdf", "Jet rates"],
+        ["Jet Rates HE1", "HE1/plots/jetRates_emu.pdf", "Jet rates"],
+        ["Jet Rates HE2", "HE2/plots/jetRates_emu.pdf", "Jet rates"],
+        ["Jet Rates HF", "HF/plots/jetRates_emu.pdf", "Jet rates"],
+        ["Tau Rates", "Inclusive/plots/tauRates_emu.pdf", "Tau rates"],
+        ["Scalar Sum Rates", "Inclusive/plots/scalarSumRates_emu.pdf", "Scalar rates"],
+        ["Vector Sum Rates", "Inclusive/plots/vectorSumRates_emu.pdf", "Vector rates"],
+        ["LLP Jet Rates", "Inclusive/plots/jetllpRates_emu.pdf", "LLP Jet rates"]
         ]
