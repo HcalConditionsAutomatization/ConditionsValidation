@@ -15,7 +15,7 @@ def makeOverviewSlides(config):
     old_rates=(config.analyzer_output/"plots"/"Inclusive"/"rates_def.root").resolve()
     new_rates=(config.analyzer_output/"plots"/"Inclusive"/"rates_new_cond.root").resolve()
 #    git_commit = config.commit.strip()
-    cmsswl1 = config.CMSSWl1.strip()
+#    cmsswl1 = config.CMSSWl1.strip()
 #    dataset = config.DATASETraw.strip()
 #    l1run = config.L1RUN.strip()
 #    gt = config.GT.strip()
