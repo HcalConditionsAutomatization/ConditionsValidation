@@ -39,7 +39,7 @@ def makeOverviewSlides(config):
         "max_change" : max_change,
         "bad_changes": anomalous_changes,
 #        "commit" : git_commit,
-        "cmsswl1" : cmsswl1,
+#        "cmsswl1" : cmsswl1,
 #        "dataset" : dataset,
 #        "l1run" : l1run,
 #        "gt" : gt,
