@@ -27,7 +27,7 @@ def makeOverviewSlides(config):
 
 
     anomalous_changes=[ [t,c] for t,c in rate_changes if abs(c-1.0) > config.trigger_abnormality_threshold]
-    max_change = max([c for t,c in rate_changes])
+    max_change = round(max([100*abs(c-1.0) for t,c in rate_changes]),2)
 
     overview_template = (Path(__file__).parent / "templates/outline.tex").resolve()
     tm = TexMaker(config.scratch ,overview_template, config.post_output )
