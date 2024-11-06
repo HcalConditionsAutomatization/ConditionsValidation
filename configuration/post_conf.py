@@ -26,14 +26,14 @@ trigger_changes = {
         }
 
 plots = [ 
-        ["EG Rates", "Inclusive/plots/egRates_emu.pdf", "EG Rates"],
-        ["Jet Rates", "Inclusive/plots/jetRates_emu.pdf", "Jet rates"],
-        ["Jet Rates HB", "HB/plots/jetRates_emu.pdf", "Jet rates"],
-        ["Jet Rates HE1", "HE1/plots/jetRates_emu.pdf", "Jet rates"],
-        ["Jet Rates HE2", "HE2/plots/jetRates_emu.pdf", "Jet rates"],
-        ["Jet Rates HF", "HF/plots/jetRates_emu.pdf", "Jet rates"],
-        ["Tau Rates", "Inclusive/plots/tauRates_emu.pdf", "Tau rates"],
-        ["Scalar Sum Rates", "Inclusive/plots/scalarSumRates_emu.pdf", "Scalar rates"],
-        ["Vector Sum Rates", "Inclusive/plots/vectorSumRates_emu.pdf", "Vector rates"],
-        ["LLP Jet Rates", "Inclusive/plots/jetllpRates_emu.pdf", "LLP Jet rates"]
+        ["EG Rates", "Inclusive/egRates_emu.pdf", "EG Rates"],
+        ["Jet Rates", "Inclusive/jetRates_emu.pdf", "Jet rates"],
+        ["Jet Rates HB", "HB/jetRates_emu.pdf", "Jet rates"],
+        ["Jet Rates HE1", "HE1/jetRates_emu.pdf", "Jet rates"],
+        ["Jet Rates HE2", "HE2/jetRates_emu.pdf", "Jet rates"],
+        ["Jet Rates HF", "HF/jetRates_emu.pdf", "Jet rates"],
+        ["Tau Rates", "Inclusive/tauRates_emu.pdf", "Tau rates"],
+        ["Scalar Sum Rates", "Inclusive/scalarSumRates_emu.pdf", "Scalar rates"],
+        ["Vector Sum Rates", "Inclusive/vectorSumRates_emu.pdf", "Vector rates"],
+        ["LLP Jet Rates", "Inclusive/jetllpRates_emu.pdf", "LLP Jet rates"]
         ]
