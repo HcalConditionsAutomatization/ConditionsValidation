@@ -1,5 +1,4 @@
 #!/bin/csh
-cmsenv
 
 if ("$6" == "db") then
     echo "Loading to ORCON!"
