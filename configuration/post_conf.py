@@ -17,7 +17,7 @@ CMSSWl1=os.environ["CMSSW_L1"]
 
 trigger_changes = { 
         "L1\_SingleJet180" : ("singleJetRates_emu", 170,190),
-        "L1\_HTT200\_SingleLLPJet60" : ("singleJetRates_emu", 50,70),
+        "L1\_HTT200\_SingleLLPJet60" : ("singleJetLLP_HTT200Rates_emu", 50,70),
         "L1\_METHF90" : ("metHFSumRates_emu", 80,100),
         "L1\_HTT360" : ("htSumRates_emu", 350,370),
         "L1\_DoubleIsoTau34" : ("doubleTauRates_emu", 32,36),
