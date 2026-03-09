@@ -25,7 +25,7 @@ process = cms.Process("ProcessOne")
 process.load("Configuration.StandardSequences.GeometryDB_cff")
 process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
 from Configuration.AlCa.autoCond import autoCond
-process.GlobalTag.globaltag = autoCond["160X_dataRun3_HLT_v1"]
+process.GlobalTag.globaltag = "160X_dataRun3_HLT_v1"
 
 process.load("CondCore.CondDB.CondDB_cfi")
 
