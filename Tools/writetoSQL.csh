@@ -1,17 +1,17 @@
 #!/bin/csh
 
-if ("$6" == "db") then
+if ("$7" == "db") then
     echo "Loading to ORCON!"
     echo "connectstring = frontier://cms_orcon_prod/CMS_COND_31X_HCAL"
     set connectstring = frontier://cms_orcon_prod/CMS_COND_31X_HCAL
     set authPath = /nfshome0/popcondev/conddb
     set logstring = frontier ://cms_orcon_prod/CMS_COND_31X_POPCONLOG
-else if ( $#argv == 5 ) then
+else if ( $#argv == 6 ) then
      echo "Insert DB file"
 else 
-    echo "Loading to sqlite_file: $6"
-    set connectstring = sqlite_file:$6
-    set logstring = sqlite_file:log_$6
+    echo "Loading to sqlite_file: $7"
+    set connectstring = sqlite_file:$7
+    set logstring = sqlite_file:log_$7
     set authPath =
 endif
 
@@ -25,7 +25,7 @@ process = cms.Process("ProcessOne")
 process.load("Configuration.StandardSequences.GeometryDB_cff")
 process.load("Configuration.StandardSequences.FrontierConditions_GlobalTag_cff")
 from Configuration.AlCa.autoCond import autoCond
-process.GlobalTag.globaltag = "160X_dataRun3_HLT_v1"
+process.GlobalTag.globaltag = autoCond["run3_hlt"]
 
 process.load("CondCore.CondDB.CondDB_cfi")
 
@@ -44,8 +44,8 @@ process.MessageLogger = cms.Service("MessageLogger",
 
 process.source = cms.Source("EmptyIOVSource",
     timetype = cms.string('runnumber'),
-    firstValue = cms.uint64(1),
-    lastValue = cms.uint64(1),
+    firstValue = cms.uint64($6),
+    lastValue = cms.uint64($6),
     interval = cms.uint64(1)
 )
 
@@ -62,7 +62,6 @@ process.PoolDBOutputService = cms.Service("PoolDBOutputService",
     process.CondDB,
     logconnect = cms.untracked.string('$logstring'),
     timetype = cms.untracked.string('runnumber'),
-#     timetype = cms.untracked.string('lumiid'),
     toPut = cms.VPSet(cms.PSet(
         record = cms.string('Hcal$2Rcd'),
         tag = cms.string("$4")
@@ -72,7 +71,7 @@ process.WriteInDB = cms.EDAnalyzer("Hcal$2PopConAnalyzer",
     SinceAppendMode = cms.bool(True),
     record = cms.string('Hcal$2Rcd'),
     loggingOn = cms.untracked.bool(True),
-   Source = cms.PSet(
+    Source = cms.PSet(
         IOVRun = cms.untracked.uint32($5)
     )
 )
